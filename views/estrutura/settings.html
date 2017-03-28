@@ -1,0 +1,128 @@
+{{extend 'estrutura/layout.html'}}
+
+{{block center}}
+<br>
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                Configurações
+                <small>Subheading</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li>
+                    <i class="fa fa-dashboard"></i>  <a href="{{=URL(a='tcc', c='control', f='dash')}}">Dashboard </a>
+                </li>
+                <li class="active">
+                    <i class="fa fa-fw fa-edit"></i> Configurações
+                </li>
+            </ol>
+        </div>
+    </div><!-- /.row -->
+</div><!-- /.container-fluid -->
+
+<br>
+<br>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Serviço:</th>
+            <th>Status:</th>
+            <th>Ação:</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <td>Apache2</td>
+        <td>{{=retorno_apache}}</td>
+        <td>
+            <a href="javascript:start_apache()" title="Start"><i class="fa-play"></i></a>
+            <a href="javascript:stop_apache()" title="Stop"><i class="fa-stop"></i></a>
+            <a href="javascript:restart_apache()" title="Restart"><i class="fa-refresh"></i></a>
+        </td>
+    </tbody>
+    <tbody>
+        <td>OpenVPN</td>
+        <td>{{=retorno_openvpn}}</td>
+        <td>
+            <a href="javascript:start_openvpn()" title="Start"><i class="fa-play"></i></a>
+            <a href="javascript:stop_openvpn()" title="Stop"><i class="fa-stop"></i></a>
+            <a href="javascript:restart_openvpn()" title="Restart"><i class="fa-refresh"></i></a>
+        </td>
+    </tbody>
+    <tbody>
+        <td>SSH</td>
+        <td>{{=retorno_ssh}}</td>
+        <td>
+            <a href="javascript:start_ssh()" title="Start"><i class="fa-play"></i></a>
+            <a href="javascript:stop_ssh()" title="Stop"><i class="fa-stop"></i></a>
+            <a href="javascript:restart_ssh()" title="Restart"><i class="fa-refresh"></i></a>
+        </td>
+    </tbody>
+
+</table>
+{{end}}
+
+
+{{block javascript}}
+<script>
+
+function start_apache(){
+    $.get("{{=URL(a='tcc', c='control', f='iniciar_servico_apache')}}", function( data ) {
+            location.reload();
+    });
+}
+
+function stop_apache(){
+    $.get("{{=URL(a='tcc', c='control', f='parar_servico_apache')}}", function( data ) {
+		    location.reload();
+    });
+}
+
+function restart_apache(){
+    $.get("{{=URL(a='tcc', c='control', f='reiniciar_servico_apache')}}", function( data ) {
+		    location.reload();
+    });
+}
+
+
+function start_openvpn(){
+    $.get("{{=URL(a='tcc', c='control', f='iniciar_servico_openvpn')}}", function( data ) {
+        location.reload();
+    });
+}
+
+function stop_openvpn(){
+    $.get("{{=URL(a='tcc', c='control', f='parar_servico_openvpn')}}", function( data ) {
+       location.reload();
+    });
+}
+
+function restart_openvpn(){
+    $.get("{{=URL(a='tcc', c='control', f='reiniciar_servico_openvpn')}}", function( data ) {
+       location.reload();
+    });
+}
+
+function start_ssh(){
+    $.get("{{=URL(a='tcc', c='control', f='iniciar_servico_ssh')}}", function( data ) {
+        location.reload();
+    });
+}
+
+function stop_ssh(){
+    $.get("{{=URL(a='tcc', c='control', f='parar_servico_ssh')}}", function( data ) {
+       location.reload();
+    });
+}
+
+function restart_ssh(){
+    $.get("{{=URL(a='tcc', c='control', f='reiniciar_servico_ssh')}}", function( data ) {
+       location.reload();
+    });
+}
+
+</script>
+{{end}}

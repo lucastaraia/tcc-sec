@@ -1,0 +1,21 @@
+(dp1
+S'output'
+p2
+S"<type 'exceptions.IndexError'> list index out of range"
+p3
+sS'layer'
+p4
+S'/opt/web2py/applications/tcc/controllers/control.py'
+p5
+sS'code'
+p6
+S'<code object <module> at 0x7fea6029c730, file "/opt/web2py/applications/tcc/controllers/control.py:dash", line 1>'
+p7
+sS'snapshot'
+p8
+(dp9
+sS'traceback'
+p10
+S'Traceback (most recent call last):\n  File "/opt/web2py/gluon/restricted.py", line 216, in restricted\n    exec(ccode, environment)\n  File "/opt/web2py/applications/tcc/controllers/control.py:dash", line 125, in <module>\n  File "/opt/web2py/gluon/globals.py", line 405, in <lambda>\n    self._caller = lambda f: f()\n  File "/opt/web2py/applications/tcc/controllers/control.py:dash", line 11, in dash\nIndexError: list index out of range\n'
+p11
+s.
