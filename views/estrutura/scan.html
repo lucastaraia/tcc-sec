@@ -25,11 +25,21 @@
 <br>
 <br>
 
-<!--<table class="table table-bordered table-hover"></table>!-->
-
+<table class="table table-bordered table-hover">
+    <tr>
+         <td>Quantidade Host: </td>
+         <td><span id="qtde_host"> </span></td>
+    </tr>
+</table>
 {{end}}
+
 
 
 {{block javascript}}
 
+<script>
+       $.get("{{=URL(a='tcc', c='control', f='qtde_host')}}", function( data ) {
+       $('#qtde_host').html(data)
+       });
+</script>
 {{end}}

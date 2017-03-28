@@ -1,3 +1,4 @@
+# coding=utf-8
 import commands
 import os
 import itertools
@@ -15,7 +16,6 @@ def dash():
     ips = check_output(['hostname', '--all-ip-addresses'])
 
     return response.render("estrutura/dash.html", ip_externo=ip_externo, ips=ips)
-
 
 def relatorio():
     return response.render("estrutura/relatorio.html")
@@ -60,7 +60,6 @@ def settings():
     return response.render('estrutura/settings.html', retorno_apache=retorno_apache, dict_apache=dict_apache,
                            dict_openvpn=dict_openvpn, retorno_openvpn=retorno_openvpn, retorno_ssh=retorno_ssh,
                            dict_ssh=dict_ssh)
-
 
 #######################################################################
 
@@ -147,9 +146,21 @@ def gateway():
 
             return socket.inet_ntoa(struct.pack("<L", int(fields[2], 16)))
 
-
 '''Funções Teste
-
 ip_interno = commands.getoutput('sudo ifconfig eth1 | grep "inet\ addr" | cut -d: -f2 | cut -d" " -f1')
-
 '''
+#######################################################################
+
+def qtde_host():
+    saida_host = commands.getoutput('sudo nmap -sP 192.168.100.0/24 | grep hosts')
+    dict_host = saida_host.split(" ")
+    print dict_host
+    return dict_host[5]
+
+
+'''for line in dict_:
+        if 'running' in line:
+            retorno_apache = 'Ativo'
+            break
+        else:
+            retorno_apache = 'Inativo'''
