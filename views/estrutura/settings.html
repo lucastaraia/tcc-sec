@@ -23,46 +23,54 @@
 </div><!-- /.container-fluid -->
 
 <br>
-<br>
 
-<table class="table table-bordered table-hover">
-    <thead>
-        <tr>
-            <th>Serviço:</th>
-            <th>Status:</th>
-            <th>Ação:</th>
-        </tr>
-    </thead>
+<div class="row">
+    <div class="col-lg-3">
+        <h3>Serviços</h3>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>Serviço:</th>
+                    <th>Status:</th>
+                    <th>Ação:</th>
+                </tr>
+                </thead>
 
-    <tbody>
-        <td>Apache2</td>
-        <td>{{=retorno_apache}}</td>
-        <td>
-            <a href="javascript:start_apache()" title="Start"><i class="fa-play"></i></a>
-            <a href="javascript:stop_apache()" title="Stop"><i class="fa-stop"></i></a>
-            <a href="javascript:restart_apache()" title="Restart"><i class="fa-refresh"></i></a>
-        </td>
-    </tbody>
-    <tbody>
-        <td>OpenVPN</td>
-        <td>{{=retorno_openvpn}}</td>
-        <td>
-            <a href="javascript:start_openvpn()" title="Start"><i class="fa-play"></i></a>
-            <a href="javascript:stop_openvpn()" title="Stop"><i class="fa-stop"></i></a>
-            <a href="javascript:restart_openvpn()" title="Restart"><i class="fa-refresh"></i></a>
-        </td>
-    </tbody>
-    <tbody>
-        <td>SSH</td>
-        <td>{{=retorno_ssh}}</td>
-        <td>
-            <a href="javascript:start_ssh()" title="Start"><i class="fa-play"></i></a>
-            <a href="javascript:stop_ssh()" title="Stop"><i class="fa-stop"></i></a>
-            <a href="javascript:restart_ssh()" title="Restart"><i class="fa-refresh"></i></a>
-        </td>
-    </tbody>
+                <tbody>
+                <td>Apache2</td>
+                <td>{{=retorno_apache}}</td>
+                <td>
+                    <a href="javascript:start_apache()" title="Start"><i class="fa-play"></i></a>
+                    <a href="javascript:stop_apache()" title="Stop"><i class="fa-stop"></i></a>
+                    <a href="javascript:restart_apache()" title="Restart"><i class="fa-refresh"></i></a>
+                </td>
+                </tbody>
+                <tbody>
+                <td>OpenVPN</td>
+                <td>{{=retorno_openvpn}}</td>
+                <td>
+                    <a href="javascript:start_openvpn()" title="Start"><i class="fa-play"></i></a>
+                    <a href="javascript:stop_openvpn()" title="Stop"><i class="fa-stop"></i></a>
+                    <a href="javascript:restart_openvpn()" title="Restart"><i class="fa-refresh"></i></a>
+                </td>
+                </tbody>
+                <tbody>
+                <td>SSH</td>
+                <td>{{=retorno_ssh}}</td>
+                <td>
+                    <a href="javascript:start_ssh()" title="Start"><i class="fa-play"></i></a>
+                    <a href="javascript:stop_ssh()" title="Stop"><i class="fa-stop"></i></a>
+                    <a href="javascript:restart_ssh()" title="Restart"><i class="fa-refresh"></i></a>
+                </td>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
-</table>
+<h3> Date</h3>
+
 {{end}}
 
 

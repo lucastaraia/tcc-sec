@@ -61,7 +61,7 @@ def settings():
                            dict_openvpn=dict_openvpn, retorno_openvpn=retorno_openvpn, retorno_ssh=retorno_ssh,
                            dict_ssh=dict_ssh)
 
-#######################################################################
+############################
 
 def iniciar_servico_apache():
     try:
@@ -82,7 +82,7 @@ def reiniciar_servico_apache():
     except Exception as error:
         return error
 
-#######################################################################
+############################
 
 def iniciar_servico_openvpn():
     try:
@@ -103,7 +103,7 @@ def reiniciar_servico_openvpn():
     except Exception as error:
         return error
 
-#######################################################################
+############################
 
 def iniciar_servico_ssh():
     try:
@@ -147,8 +147,9 @@ def gateway():
             return socket.inet_ntoa(struct.pack("<L", int(fields[2], 16)))
 
 '''Funções Teste
-ip_interno = commands.getoutput('sudo ifconfig eth1 | grep "inet\ addr" | cut -d: -f2 | cut -d" " -f1')
-'''
+ip_interno = commands.getoutput('sudo ifconfig eth1 | grep "inet\ addr" | cut -d: -f2 | cut -d" " -f1') '''
+
+
 #######################################################################
 
 def qtde_host():
