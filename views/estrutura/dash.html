@@ -30,7 +30,7 @@
                         <i class="fa fa-windows fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">26</div>
+                        <div class="huge">{{=qtde_os['Windows']}}</div>
                         <div>Windows</div>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                         <i class="fa fa-linux fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">12</div>
+                        <div class="huge">{{=qtde_os['Linux']}}</div>
                         <div>Linux</div>
                     </div>
                 </div>
@@ -158,12 +158,13 @@
                 </tr>
                 <tr>
                     <td>GeoIP:</td>
-                    <td></td>
+                    <td>{{=qtde_os['Windows']}}</td>
                 </tr>
             </table>
         </div>
     </div>
 </div>
+
 
 {{end}}
 
@@ -212,3 +213,4 @@ function remove_item(id) {
 	},5000);
 </script>
 {{end}}
+

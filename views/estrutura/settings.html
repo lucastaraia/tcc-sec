@@ -22,7 +22,56 @@
     </div><!-- /.row -->
 </div><!-- /.container-fluid -->
 
-<br>
+
+
+<div class="row">
+    <div class="col-lg-4">
+        <h3>Informações da Raspberry PI</h3>
+        <div class="box-content">
+            <div class="todo">
+                <ul class="todo-list ui-sortable">
+                    <li>
+                        <span class="todo-actions">
+                            <i class="icon-ok"></i>
+                        </span>
+                        <span class="desc">Distribuição:&nbsp;&nbsp;<b>{{=server['distribuicao']}} {{=server['versao']}}</b></span>
+                    </li>
+                    <li>
+                        <span class="todo-actions">
+                            <i class="icon-ok"></i>
+                        </span>
+                        <span class="desc">Host:&nbsp;&nbsp;<b>{{=server['host']}}</b></span>
+                    </li>
+                    <li>
+                        <span class="todo-actions">
+                            <i class="icon-ok"></i>
+                        </span>
+                        <span class="desc">Memória:&nbsp;&nbsp;<b>{{=server['memory']}}&nbsp;MBytes</b></span>
+                    </li>
+                    <li>
+                        <span class="todo-actions">
+                            <i class="icon-ok"></i>
+                        </span>
+                        <span class="desc">Partição&nbsp;/&nbsp;:&nbsp;&nbsp;<b>{{=server['disk']}}</b></span>
+                    </li>
+                    <li>
+                        <span class="todo-actions">
+                            <i class="icon-ok"></i>
+                        </span>
+                        <span class="desc">Kernel:&nbsp;&nbsp;<b>{{=server['kernel']}}</b></span>
+                    </li>
+                    <li>
+                        <span class="todo-actions">
+                            <i class="icon-ok"></i>
+                        </span>
+                        <span class="desc">Horário do Server:&nbsp;&nbsp;<b><span id="item_server"></span></b></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div><!--/col-->
+
 
 <div class="row">
     <div class="col-lg-3">

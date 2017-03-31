@@ -1,21 +1,26 @@
 # coding=utf-8
 import commands
-import os
 import itertools
+import os
+import platform
 import re
-import socket, struct
+import socket
+import struct
+
 
 def login():
     return response.render("estrutura/login.html")
 
 def dash():
+    qtde_os = qtde_so()
     saida_ip_externo = commands.getoutput('sudo curl ifconfig.pro')
     ip_externo = saida_ip_externo.split("\n")
 
     from subprocess import check_output
     ips = check_output(['hostname', '--all-ip-addresses'])
 
-    return response.render("estrutura/dash.html", ip_externo=ip_externo, ips=ips)
+    return response.render("estrutura/dash.html", ip_externo=ip_externo, ips=ips, qtde_os=qtde_os)
+
 
 def relatorio():
     return response.render("estrutura/relatorio.html")
@@ -27,6 +32,7 @@ def scan():
     return response.render('estrutura/scan.html')
 
 def settings():
+    server = get_server()
     saida_apache = commands.getoutput('sudo /etc/init.d/apache2 status')
     dict_apache = saida_apache.split("\n")
     retorno_apache = None
@@ -59,7 +65,7 @@ def settings():
 
     return response.render('estrutura/settings.html', retorno_apache=retorno_apache, dict_apache=dict_apache,
                            dict_openvpn=dict_openvpn, retorno_openvpn=retorno_openvpn, retorno_ssh=retorno_ssh,
-                           dict_ssh=dict_ssh)
+                           dict_ssh=dict_ssh, server=server)
 
 ############################
 
@@ -155,13 +161,29 @@ ip_interno = commands.getoutput('sudo ifconfig eth1 | grep "inet\ addr" | cut -d
 def qtde_host():
     saida_host = commands.getoutput('sudo nmap -sP 192.168.100.0/24 | grep hosts')
     dict_host = saida_host.split(" ")
-    print dict_host
     return dict_host[5]
 
 
-'''for line in dict_:
-        if 'running' in line:
-            retorno_apache = 'Ativo'
-            break
-        else:
-            retorno_apache = 'Inativo'''
+def qtde_so():
+    qtde_os = {}
+    qtde_os['Windows'] = commands.getoutput('sudo nmap -F -O 192.168.100.0/24 | grep "Running: "> /tmp/os; echo "$(cat /tmp/os | grep Windows | wc -l)"')
+    qtde_os['Linux'] = commands.getoutput('sudo nmap -F -O 192.168.100.0/24 | grep "Running: "> /tmp/os; echo "$(cat /tmp/os | grep Linux | wc -l)"')
+    return qtde_os
+
+def get_server():
+    server = {}
+    var = platform.platform()
+    server['distribuicao'] = var.split('-')[6]
+    server['versao'] = var.split('-')[7]
+    server['arch'] = platform.processor()
+    server['host'] =  platform.uname()[1]
+    server['kernel'] =  platform.uname()[2]
+    server['pythonv'] = platform.python_version()
+    server['postgresql'] = commands.getoutput("psql --version")
+    server['memory'] = int(commands.getoutput("cat /proc/meminfo | grep MemTotal").split(':')[1].split('k')[0])/1000
+    disk = os.statvfs("/")
+    totalBytes = float(disk.f_bsize*disk.f_blocks)
+    server['disk'] = "%.2f GBytes" % (totalBytes/1024/1024/1024)
+
+    #var = commands.getoutput("atop | grep cpu")
+    return server
