@@ -168,7 +168,7 @@ def qtde_so():
     qtde_os = {}
     qtde_os['Windows'] = commands.getoutput('sudo nmap -F -O 192.168.100.0/24 | grep "Running: "> /tmp/os; echo "$(cat /tmp/os | grep Windows | wc -l)"')
     qtde_os['Linux'] = commands.getoutput('sudo nmap -F -O 192.168.100.0/24 | grep "Running: "> /tmp/os; echo "$(cat /tmp/os | grep Linux | wc -l)"')
-    return str(qtde_os)
+    return str(qtde_os).replace('{','').replace('}','')
 
 def get_server():
     server = {}
