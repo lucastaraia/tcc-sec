@@ -30,7 +30,7 @@
                         <i class="fa fa-windows fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">{{=qtde_os['Windows']}}</div>
+                    <div class="huge" id="testando"></div>
                         <div>Windows</div>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                         <i class="fa fa-linux fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">{{=qtde_os['Linux']}}</div>
+
                         <div>Linux</div>
                     </div>
                 </div>
@@ -158,7 +158,7 @@
                 </tr>
                 <tr>
                     <td>GeoIP:</td>
-                    <td>{{=qtde_os['Windows']}}</td>
+                    <td></td>
                 </tr>
             </table>
         </div>
@@ -179,38 +179,13 @@
        $('#gateway').html(data)
        });
 
-       $.get("{{=URL(a='tcc', c='control', f='qtde_host')}}", function( data ) {
-       $('#qtde_host').html(data)
+
+       $.get("{{=URL(a='tcc', c='control', f='qtde_so')}}", function( data ) {
+       $('#testando').html(data)
+       alert(JSON.stringify(data))
        });
 
 
-function remove_item(id) {
-	$.get("{{=URL(f='remove_canal')}}?id="+id,function(data){
-		if(data == 'OK'){
-			$.get("{{=URL(f='att_mesa')}}", function( data ) {
-				$('#div_mae').html(data);
-			});
-		}else{
-			alert(data);
-		}
-		});
-	}
-	$('#tempo_atualizacao').change(function(){
-		clearInterval(interval);
-		//alert($('#tempo_atualizacao').val());
-		if ($('#tempo_atualizacao').val() != "0") {
-			interval = setInterval(function(){
-				$.get("{{=URL(f='att_mesa')}}", function( data ) {
-					$('#div_mae').html(data);
-				});
-			},$('#tempo_atualizacao').val());
-		}
-	});
-	var interval = setInterval(function(){
-		$.get("{{=URL(f='att_mesa')}}", function( data ) {
-			$('#div_mae').html(data);
-		});
-	},5000);
+
 </script>
 {{end}}
-

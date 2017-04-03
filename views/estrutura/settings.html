@@ -64,7 +64,7 @@
                         <span class="todo-actions">
                             <i class="icon-ok"></i>
                         </span>
-                        <span class="desc">Horário do Server:&nbsp;&nbsp;<b><span id="item_server"></span></b></span>
+                        <!--<span class="desc">Horário do Server:&nbsp;&nbsp;<b><span id="item_server"></span></b></span>!-->
                     </li>
                 </ul>
             </div>
@@ -119,6 +119,7 @@
 </div>
 
 <h3> Date</h3>
+<span class="desc">Horário do Server:&nbsp;&nbsp;<b><span id="item_server"></span></b></span>
 
 {{end}}
 
@@ -180,6 +181,17 @@ function restart_ssh(){
        location.reload();
     });
 }
+
+
+
+function server_time(){
+        $.get("{{=URL(a='tcc',c='control',f='atualiza_hora')}}").success(function(item){
+            $('#item_server').html(item)
+        });
+    }
+        setInterval(server_time,1000);
+
+
 
 </script>
 {{end}}
