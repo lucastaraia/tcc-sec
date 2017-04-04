@@ -133,6 +133,7 @@ def reiniciar_servico_ssh():
 #######################################################################
 
 def get_ip():
+    global ip
     f = os.popen('ifconfig')
     for iface in [' '.join(i) for i in iter(lambda: list(itertools.takewhile(lambda l: not l.isspace(),f)), [])]:
         if re.findall('^(eth|wlan)[0-9]',iface) and re.findall('RUNNING',iface):
@@ -166,8 +167,8 @@ def qtde_host():
 
 def qtde_so():
     qtde_os = {}
-    qtde_os['Windows'] = commands.getoutput('sudo nmap -F -O 192.168.100.0/24 | grep "Running: "> /tmp/os; echo "$(cat /tmp/os | grep Windows | wc -l)"')
-    qtde_os['Linux'] = commands.getoutput('sudo nmap -F -O 192.168.100.0/24 | grep "Running: "> /tmp/os; echo "$(cat /tmp/os | grep Linux | wc -l)"')
+    qtde_os['Windows'] = commands.getoutput('sudo nmap -O -F -n -Pn -r 192.168.100.0/24 | grep "Running: "> /tmp/os; echo "$(cat /tmp/os | grep -i Windows | wc -l)"')
+    qtde_os['Linux'] = commands.getoutput('sudo nmap -O -F -n -Pn -r 192.168.100.0/24 | grep "Running: "> /tmp/os; echo "$(cat /tmp/os | grep -i Linux | wc -l)"')
     return str(qtde_os).replace('{','').replace('}','')
 
 def get_server():
