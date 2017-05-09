@@ -8,30 +8,35 @@ import socket
 import struct
 
 
-def login():
+def login(): ######## Tela Login ########
     return response.render("estrutura/login.html")
 
-def dash():
+
+def dash(): ######## Tela dashboard ########
     ##qtde_os = qtde_so()
+    from subprocess import check_output
     saida_ip_externo = commands.getoutput('sudo curl ifconfig.pro')
     ip_externo = saida_ip_externo.split("\n")
 
-    from subprocess import check_output
     ips = check_output(['hostname', '--all-ip-addresses'])
 
     return response.render("estrutura/dash.html", ip_externo=ip_externo, ips=ips)
 
 
-def relatorio():
+def relatorio(): ######## Tela Relatório ########
     return response.render("estrutura/relatorio.html")
+
 
 def teste():
     return response.render("estrutura/teste.html")
 
-def scan():
+
+def scan(): ######## Tela Scan onde 'starta' os scans ########
     return response.render('estrutura/scan.html')
 
-def settings():
+
+def settings(): ######## Tela de Configurações ########
+    ### Serviços - iniciar/parar/reiniciar ###
     server = get_server()
     saida_apache = commands.getoutput('sudo /etc/init.d/apache2 status')
     dict_apache = saida_apache.split("\n")
@@ -62,6 +67,8 @@ def settings():
             break
         else:
             retorno_ssh = 'Ativo'
+
+    ### Termina Serviços ###
 
     return response.render('estrutura/settings.html', retorno_apache=retorno_apache, dict_apache=dict_apache,
                            dict_openvpn=dict_openvpn, retorno_openvpn=retorno_openvpn, retorno_ssh=retorno_ssh,
@@ -132,7 +139,7 @@ def reiniciar_servico_ssh():
 
 #######################################################################
 
-def get_ip():
+def get_ip(): ### Função que retorna endereço ip das interfaces LAN/WLAN ###
     global ip
     f = os.popen('ifconfig')
     for iface in [' '.join(i) for i in iter(lambda: list(itertools.takewhile(lambda l: not l.isspace(),f)), [])]:
@@ -143,7 +150,7 @@ def get_ip():
     return ip
 
 
-def gateway():
+def gateway(): ### Retorna endereço IP do gateway ###
     """Read the default gateway directly from /proc."""
     with open("/proc/net/route") as fh:
         for line in fh:
@@ -159,19 +166,23 @@ ip_interno = commands.getoutput('sudo ifconfig eth1 | grep "inet\ addr" | cut -d
 
 #######################################################################
 
-def qtde_host():
+
+def qtde_host(): ######## Quantidade de host na rede, irá retornar todos dispositivos que estão conectados ########
     saida_host = commands.getoutput('sudo nmap -sP 192.168.100.0/24 | grep hosts')
     dict_host = saida_host.split(" ")
+
     return dict_host[5]
 
 
-def qtde_so():
+def qtde_so(): ######## Retorna quantidade de Windows e Linux conectados à rede ########
     qtde_os = {}
-    qtde_os['Windows'] = commands.getoutput('sudo nmap -O -F -n -Pn -r 192.168.100.0/24 | grep "Running: "> /tmp/os; echo "$(cat /tmp/os | grep -i Windows | wc -l)"')
-    qtde_os['Linux'] = commands.getoutput('sudo nmap -O -F -n -Pn -r 192.168.100.0/24 | grep "Running: "> /tmp/os; echo "$(cat /tmp/os | grep -i Linux | wc -l)"')
+    qtde_os['Windows'] = commands.getoutput('sudo nmap --top-ports 1 -O -F -n -Pn -r 192.168.100.0/24 | grep "Running: "> /tmp/os; echo "$(cat /tmp/os | grep -i Windows | wc -l)"')
+    qtde_os['Linux'] = commands.getoutput('sudo nmap --top-ports 1 -O -F -n -Pn -r 192.168.100.0/24 | grep "Running: "> /tmp/os; echo "$(cat /tmp/os | grep -i Linux | wc -l)"')
+
     return str(qtde_os).replace('{','').replace('}','')
 
-def get_server():
+
+def get_server(): ######## Informações de hardware/software da Raspberry ########
     server = {}
     var = platform.platform()
     server['distribuicao'] = var.split('-')[6]
@@ -189,7 +200,10 @@ def get_server():
     #var = commands.getoutput("atop | grep cpu")
     return server
 
+
+### Função para mostrar hora real time ###
 def atualiza_hora():
     from datetime import datetime
     item = str(datetime.now().strftime('%H:%M:%S - %d/%m/%Y'))
+
     return item

@@ -20,7 +20,6 @@
     </div><!-- /.row -->
 </div><!-- /.container-fluid -->
 
-
 <div class="row">
     <div class="col-lg-3 col-md-6">
         <div class="panel panel-primary">
@@ -37,7 +36,7 @@
             </div>
             <a href="#">
                 <div class="panel-footer">
-                    <span class="pull-left">View Details</span>
+                    <span class="pull-left">Ver Detalhes</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                     <div class="clearfix"></div>
                 </div>
@@ -59,7 +58,7 @@
             </div>
             <a href="#">
                 <div class="panel-footer">
-                    <span class="pull-left">View Details</span>
+                    <span class="pull-left">Ver Detalhes</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                     <div class="clearfix"></div>
                 </div>
@@ -81,7 +80,7 @@
             </div>
             <a href="#">
                 <div class="panel-footer">
-                    <span class="pull-left">View Details</span>
+                    <span class="pull-left">Ver Detalhes</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                     <div class="clearfix"></div>
                 </div>
@@ -103,7 +102,7 @@
             </div>
             <a href="#">
                 <div class="panel-footer">
-                    <span class="pull-left">View Details</span>
+                    <span class="pull-left">Ver Detalhes</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                     <div class="clearfix"></div>
                 </div>
@@ -129,7 +128,6 @@
         </form>
     </div>
 </div>
-
 
 <div class="row">
     <div class="col-lg-3">
@@ -165,11 +163,9 @@
     </div>
 </div>
 
-
 {{end}}
 
 {{block javascript}}
-
 
 <script>
     $.get("{{=URL(a='tcc', c='control', f='get_ip')}}", function( data ) {
@@ -187,5 +183,8 @@
     $('#testando1').html(x[1].split(':')[1])
     });
 
+    $.get("{{=URL(a='tcc', c='control', f='qtde_host')}}", function( data ) {
+    $('#qtde_host').html(data)
+    });
 </script>
 {{end}}
