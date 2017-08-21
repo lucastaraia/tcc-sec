@@ -168,7 +168,7 @@ ip_interno = commands.getoutput('sudo ifconfig eth1 | grep "inet\ addr" | cut -d
 
 
 def qtde_host(): ######## Quantidade de host na rede, irá retornar todos dispositivos que estão conectados ########
-    saida_host = commands.getoutput('sudo nmap -sP 192.168.100.0/24 | grep hosts')
+    saida_host = commands.getoutput('sudo nmap -sP 192.168.1.0/24 | grep hosts')
     dict_host = saida_host.split(" ")
 
     return dict_host[5]
@@ -176,8 +176,8 @@ def qtde_host(): ######## Quantidade de host na rede, irá retornar todos dispos
 
 def qtde_so(): ######## Retorna quantidade de Windows e Linux conectados à rede ########
     qtde_os = {}
-    qtde_os['Windows'] = commands.getoutput('sudo nmap --top-ports 1 -O -F -n -Pn -r 192.168.100.0/24 | grep "Running: "> /tmp/os; echo "$(cat /tmp/os | grep -i Windows | wc -l)"')
-    qtde_os['Linux'] = commands.getoutput('sudo nmap --top-ports 1 -O -F -n -Pn -r 192.168.100.0/24 | grep "Running: "> /tmp/os; echo "$(cat /tmp/os | grep -i Linux | wc -l)"')
+    qtde_os['Windows'] = commands.getoutput('sudo nmap --top-ports 1 -O -F -n -Pn -r 192.168.1.0/24 | grep "Running: "> /tmp/os; echo "$(cat /tmp/os | grep -i Windows | wc -l)"')
+    qtde_os['Linux'] = commands.getoutput('sudo nmap --top-ports 1 -O -F -n -Pn -r 192.168.1.0/24 | grep "Running: "> /tmp/os; echo "$(cat /tmp/os | grep -i Linux | wc -l)"')
 
     return str(qtde_os).replace('{','').replace('}','')
 
