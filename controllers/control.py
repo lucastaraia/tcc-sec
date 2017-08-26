@@ -20,7 +20,10 @@ def dash(): ######## Tela dashboard ########
 
     ips = check_output(['hostname', '--all-ip-addresses'])
 
-    return response.render("estrutura/dash.html", ip_externo=ip_externo, ips=ips)
+    windows = db(ScanDispositivo.NomeOs == "Windows").select().as_list()
+    count_windows = windows.length()
+
+    return response.render("estrutura/dash.html", ip_externo=ip_externo, ips=ips, count_windows=count_windows)
 
 
 def relatorio(): ######## Tela Relatório ########

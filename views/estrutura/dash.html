@@ -29,7 +29,7 @@
                         <i class="fa fa-windows fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                    <div class="huge" id="testando"></div>
+                    <div class="huge">{{=count_windows}}</div>
                         <div>Windows</div>
                     </div>
                 </div>
@@ -167,24 +167,25 @@
 
 {{block javascript}}
 
-<script>
-    $.get("{{=URL(a='tcc', c='control', f='get_ip')}}", function( data ) {
-    $('#ip_int').html(data)
-    });
+<!--<script>-->
+    <!--$.get("{{=URL(a='tcc', c='control', f='get_ip')}}", function( data ) {-->
+    <!--$('#ip_int').html(data)-->
+    <!--});-->
 
-    $.get("{{=URL(a='tcc', c='control', f='gateway')}}", function( data ) {
-    $('#gateway').html(data)
-    });
+    <!--$.get("{{=URL(a='tcc', c='control', f='gateway')}}", function( data ) {-->
+    <!--$('#gateway').html(data)-->
+    <!--});-->
 
-    $.get("{{=URL(a='tcc', c='control', f='qtde_so')}}", function( data ) {
-    alert(JSON.stringify(data))
-    var x = data.split(',')
-    $('#testando').html(x[0].split(':')[1])
-    $('#testando1').html(x[1].split(':')[1])
-    });
+    <!--$.get("{{=URL(a='tcc', c='control', f='qtde_so')}}", function( data ) {-->
+    <!--alert(JSON.stringify(data))-->
+    <!--var x = data.split(',')-->
+    <!--$('#testando').html(x[0].split(':')[1])-->
+    <!--$('#testando1').html(x[1].split(':')[1])-->
+    <!--});-->
 
-    $.get("{{=URL(a='tcc', c='control', f='qtde_host')}}", function( data ) {
-    $('#qtde_host').html(data)
-    });
-</script>
+    <!--$.get("{{=URL(a='tcc', c='control', f='qtde_host')}}", function( data ) {-->
+    <!--$('#qtde_host').html(data)-->
+    <!--});-->
+<!--</script>-->
+
 {{end}}
