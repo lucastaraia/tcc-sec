@@ -6,10 +6,10 @@ import math
 from time import sleep
 import urllib2 as urllib
 import traceback
+
 from scapy.all import *
 import scan
 import DataBaseManagement as db
-
 
 def GetGatewayIp():
     getGateway_p = sr1(IP(dst="google.com", ttl=0) / ICMP() / "XXXXXXXXXXX", verbose=False)
