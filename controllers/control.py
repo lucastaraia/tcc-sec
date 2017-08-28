@@ -20,11 +20,17 @@ def dash(): ######## Tela dashboard ########
 
     ips = check_output(['hostname', '--all-ip-addresses'])
 
-    windows = db(ScanDispositivo.nomeOs == "Linux").select().as_list()
-    count_windows = windows.length()
+    windows_disp = db(ScanDispositivo.nomeOs == "Windows").select().as_list()
+    count_windows = windows_disp.length()
 
-    return response.render("estrutura/dash.html", ip_externo=ip_externo, ips=ips, count_windows=count_windows)
+    linux_disp = db(ScanDispositivo.nomeOs == "Linux").select().as_list()
+    count_linux = linux_disp.length()
 
+    outros_disp = db(ScanDispositivo.nomeOs == "Outros").select().as_list()
+    count_outros = outros_disp.length()
+
+    return response.render("estrutura/dash.html", ip_externo=ip_externo, ips=ips, count_windows=count_windows,
+                           count_linux=count_linux, count_outros=count_outros)
 
 def relatorio(): ######## Tela Relatório ########
     return response.render("estrutura/relatorio.html")

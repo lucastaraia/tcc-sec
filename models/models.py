@@ -1,7 +1,3 @@
-#from construct import Field
-#from models import db
-#from construct import Field
-
 Scan = db.define_table("scan",
                        Field('id', 'integer'),
                        Field('GatewayIp', 'string'),

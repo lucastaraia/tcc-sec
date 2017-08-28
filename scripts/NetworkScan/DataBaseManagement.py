@@ -14,7 +14,7 @@ def InsertScan(GatewayIp, Interface):
 def InsertScanDispositivo(IdScan, Ip, Mac, NomeFabricante, NomeOs):
     conn = sqlite3.connect(dbPath)
     c = conn.cursor()
-    c.execute('INSERT INTO ScanDispositivo(IdScan, Ip, Mac, NomeFabricante, NomeOs) VALUES (?, ?, ?, ?, ?)', (IdScan, Ip, Mac, NomeFabricante, NomeOs))
+    c.execute('INSERT INTO ScanDispositivo(IdScan, Ip, Mac, NomeFabricante, nomeOs) VALUES (?, ?, ?, ?, ?)', (IdScan, Ip, Mac, NomeFabricante, nomeOs))
     conn.commit()
     conn.close()
     return c.lastrowid

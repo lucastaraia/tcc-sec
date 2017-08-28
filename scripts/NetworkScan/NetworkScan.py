@@ -66,6 +66,7 @@ def getDefaultInterfaceMAC():
 defaultInterface = getDefaultInterface()
 defaultGatewayIP = GetGatewayIp()
 defaultInterfaceMac = getDefaultInterfaceMAC()
+
 global defaultGatewayMacSet
 defaultGatewayMacSet = False
 idScan = db.InsertScan(defaultGatewayIP, defaultInterface)
