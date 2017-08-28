@@ -36,10 +36,6 @@ def relatorio(): ######## Tela Relatório ########
     return response.render("estrutura/relatorio.html")
 
 
-def teste():
-    return response.render("estrutura/teste.html")
-
-
 def scan(): ######## Tela Scan onde 'starta' os scans ########
     return response.render('estrutura/scan.html')
 
