@@ -8,7 +8,7 @@
         <div class="col-lg-12">
             <h1 class="page-header">
                 Dashboard
-                <small>Subheading</small>
+                <small></small>
             </h1>
             <ol class="breadcrumb">
                 <li>
@@ -70,11 +70,11 @@
             <div class="panel-heading">
                 <div class="row">
                     <div class="col-xs-3">
-                        <i class="fa fa-info fa-5x"></i>
+                        <i class="fa fa-android fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">124</div>
-                        <div>Alerta!</div>
+                        <div class="huge">{{=count_outros}}</div>
+                        <div>Outros Dispositivos</div>
                     </div>
                 </div>
             </div>
@@ -96,7 +96,7 @@
                     </div>
                     <div class="col-xs-9 text-right">
                         <div class="huge">13</div>
-                        <div>Warning!</div>
+                        <div>Portas Abertas</div>
                     </div>
                 </div>
             </div>
@@ -139,26 +139,13 @@
                     <td>{{=ip_externo[3]}}</td>
                 </tr>
                 <tr>
-                    <td>Meu IP: </td>
-                    <td><span id="ip_int"></span></td>
-                </tr>
-                <tr>
                     <td>Meu IP:</td>
                     <td>{{=ips}}</td>
-                </tr>
-                <tr>
-                    <td>Gateway:</td>
-                    <td><span id="gateway"></span></td>
                 </tr>
                 <tr>
                      <td>Quantidade Host: </td>
                      <td><span id="qtde_host"> </span></td>
                 </tr>
-                <tr>
-                    <td>GeoIP:</td>
-                    <td></td>
-                </tr>
-            </table>
         </div>
     </div>
 </div>

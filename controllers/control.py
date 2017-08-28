@@ -21,13 +21,13 @@ def dash(): ######## Tela dashboard ########
     ips = check_output(['hostname', '--all-ip-addresses'])
 
     windows_disp = db(db.ScanDispositivo.nomeOs == "Windows").select().as_list()
-    count_windows = windows_disp.length()
+    count_windows = len(windows_disp)
 
-    linux_disp = db(ScanDispositivo.nomeOs == "Linux").select().as_list()
-    count_linux = linux_disp.length()
+    linux_disp = db(db.ScanDispositivo.nomeOs == "Linux").select().as_list()
+    count_linux = len(linux_disp)
 
-    outros_disp = db(ScanDispositivo.nomeOs == "Outros").select().as_list()
-    count_outros = outros_disp.length()
+    outros_disp = db(db.ScanDispositivo.nomeOs == "Outro").select().as_list()
+    count_outros = len(outros_disp)
 
     return response.render("estrutura/dash.html", ip_externo=ip_externo, ips=ips, count_windows=count_windows,
                            count_linux=count_linux, count_outros=count_outros)
@@ -200,7 +200,6 @@ def get_server(): ######## Informações de hardware/software da Raspberry #####
     server['host'] = platform.uname()[1]
     server['kernel'] = platform.uname()[2]
     server['pythonv'] = platform.python_version()
-    server['postgresql'] = commands.getoutput("psql --version")
     server['memory'] = int(commands.getoutput("cat /proc/meminfo | grep MemTotal").split(':')[1].split('k')[0])/1000
     disk = os.statvfs("/")
     totalBytes = float(disk.f_bsize*disk.f_blocks)

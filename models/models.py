@@ -1,5 +1,3 @@
-db = DAL("sqlite://Scans.db")
-
 Scan = db.define_table("Scan",
                        Field('id', 'integer'),
                        Field('gatewayIp', 'string'),
