@@ -6,7 +6,7 @@ dbPath = 'Scans.db'
 def InsertScan(gatewayIp, interface):
     conn = sqlite3.connect(dbPath)
     c = conn.cursor()
-    c.execute('INSERT INTO SCAN(GatewayIp, Interface, IdTipoStatusScan, DataInicioScan) VALUES (?, ?, ?, ?)', (gatewayIp, interface, 1, str(datetime.now())))
+    c.execute('INSERT INTO Scan(gatewayIp, interface, idTipoStatusScan, dataInicioScan) VALUES (?, ?, ?, ?)', (gatewayIp, interface, 1, str(datetime.now())))
     conn.commit()
     conn.close()
     return c.lastrowid
@@ -29,6 +29,6 @@ def InsertScanDipositivoPorta(idScanDispositivo, porta, nome):
 def UpdateScanStatus(idScan, idTipoStatusScan):
     conn = sqlite3.connect(dbPath)
     c = conn.cursor()
-    c.execute('UPDATE SCAN SET IdTipoStatusScan = ? WHERE Id = ?', (idTipoStatusScan, idScan))
+    c.execute('UPDATE Scan SET idTipoStatusScan = ? WHERE Id = ?', (idTipoStatusScan, idScan))
     conn.commit()
     conn.close()
