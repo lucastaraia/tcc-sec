@@ -1,16 +1,5 @@
 # -*- coding: utf-8 -*-
-from gluon.storage import Storage
-
-config = Storage(
-    db=Storage(),
-)
-
-#Conexão com o Banco de Dados
-if request.is_local:
-	config.db.uri = "sqlite://Scans.db"
-else:
-	config.db.uri = "postgres:pg8000://forip:yma2578k@127.0.0.1/forip"
-db = DAL(**config.db)
+db = DAL("sqlite://Scans.sqlite", folder="/var/www/web2py/applications/tcc/models", auto_import=True)
 
 from gluon.tools import Auth
 
