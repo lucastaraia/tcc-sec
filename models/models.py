@@ -1,3 +1,5 @@
+db = DAL("sqlite://Scans.db")
+
 Scan = db.define_table("Scan",
                        Field('id', 'integer'),
                        Field('gatewayIp', 'string'),
@@ -15,7 +17,7 @@ ScanDispositivo = db.define_table("ScanDispositivo",
                                   Field('mac', 'string'),
                                   Field('nomeFabricante', 'string'),
                                   Field('nomeOs', 'string'),
-                                  format="%(Scan)s",
+                                  format="%(ScanDispositivo)s",
                                   migrate=False
                                   ),
 
@@ -23,14 +25,14 @@ ScanDispositivoPorta = db.define_table("ScanDispositivoPorta",
                                        Field('idScanDispositivoPorta', 'integer'),
                                        Field('porta', 'integer'),
                                        Field('nome', 'string'),
-                                       format="%(Scan)s",
+                                       format="%(ScanDispositivoPorta)s",
                                        migrate=False
                                        ),
 
 TipoStatusScan = db.define_table("TipoStatusScan",
                                  Field('id', 'integer'),
                                  Field('nome', 'string'),
-                                 format="%(Scan)s",
+                                 format="%(TipoStatusScan)s",
                                  migrate=False
                                  ),
 
@@ -38,16 +40,6 @@ Usuario = db.define_table("Usuario",
                           Field('id', 'integer'),
                           Field('nome', 'string'),
                           Field('senha', 'string'),
-                          format="%(Scan)s",
+                          format="%(Usuario)s",
                           migrate=False
-                          ),
-
-Sqlite_sequence = db.define_table("sqlite_sequence",
-                                  Field('name', 'string'),
-                                  Field('seq', 'integer'),
-                                  format="%(Scan)s",
-                                  migrate=False
-                                  )
-
-
-
+                          )
