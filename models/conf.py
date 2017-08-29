@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-db = DAL("sqlite://Scans.db", folder="/opt/web2py/applications/tcc/models", auto_import=True)
+db = DAL("sqlite://Scans.db", folder="/var/www/web2py/applications/tcc/models", auto_import=True)
 
 from gluon.tools import Auth
 
