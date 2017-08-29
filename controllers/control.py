@@ -75,14 +75,21 @@ def settings(): ######## Tela de Configurações ########
 
     ### Termina Serviços ###
 
+    ### Sistema Operacional ###
     saida_os = commands.getoutput("lsb_release -a")
     dict_os = saida_os.split("\n")
     dict_os1 = dict_os[1].split("\t")
     retorno_dict_os = dict_os1[1]
 
+    ### LOAD ###
+
+    saida_load = commands.getoutput("uptime")
+    dict_load = saida_load.split(":")
+    retorno_dict_load = dict_load[4]
+
     return response.render('estrutura/settings.html', retorno_apache=retorno_apache, dict_apache=dict_apache,
                            dict_openvpn=dict_openvpn, retorno_openvpn=retorno_openvpn, retorno_ssh=retorno_ssh,
-                           dict_ssh=dict_ssh, server=server, retorno_dict_os=retorno_dict_os)
+                           dict_ssh=dict_ssh, server=server, retorno_dict_os=retorno_dict_os, retorno_dict_load=retorno_dict_load)
 
 ############################
 
