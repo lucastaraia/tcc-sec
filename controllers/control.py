@@ -11,7 +11,6 @@ import struct
 def login(): ######## Tela Login ########
     return response.render("estrutura/login.html")
 
-
 def dash(): ######## Tela dashboard ########
     ##qtde_os = qtde_so()
     from subprocess import check_output
@@ -185,7 +184,7 @@ ip_interno = commands.getoutput('sudo ifconfig eth1 | grep "inet\ addr" | cut -d
 
 
 def qtde_host(): ######## Quantidade de host na rede, irá retornar todos dispositivos que estão conectados ########
-    saida_host = commands.getoutput('sudo nmap -sP 192.168.1.0/24 | grep hosts')
+    saida_host = commands.getoutput('sudo nmap -sP 192.168.100.0/24 | grep hosts')
     dict_host = saida_host.split(" ")
 
     return dict_host[5]
