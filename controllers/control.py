@@ -190,8 +190,8 @@ def qtde_so(): ######## Retorna quantidade de Windows e Linux conectados à rede
 def get_server(): ######## Informações de hardware/software da Raspberry ########
     server = {}
     var = platform.platform()
-    server['distribuicao'] = var.split('-')[6]
-    server['versao'] = var.split('-')[7]
+    #server['distribuicao'] = var.split('-')[6]
+    #server['versao'] = var.split('-')[7]
     server['arch'] = platform.processor()
     server['host'] = platform.uname()[1]
     server['kernel'] = platform.uname()[2]
