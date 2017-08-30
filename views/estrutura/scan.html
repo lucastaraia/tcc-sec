@@ -22,7 +22,44 @@
     </div><!-- /.row -->
 </div><!-- /.container-fluid -->
 
+<div class="row">
+    <div class="col-lg-3">
+        <h3>Serviços</h3>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>Serviço:</th>
+                    <th>Status:</th>
+                    <th>Ação:</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <td>Apache2</td>
+                <td></td>
+                <td>
+                    <a href="javascript:scan()" title="Start"><i class="fa-play"></i></a>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
 <br>
 <br>
 
+{{end}}
+
+
+{{block javascript}}
+<script>
+
+function teste(){
+    $.get("{{=URL(a='tcc', c='control', f='hydra')}}", function( data ) {
+            console.log(data);
+    });
+}
+
+</script>
 {{end}}
