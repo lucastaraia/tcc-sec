@@ -38,14 +38,16 @@ def dash(): ######## Tela dashboard ########
     portas = []
 
     for disp in dispositivos:
-        for por in db(db.ScanDispositivoPorta.idScanDispositivo == disp['id']).select().as_list():
+        porta = db(db.ScanDispositivoPorta.idScanDispositivo == disp['id']).select().as_list()
+        disp['qtdPortas'] = len(porta)
+        for por in porta:
             portas.append(por)
     
     count_portas = len(portas)
 
     return response.render("estrutura/dash.html", ip_externo=ip_externo, ips=ips, count_windows=count_windows,
-                           count_linux=count_linux, count_outros=count_outros, count_portas=count_portas,
-                           windows_disp=windows_disp, linux_disp=linux_disp, outros_disp=outros_disp)
+                           count_linux=count_linux, count_outros=count_outros, count_portas=count_portas, count_disp=len(dispositivos),
+                           windows_disp=windows_disp, linux_disp=linux_disp, outros_disp=outros_disp, disp=dispositivos)
 
 def relatorio(): ######## Tela Relatório ########
     return response.render("estrutura/relatorio.html")

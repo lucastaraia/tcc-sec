@@ -1,0 +1,385 @@
+(dp1
+S'output'
+p2
+S'missing "pass" in view'
+p3
+sS'layer'
+p4
+S'ParserContainer'
+p5
+sS'code'
+p6
+S'response.write(\'<!DOCTYPE html>\\n<html lang="en">\\n\\n<head>\\n    <meta charset="utf-8">\\n    <meta http-equiv="X-UA-Compatible" content="IE=edge">\\n    <meta name="viewport" content="width=device-width, initial-scale=1">\\n    <meta name="description" content="">\\n    <meta name="author" content="">\\n\\n    <link rel="icon" href="\', escape=False)\nresponse.write(URL(a=\'tcc\', c=\'static\', f=\'images\'))\nresponse.write(\'/imagem.png">\\n\\n    <title>VulnScan</title>\\n\\n    <!-- Bootstrap Core CSS -->\\n     <link href="\', escape=False)\nresponse.write(URL(a=\'tcc\', c=\'static\', f=\'css\'))\nresponse.write(\'/bootstrap.min.css" rel="stylesheet">\\n\\n    <!-- Custom CSS -->\\n   <link href="\', escape=False)\nresponse.write(URL(a=\'tcc\', c=\'static\', f=\'css\'))\nresponse.write(\'/sb-admin.css" rel="stylesheet">\\n\\n    <!-- Custom Fonts -->\\n    <link href="\', escape=False)\nresponse.write(URL(a=\'tcc\', c=\'static\', f=\'font-awesome\'))\nresponse.write(\'/css/font-awesome.min.css" rel="stylesheet" type="text/css">\\n\\n    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->\\n    <!-- WARNING: Respond.js doesn\\\'t work if you view the page via file:// -->\\n    <!--[if lt IE 9]>\\n        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>\\n        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>\\n    <![endif]-->\\n\\n\\n    <!-- Bootstrap Core CSS RTL-->\\n    <!--<<link href="\', escape=False)\nresponse.write(URL(a=\'tcc\', c=\'static\', f=\'css\'))\nresponse.write(\'/bootstrap-rtl.min.css" rel="stylesheet">!-->\\n\\n    <!-- Morris Charts CSS -->\\n    <link href="\', escape=False)\nresponse.write(URL(a=\'tcc\', c=\'static\', f=\'css\'))\nresponse.write(\'/plugins/morris.css" rel="stylesheet">\\n\\n</head>\\n\\n<body>\\n\\n    <div id="wrapper">\\n\\n        <!-- Navigation -->\\n        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">\\n            <!-- Brand and toggle get grouped for better mobile display -->\\n            <div class="navbar-header">\\n                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">\\n                    <span class="sr-only">Toggle navigation</span>\\n                    <span class="icon-bar"></span>\\n                    <span class="icon-bar"></span>\\n                    <span class="icon-bar"></span>\\n                </button>\\n                <a class="navbar-brand" href="dash">VulnScan</a>\\n            </div>\\n            <!-- Top Menu Items -->\\n            <ul class="nav navbar-right top-nav">\\n                <!--<li class="dropdown">-->\\n                    <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>-->\\n                    <!--<ul class="dropdown-menu message-dropdown">-->\\n                        <!--<li class="message-preview">-->\\n                            <!--<a href="#">-->\\n                                <!--<div class="media">-->\\n                                    <!--<span class="pull-left">-->\\n                                        <!--<img class="media-object" src="http://placehold.it/50x50" alt="">-->\\n                                    <!--</span>-->\\n                                    <!--<div class="media-body">-->\\n                                        <!--<h5 class="media-heading">-->\\n                                            <!--<strong>Admin</strong>-->\\n                                        <!--</h5>-->\\n                                        <!--<p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>-->\\n                                        <!--<p>Lorem ipsum dolor sit amet, consectetur...</p>-->\\n                                    <!--</div>-->\\n                                <!--</div>-->\\n                            <!--</a>-->\\n                        <!--</li>-->\\n                        <!--<li class="message-preview">-->\\n                            <!--<a href="#">-->\\n                                <!--<div class="media">-->\\n                                    <!--<span class="pull-left">-->\\n                                        <!--<img class="media-object" src="http://placehold.it/50x50" alt="">-->\\n                                    <!--</span>-->\\n                                    <!--<div class="media-body">-->\\n                                        <!--<h5 class="media-heading">-->\\n                                            <!--<strong>Admin</strong>-->\\n                                        <!--</h5>-->\\n                                        <!--<p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>-->\\n                                        <!--<p>Lorem ipsum dolor sit amet, consectetur...</p>-->\\n                                    <!--</div>-->\\n                                <!--</div>-->\\n                            <!--</a>-->\\n                        <!--</li>-->\\n                        <!--<li class="message-preview">-->\\n                            <!--<a href="#">-->\\n                                <!--<div class="media">-->\\n                                    <!--<span class="pull-left">-->\\n                                        <!--<img class="media-object" src="http://placehold.it/50x50" alt="">-->\\n                                    <!--</span>-->\\n                                    <!--<div class="media-body">-->\\n                                        <!--<h5 class="media-heading">-->\\n                                            <!--<strong>Admin</strong>-->\\n                                        <!--</h5>-->\\n                                        <!--<p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>-->\\n                                        <!--<p>Lorem ipsum dolor sit amet, consectetur...</p>-->\\n                                    <!--</div>-->\\n                                <!--</div>-->\\n                            <!--</a>-->\\n                        <!--</li>-->\\n                        <!--<li class="message-footer">-->\\n                            <!--<a href="#">Read All New Messages</a>-->\\n                        <!--</li>-->\\n                    <!--</ul>-->\\n                <!--</li>-->\\n                <!--<li class="dropdown">-->\\n                    <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>-->\\n                    <!--<ul class="dropdown-menu alert-dropdown">-->\\n                        <!--<li>-->\\n                            <!--<a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>-->\\n                        <!--</li>-->\\n                        <!--<li>-->\\n                            <!--<a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>-->\\n                        <!--</li>-->\\n                        <!--<li>-->\\n                            <!--<a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>-->\\n                        <!--</li>-->\\n                        <!--<li>-->\\n                            <!--<a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>-->\\n                        <!--</li>-->\\n                        <!--<li>-->\\n                            <!--<a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>-->\\n                        <!--</li>-->\\n                        <!--<li>-->\\n                            <!--<a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>-->\\n                        <!--</li>-->\\n                        <!--<li class="divider"></li>-->\\n                        <!--<li>-->\\n                            <!--<a href="#">View All</a>-->\\n                        <!--</li>-->\\n                    <!--</ul>-->\\n                <!--</li>-->\\n                <li class="dropdown">\\n                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Admin <b class="caret"></b></a>\\n                    <ul class="dropdown-menu">\\n                        <!--<li>-->\\n                            <!--<a href="#"><i class="fa fa-fw fa-user"></i> Perfil</a>-->\\n                        <!--</li>-->\\n                        <!--<li>-->\\n                            <!--<a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>-->\\n                        <!--</li>-->\\n                        <!--<li>-->\\n                            <!--<a href="#"><i class="fa fa-fw fa-gear"></i> Configura\\xc3\\xa7\\xc3\\xb5es</a>-->\\n                        <!--</li>-->\\n                        <!--<li class="divider"></li>-->\\n                        <li>\\n                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Sair</a>\\n                        </li>\\n                    </ul>\\n                </li>\\n            </ul>\\n            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->\\n            <div class="collapse navbar-collapse navbar-ex1-collapse">\\n                <ul class="nav navbar-nav side-nav">\\n                    <li>\\n                        <a href="dash"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>\\n                    </li>\\n                    <li>\\n                        <a href="scan"><i class="fa fa-fw fa-bar-chart-o"></i> Scans</a>\\n                    </li>\\n                    <li>\\n                        <a href="relatorio"><i class="fa fa-fw fa-table"></i> Relat\\xc3\\xb3rio</a>\\n                    </li>\\n                    <li>\\n                        <a href="settings"><i class="fa fa-fw fa-edit"></i> Configura\\xc3\\xa7\\xc3\\xb5es</a>\\n                    </li>\\n                    <!--<li>\\n                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>\\n                        <ul id="demo" class="collapse">\\n                            <li>\\n                                <a href="#">Dropdown Item</a>\\n                            </li>\\n                            <li>\\n                                <a href="#">Dropdown Item</a>\\n                            </li>\\n                        </ul>\\n                    </li>!-->\\n                </ul>\\n            </div>\\n            <!-- /.navbar-collapse -->\\n        </nav>\\n\\n        <div id="page-wrapper">\\n            \', escape=False)\nresponse.write(\'\\n<br>\\n<div class="modal fade" id="modalWindows">\\n  <div class="modal-dialog" role="document">\\n    <div class="modal-content">\\n      <div class="modal-header">\\n        <h5 class="modal-title">Dispositivos Windows</h5>\\n        <button type="button" class="close" data-dismiss="modal" aria-label="Close">\\n          <span aria-hidden="true">&times;</span>\\n        </button>\\n      </div>\\n      <div class="modal-body">\\n                <div class="table-responsive">\\n                    <table class="table table-bordered table-hover table-striped">\\n                        <thead>\\n                        <tr>\\n                            <th>Ip</th>\\n                            <th>Mac</th>\\n                            <th>Fabricante</th>\\n                        </tr>\\n                        </thead>\\n                        <tbody>\\n                            \', escape=False)\nfor item in windows_disp:\n    response.write(\'<tr><td>\', escape=False)\n    response.write(item[\'ip\'])\n    response.write(\'</td><td>\', escape=False)\n    response.write(item[\'mac\'])\n    response.write(\'</td><td>\', escape=False)\n    response.write(item[\'nomeFabricante\'])\n    response.write(\'</td></tr>\', escape=False)\n    pass\nresponse.write(\'\\n                        </tbody>\\n                    </table>\\n            </div>\\n      </div>\\n      <div class="modal-footer">\\n        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>\\n      </div>\\n    </div>\\n  </div>\\n</div>\\n<div class="modal fade" id="modalLinux">\\n  <div class="modal-dialog" role="document">\\n    <div class="modal-content">\\n      <div class="modal-header">\\n        <h5 class="modal-title">Dispositivos Linux</h5>\\n        <button type="button" class="close" data-dismiss="modal" aria-label="Close">\\n          <span aria-hidden="true">&times;</span>\\n        </button>\\n      </div>\\n      <div class="modal-body">\\n                <div class="table-responsive">\\n                    <table class="table table-bordered table-hover table-striped">\\n                        <thead>\\n                        <tr>\\n                            <th>Ip</th>\\n                            <th>Mac</th>\\n                            <th>Fabricante</th>\\n                        </tr>\\n                        </thead>\\n                        <tbody>\\n                            \', escape=False)\nfor item in linux_disp:\n    response.write(\'<tr><td>\', escape=False)\n    response.write(item[\'ip\'])\n    response.write(\'</td><td>\', escape=False)\n    response.write(item[\'mac\'])\n    response.write(\'</td><td>\', escape=False)\n    response.write(item[\'nomeFabricante\'])\n    response.write(\'</td></tr>\', escape=False)\n    pass\nresponse.write(\'\\n                        </tbody>\\n                    </table>\\n            </div>\\n      </div>\\n      <div class="modal-footer">\\n        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>        \\n      </div>\\n    </div>\\n  </div>\\n</div>\\n<div class="modal fade" id="modalOutros">\\n  <div class="modal-dialog" role="document">\\n    <div class="modal-content">\\n      <div class="modal-header">\\n        <h5 class="modal-title">Outros Dispositivos</h5>\\n        <button type="button" class="close" data-dismiss="modal" aria-label="Close">\\n          <span aria-hidden="true">&times;</span>\\n        </button>\\n      </div>\\n      <div class="modal-body">\\n                <div class="table-responsive">\\n                    <table class="table table-bordered table-hover table-striped">\\n                        <thead>\\n                        <tr>\\n                            <th>Ip</th>\\n                            <th>Mac</th>\\n                            <th>Fabricante</th>\\n                        </tr>\\n                        </thead>\\n                        <tbody>\\n                            \', escape=False)\nfor item in outros_disp:\n    response.write(\'<tr><td>\', escape=False)\n    response.write(item[\'ip\'])\n    response.write(\'</td><td>\', escape=False)\n    response.write(item[\'mac\'])\n    response.write(\'</td><td>\', escape=False)\n    response.write(item[\'nomeFabricante\'])\n    response.write(\'</td></tr>\', escape=False)\n    pass\nresponse.write(\'\\n                        </tbody>\\n                    </table>\\n            </div>\\n      </div>\\n      <div class="modal-footer">\\n            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>\\n      </div>\\n    </div>\\n  </div>\\n</div>\\n<div class="modal fade" id="modalPortas">\\n  <div class="modal-dialog" role="document">\\n    <div class="modal-content">\\n      <div class="modal-header">\\n        <h5 class="modal-title">Portas Abertas</h5>\\n        <button type="button" class="close" data-dismiss="modal" aria-label="Close">\\n          <span aria-hidden="true">&times;</span>\\n        </button>\\n      </div>\\n      <div class="modal-body">\\n                <div class="table-responsive">\\n                    <table class="table table-bordered table-hover table-striped">\\n                        <thead>\\n                        <tr>\\n                            <th>Dispositivo</th>\\n                            <th>Mac</th>\\n                            <th>Qtde Portas</th>\\n                        </tr>\\n                        </thead>\\n                        <tbody>\\n                            \', escape=False)\nfor item in dispositivos:\n    if item[\'qtdPortas\'] > 0:\n        response.write(\'<tr><td>\', escape=False)\n        response.write(item[\'ip\'])\n        response.write(\'</td><td>\', escape=False)\n        response.write(item[\'mac\'])\n        response.write(\'</td><td>\', escape=False)\n        response.write(item[\'qtdPortas\'])\n        response.write(\'</td></tr>\', escape=False)\n        pass\n    response.write(\'\\n                        </tbody>\\n                    </table>\\n            </div>\\n      </div>\\n      <div class="modal-footer">\\n            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>\\n      </div>\\n    </div>\\n  </div>\\n</div>\\n<div class="container-fluid">\\n    <!-- Page Heading -->\\n    <div class="row">\\n        <div class="col-lg-12">\\n            <h1 class="page-header">\\n                Dashboard \', escape=False)\n    response.write(dispositivos)\n    response.write(\'\\n                <small></small>\\n            </h1>\\n            <ol class="breadcrumb">\\n                <li>\\n                    <i class="fa fa-dashboard"></i>  <a href="\', escape=False)\n    response.write(URL(a=\'tcc\', c=\'control\', f=\'dash\'))\n    response.write(\'">Dashboard</a>\\n                </li>\\n                <li class="active"></li>\\n            </ol>\\n        </div>\\n    </div><!-- /.row -->\\n</div><!-- /.container-fluid -->\\n\\n<div class="row">\\n    <div class="col-lg-3 col-md-6">\\n        <div class="panel panel-primary">\\n            <div class="panel-heading">\\n                <div class="row">\\n                    <div class="col-xs-3">\\n                        <i class="fa fa-windows fa-5x"></i>\\n                    </div>\\n                    <div class="col-xs-9 text-right">\\n                    <div class="huge">\', escape=False)\n    response.write(count_windows)\n    response.write(\'</div>\\n                        <div>Windows</div>\\n                    </div>\\n                </div>\\n            </div>\\n            <a href="#" onclick="openModal(1)">\\n                <div class="panel-footer">\\n                    <span class="pull-left">Ver Detalhes</span>\\n                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>\\n                    <div class="clearfix"></div>\\n                </div>\\n            </a>\\n        </div>\\n    </div>\\n\\n    <div class="col-lg-3 col-md-6">\\n        <div class="panel panel-green">\\n            <div class="panel-heading">\\n                <div class="row">\\n                    <div class="col-xs-3">\\n                        <i class="fa fa-linux fa-5x"></i>\\n                    </div>\\n                    <div class="col-xs-9 text-right">\\n                        <div class="huge">\', escape=False)\n    response.write(count_linux)\n    response.write(\'</div>\\n                        <div>Linux</div>\\n                    </div>\\n                </div>\\n            </div>\\n            <a href="#" onclick="openModal(2)">\\n                <div class="panel-footer">\\n                    <span class="pull-left">Ver Detalhes</span>\\n                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>\\n                    <div class="clearfix"></div>\\n                </div>\\n            </a>\\n        </div>\\n    </div>\\n    <div class="col-lg-3 col-md-6">\\n        <div class="panel panel-yellow">\\n            <div class="panel-heading">\\n                <div class="row">\\n                    <div class="col-xs-3">\\n                        <i class="fa fa-android fa-5x"></i>\\n                    </div>\\n                    <div class="col-xs-9 text-right">\\n                        <div class="huge">\', escape=False)\n    response.write(count_outros)\n    response.write(\'</div>\\n                        <div>Outros Dispositivos</div>\\n                    </div>\\n                </div>\\n            </div>\\n            <a href="#" onclick="openModal(3)">\\n                <div class="panel-footer">\\n                    <span class="pull-left">Ver Detalhes</span>\\n                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>\\n                    <div class="clearfix"></div>\\n                </div>\\n            </a>\\n        </div>\\n    </div>\\n    <div class="col-lg-3 col-md-6">\\n        <div class="panel panel-red">\\n            <div class="panel-heading">\\n                <div class="row">\\n                    <div class="col-xs-3">\\n                        <i class="fa fa-warning fa-5x"></i>\\n                    </div>\\n                    <div class="col-xs-9 text-right">\\n                        <div class="huge">\', escape=False)\n    response.write(count_portas)\n    response.write(\'</div>\\n                        <div>Portas Abertas</div>\\n                    </div>\\n                </div>\\n            </div>\\n            <a href="#">\\n                <div class="panel-footer">\\n                    <span class="pull-left">Ver Detalhes</span>\\n                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>\\n                    <div class="clearfix"></div>\\n                </div>\\n            </a>\\n        </div>\\n    </div>\\n</div>\\n<br>\\n<br>\\n\\n<br><br><br>\\n\\n<div id="page-wrapper">\\n    <div class="container-fluid">\\n        <div class="row">\\n            <div class="col-lg-6">\\n                <h2>Informa\\xc3\\xa7\\xc3\\xa3o da Rede</h2>\\n                <div class="table-responsive">\\n                    <table class="table table-bordered table-hover">\\n                        <tbody>\\n                        <tr>\\n                            <th>Meu IP</th>\\n                            <td>\', escape=False)\n    response.write(ips)\n    response.write(\'</td>\\n                        </tr>\\n                        <tr>\\n                            <th>IP Externo</th>\\n                            <td>\', escape=False)\n    response.write(ip_externo[3])\n    response.write(\'</td>\\n                        </tr>\\n                        <tr>\\n                            <th>Quantidade Host</th>\\n                            <td><span id="qtde_host"></span></td>\\n                        </tr>\\n                        </tbody>\\n                    </table>\\n                </div>\\n            </div>\\n            <div class="col-lg-6">\\n                <h2>Servi\\xc3\\xa7os comuns associados as principais portas utilizadas</h2>\\n                <div class="table-responsive">\\n                    <table class="table table-bordered table-hover table-striped">\\n                        <thead>\\n                        <tr>\\n                            <th>Servi\\xc3\\xa7o/Porta</th>\\n                            <th>Hosts</th>\\n                        </tr>\\n                        </thead>\\n                        <tbody>\\n                        <tr>\\n                            <td>FTP/21</td>\\n                            <td>1265</td>\\n                        </tr>\\n                        <tr>\\n                            <td>SSH/22</td>\\n                            <td>261</td>\\n                        </tr>\\n                        <tr>\\n                            <td>Telnet/23</td>\\n                            <td>665</td>\\n                        </tr>\\n                        <tr>\\n                            <td>SMTP/25</td>\\n                            <td>9516</td>\\n                        </tr>\\n                        <tr>\\n                            <td>DNS/53</td>\\n                            <td>23</td>\\n                        </tr>\\n                        <tr>\\n                            <td>HTTP/80</td>\\n                            <td>421</td>\\n                        </tr>\\n                        <tr>\\n                            <td>RPC/111</td>\\n                            <td>1233</td>\\n                        </tr>\\n                        <tr>\\n                            <td>NetBIOS/137</td>\\n                            <td>1233</td>\\n                        </tr>\\n                        <tr>\\n                            <td>HTTPS/443</td>\\n                            <td>1233</td>\\n                        </tr>\\n                        <tr>\\n                            <td>SMB/445</td>\\n                            <td>1233</td>\\n                        </tr>\\n                        <tr>\\n                            <td>SIP/5060</td>\\n                            <td>1233</td>\\n                        </tr>\\n                        <tr>\\n                            <td>MySQL/3306</td>\\n                            <td>1233</td>\\n                        </tr>\\n                        </tbody>\\n                    </table>\\n                </div>\\n            </div>\\n        </div>\\n        <!-- /.row -->\\n    </div>\\n    <!-- /.container-fluid -->\\n</div>\\n<!-- /#page-wrapper -->\\n</div>\\n<!-- /#wrapper -->\\n\\n<!-- jQuery -->\\n<script src="js/jquery.js"></script>\\n\\n<!-- Bootstrap Core JavaScript -->\\n<script src="js/bootstrap.min.js"></script>\\n\\n\\n\', escape=False)\n    response.write(\'\\n        </div>\\n    </div>\\n\\n    <!-- jQuery -->\\n    <script src="\', escape=False)\n    response.write(URL(a=\'tcc\', c=\'static\', f=\'js\'))\n    response.write(\'/jquery.js"></script>\\n\\n    <!-- Bootstrap Core JavaScript -->\\n    <script src="\', escape=False)\n    response.write(URL(a=\'tcc\', c=\'static\', f=\'js\'))\n    response.write(\'/bootstrap.min.js"></script>\\n\\n</body>\\n\\n</html>\\n\\n\', escape=False)\n    response.write(\'\\n\\n<script>\\n    $.get("\', escape=False)\n    response.write(URL(a=\'tcc\', c=\'control\', f=\'qtde_host\'))\n    response.write(\'", function( data ) {\\n    $(\\\'#qtde_host\\\').html(data)\\n    });\\n\\n    function openModal(tipo){\\n        if(tipo == 1){\\n            $("#modalWindows").modal("show");\\n            return;\\n        }\\n        \\n        if(tipo == 2){\\n            $("#modalLinux").modal("show");\\n            return;\\n        }\\n\\n        else{\\n            $("#modalOutros").modal("show");\\n            return;\\n        }\\n    }\\n</script>\\n\\n\', escape=False)'
+p7
+sS'snapshot'
+p8
+(dp9
+S'exception'
+p10
+(dp11
+S'__module__'
+p12
+S"'gluon.rocket'"
+p13
+sS'__getslice__'
+p14
+S"<method-wrapper '__getslice__' of SocketTimeout object>"
+p15
+sS'__str__'
+p16
+S"<method-wrapper '__str__' of SocketTimeout object>"
+p17
+sS'__reduce__'
+p18
+S'<built-in method __reduce__ of SocketTimeout object>'
+p19
+sS'__dict__'
+p20
+S'{}'
+p21
+sS'__sizeof__'
+p22
+S'<built-in method __sizeof__ of SocketTimeout object>'
+p23
+sS'__weakref__'
+p24
+S'None'
+p25
+sS'__init__'
+p26
+S"<method-wrapper '__init__' of SocketTimeout object>"
+p27
+sS'__setattr__'
+p28
+S"<method-wrapper '__setattr__' of SocketTimeout object>"
+p29
+sS'__reduce_ex__'
+p30
+S'<built-in method __reduce_ex__ of SocketTimeout object>'
+p31
+sS'__new__'
+p32
+S'<built-in method __new__ of type object>'
+p33
+sS'__format__'
+p34
+S'<built-in method __format__ of SocketTimeout object>'
+p35
+sS'__class__'
+p36
+S"<class 'gluon.rocket.SocketTimeout'>"
+p37
+sS'__doc__'
+p38
+S"'Exception for when a socket times out between requests.'"
+p39
+sS'__getitem__'
+p40
+S"<method-wrapper '__getitem__' of SocketTimeout object>"
+p41
+sS'__setstate__'
+p42
+S'<built-in method __setstate__ of SocketTimeout object>'
+p43
+sS'__getattribute__'
+p44
+S"<method-wrapper '__getattribute__' of SocketTimeout object>"
+p45
+sS'args'
+p46
+S"('Socket timed out before request.',)"
+p47
+sS'__subclasshook__'
+p48
+S'<built-in method __subclasshook__ of type object>'
+p49
+sS'__unicode__'
+p50
+S'<built-in method __unicode__ of SocketTimeout object>'
+p51
+sS'__delattr__'
+p52
+S"<method-wrapper '__delattr__' of SocketTimeout object>"
+p53
+sS'__repr__'
+p54
+S"<method-wrapper '__repr__' of SocketTimeout object>"
+p55
+sS'__hash__'
+p56
+S"<method-wrapper '__hash__' of SocketTimeout object>"
+p57
+ssS'evalue'
+p58
+S'Socket timed out before request.'
+p59
+sS'frames'
+p60
+(lp61
+(dp62
+S'file'
+p63
+S'/var/www/web2py/gluon/rocket.py'
+p64
+sS'dump'
+p65
+(dp66
+S'self'
+p67
+S'<WSGIWorker(Thread-12, started daemon 139703735019264)>'
+p68
+sS'conn'
+p69
+S'<gluon.rocket.Connection object>'
+p70
+sS'self.run_app'
+p71
+S'<bound method WSGIWorker.run_app of <WSGIWorker(Thread-12, started daemon 139703735019264)>>'
+p72
+ssS'lnum'
+p73
+I1337
+sS'lines'
+p74
+(dp75
+I1332
+S'            # Enter connection serve loop'
+p76
+sI1333
+S'            while True:'
+p77
+sI1334
+S'                if __debug__:'
+p78
+sI1335
+S"                    self.err_log.debug('Serving a request')"
+p79
+sI1336
+S'                try:'
+p80
+sI1337
+S'                    self.run_app(conn)'
+p81
+sI1338
+S'                except:'
+p82
+sI1339
+S'                    exc = sys.exc_info()'
+p83
+sI1340
+S'                    handled = self._handleError(*exc)'
+p84
+sI1341
+S'                    if handled:'
+p85
+ssS'call'
+p86
+S'(self=<WSGIWorker(Thread-12, started daemon 139703735019264)>)'
+p87
+sS'func'
+p88
+S'run'
+p89
+sa(dp90
+g63
+S'/var/www/web2py/gluon/rocket.py'
+p91
+sg65
+(dp92
+S'self'
+p93
+S'<WSGIWorker(Thread-12, started daemon 139703735019264)>'
+p94
+sS'self.environ'
+p95
+S"{'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate', 'HTTP_ACCEPT_LANGUAGE': 'en-US,en;q=0.5', 'HTTP_CACHE_CONTROL': 'max-age=0', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_COOKIE': 'session_id_welcome=127.0.0.1-b3749ff5-8146-43d2-...in=127.0.0.1-37be75b3-7eb7-4964-ba77-2114d567caeb', 'HTTP_HOST': '127.0.0.1:8000', 'HTTP_REFERER': 'http://127.0.0.1:8000/tcc/control/scan', 'HTTP_USER_AGENT': 'Mozilla/5.0 (X11; Linux x86_64; rv:45.0) Gecko/20100101 Firefox/45.0', 'PATH_INFO': '/tcc/control/dash', ...}"
+p96
+sS'sock_file'
+p97
+S'<socket._fileobject object>'
+p98
+sS'environ'
+p99
+S'undefined'
+p100
+sS'self.build_environ'
+p101
+S'<bound method WSGIWorker.build_environ of <WSGIWorker(Thread-12, started daemon 139703735019264)>>'
+p102
+sS'conn'
+p103
+S'<gluon.rocket.Connection object>'
+p104
+ssg73
+I1830
+sg74
+(dp105
+I1825
+S'        else:'
+p106
+sI1826
+S'            sock_file = conn.makefile(BUF_SIZE)'
+p107
+sI1827
+S''
+sI1828
+S'        try:'
+p108
+sI1829
+S'            # Read the headers and build our WSGI environment'
+p109
+sI1830
+S'            self.environ = environ = self.build_environ(sock_file, conn)'
+p110
+sI1831
+S''
+sI1832
+S'            # Handle 100 Continue'
+p111
+sI1833
+S"            if environ.get('HTTP_EXPECT', '') == '100-continue':"
+p112
+sI1834
+S"                res = environ['SERVER_PROTOCOL'] + ' 100 Continue\\r\\n\\r\\n'"
+p113
+ssg86
+S'(self=<WSGIWorker(Thread-12, started daemon 139703735019264)>, conn=<gluon.rocket.Connection object>)'
+p114
+sg88
+S'run_app'
+p115
+sa(dp116
+g63
+S'/var/www/web2py/gluon/rocket.py'
+p117
+sg65
+(dp118
+S'sock_file'
+p119
+S'<socket._fileobject object>'
+p120
+sS'self.read_request_line'
+p121
+S'<bound method WSGIWorker.read_request_line of <W...rker(Thread-12, started daemon 139703735019264)>>'
+p122
+sS'self'
+p123
+S'<WSGIWorker(Thread-12, started daemon 139703735019264)>'
+p124
+sS'request'
+p125
+g100
+ssg73
+I1650
+sg74
+(dp126
+I1645
+S'                                      "wsgiorg.futures": executor.futures})'
+p127
+sI1646
+S''
+sI1647
+S'    def build_environ(self, sock_file, conn):'
+p128
+sI1648
+S'        """ Build the execution environment. """'
+p129
+sI1649
+S'        # Grab the request line'
+p130
+sI1650
+S'        request = self.read_request_line(sock_file)'
+p131
+sI1651
+S''
+sI1652
+S'        # Copy the Base Environment'
+p132
+sI1653
+S'        environ = self.base_environ.copy()'
+p133
+sI1654
+S''
+ssg86
+S'(self=<WSGIWorker(Thread-12, started daemon 139703735019264)>, sock_file=<socket._fileobject object>, conn=<gluon.rocket.Connection object>)'
+p134
+sg88
+S'build_environ'
+p135
+sa(dp136
+g63
+S'/var/www/web2py/gluon/rocket.py'
+p137
+sg65
+(dp138
+S'global SocketTimeout'
+p139
+S"<class 'gluon.rocket.SocketTimeout'>"
+p140
+ssg73
+I1401
+sg74
+(dp141
+I1396
+S''
+sI1397
+S'                d = sock_file.readline()'
+p142
+sI1398
+S'                if PY3K:'
+p143
+sI1399
+S"                    d = d.decode('ISO-8859-1')"
+p144
+sI1400
+S'        except socket.timeout:'
+p145
+sI1401
+S"            raise SocketTimeout('Socket timed out before request.')"
+p146
+sI1402
+S'        except TypeError:'
+p147
+sI1403
+S'            raise SocketClosed('
+p148
+sI1404
+S"                'SSL bug caused closure of socket.  See '"
+p149
+sI1405
+S'                \'"https://groups.google.com/d/topic/web2py/P_Gw0JxWzCs".\')'
+p150
+ssg86
+S'(self=<WSGIWorker(Thread-12, started daemon 139703735019264)>, sock_file=<socket._fileobject object>)'
+p151
+sg88
+S'read_request_line'
+p152
+sasS'pyver'
+p153
+S'Python 2.7.13: /usr/bin/python (prefix: /usr)'
+p154
+sS'etype'
+p155
+S"<class 'gluon.rocket.SocketTimeout'>"
+p156
+sS'date'
+p157
+S'Wed Aug 30 14:57:18 2017'
+p158
+sS'locals'
+p159
+(dp160
+S'sock_file'
+p161
+S'<socket._fileobject object>'
+p162
+sS'self'
+p163
+S'<WSGIWorker(Thread-12, started daemon 139703735019264)>'
+p164
+sssS'traceback'
+p165
+S'Traceback (most recent call last):\n  File "/var/www/web2py/gluon/rocket.py", line 1337, in run\n    self.run_app(conn)\n  File "/var/www/web2py/gluon/rocket.py", line 1830, in run_app\n    self.environ = environ = self.build_environ(sock_file, conn)\n  File "/var/www/web2py/gluon/rocket.py", line 1650, in build_environ\n    request = self.read_request_line(sock_file)\n  File "/var/www/web2py/gluon/rocket.py", line 1401, in read_request_line\n    raise SocketTimeout(\'Socket timed out before request.\')\nSocketTimeout: Socket timed out before request.\n'
+p166
+s.
