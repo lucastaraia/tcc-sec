@@ -11,6 +11,10 @@ import struct
 def login(): ######## Tela Login ########
     return response.render("estrutura/login.html")
 
+def teste():
+    return response.render("estrutura/teste.html")
+
+
 def dash(): ######## Tela dashboard ########
     ##qtde_os = qtde_so()
     from subprocess import check_output
