@@ -52,6 +52,8 @@ def dash(): ######## Tela dashboard ########
 def relatorio(): ######## Tela Relatório ########
     return response.render("estrutura/relatorio.html")
 
+def buscaScans():
+    return response.render("estrutura/gridRelatorio.html")
 
 def scan(): ######## Tela Scan onde 'starta' os scans ########
     return response.render('estrutura/scan.html')
