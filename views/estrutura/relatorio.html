@@ -22,10 +22,8 @@
     </div><!-- /.row -->
 </div><!-- /.container-fluid -->
 
-
 <br>
 <br>
-
 
 <div class="col-lg-4">
     <form role="form">
@@ -35,8 +33,6 @@
         </div>
     </form>
 </div>
-
-
 
 <div class="row">
                 <div class="col-lg-12">
@@ -138,13 +134,7 @@
 
 
 {{end}}
-
-
-
 {{block javascript}}
 <script>
-    $.get("{{=URL(a='tcc', c='control', f='qtde_host')}}", function( data ) {
-        $('#qtde_host').html(data)
-    });
 </script>
 {{end}}
