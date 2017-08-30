@@ -61,10 +61,12 @@ def hydra():
 
 def script_scan():
     saida_script = commands.getoutput("sudo python /var/www/web2py/applications/tcc/scripts/NetworkScan/NetworkScan.py")
-    if True in saida_script:
+    if 'True' in saida_script:
         retorno_script_scan = True
     else:
         retorno_script_scan = False
+
+    return retorno_script_scan
 
 def settings(): ######## Tela de Configurações ########
     ### Serviços - iniciar/parar/reiniciar ###
