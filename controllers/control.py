@@ -40,15 +40,14 @@ def dash(): ######## Tela dashboard ########
     count_portas = len(portas)
 
     return response.render("estrutura/dash.html", ip_externo=ip_externo, ips=ips, count_windows=count_windows,
-                           count_linux=count_linux, count_outros=count_outros, count_portas=count_portas, windows_disp=windows_disp, linux_disp=linux_disp, outros_disp=outros_disp)
+                           count_linux=count_linux, count_outros=count_outros, count_portas=count_portas,
+                           windows_disp=windows_disp, linux_disp=linux_disp, outros_disp=outros_disp)
 
 def relatorio(): ######## Tela Relatório ########
     return response.render("estrutura/relatorio.html")
 
 
 def scan(): ######## Tela Scan onde 'starta' os scans ########
-    #saida_script = commands.getoutput("sudo python /var/www/web2py/applications/tcc/scripts/NetworkScan/NetworkScan.py")
-
     return response.render('estrutura/scan.html')
 
 def hydra():
@@ -60,6 +59,12 @@ def hydra():
 
     return retorno_hydra
 
+def script_scan():
+    saida_script = commands.getoutput("sudo python /var/www/web2py/applications/tcc/scripts/NetworkScan/NetworkScan.py")
+    if True in saida_script:
+        retorno_script_scan = True
+    else:
+        retorno_script_scan = False
 
 def settings(): ######## Tela de Configurações ########
     ### Serviços - iniciar/parar/reiniciar ###
