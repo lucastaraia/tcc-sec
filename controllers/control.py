@@ -19,17 +19,28 @@ def dash(): ######## Tela dashboard ########
 
     ips = check_output(['hostname', '--all-ip-addresses'])
 
-    windows_disp = db(db.ScanDispositivo.nomeOs == "Windows").select().as_list()
+    idScan = db(db.Scan).select()[-1].id
+
+    windows_disp = db((db.ScanDispositivo.nomeOs == "Windows") & (db.ScanDispositivo.idScan == idScan)).select().as_list()
     count_windows = len(windows_disp)
 
-    linux_disp = db(db.ScanDispositivo.nomeOs == "Linux").select().as_list()
+    linux_disp = db((db.ScanDispositivo.nomeOs == "Linux") & (db.ScanDispositivo.idScan == idScan)).select().as_list()
     count_linux = len(linux_disp)
 
-    outros_disp = db(db.ScanDispositivo.nomeOs == "Outro").select().as_list()
+    outros_disp = db((db.ScanDispositivo.nomeOs == "Outro") & (db.ScanDispositivo.idScan == idScan)).select().as_list()
     count_outros = len(outros_disp)
 
+    dispositivos = db(db.ScanDispositivo.idScan == idScan).select().as_list()
+    portas = []
+
+    for disp in dispositivos:
+        for por in db(db.ScanDispositivoPorta.idScanDispositivo == disp['id']).select().as_list():
+            portas.append(por)
+    
+    count_portas = len(portas)
+
     return response.render("estrutura/dash.html", ip_externo=ip_externo, ips=ips, count_windows=count_windows,
-                           count_linux=count_linux, count_outros=count_outros)
+                           count_linux=count_linux, count_outros=count_outros, count_portas=count_portas, windows_disp=windows_disp, linux_disp=linux_disp, outros_disp=outros_disp)
 
 def relatorio(): ######## Tela Relatório ########
     return response.render("estrutura/relatorio.html")

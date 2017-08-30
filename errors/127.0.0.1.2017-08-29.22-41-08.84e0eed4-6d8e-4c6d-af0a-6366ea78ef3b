@@ -1,0 +1,831 @@
+(dp1
+S'output'
+p2
+S"<type 'exceptions.AttributeError'> 'dict' object has no attribute 'ip'"
+p3
+sS'layer'
+p4
+S'/var/www/web2py/applications/tcc/views/estrutura/dash.html'
+p5
+sS'code'
+p6
+S'response.write(\'<!DOCTYPE html>\\n<html lang="en">\\n\\n<head>\\n    <meta charset="utf-8">\\n    <meta http-equiv="X-UA-Compatible" content="IE=edge">\\n    <meta name="viewport" content="width=device-width, initial-scale=1">\\n    <meta name="description" content="">\\n    <meta name="author" content="">\\n\\n    <link rel="icon" href="\', escape=False)\nresponse.write(URL(a=\'tcc\', c=\'static\', f=\'images\'))\nresponse.write(\'/imagem.png">\\n\\n    <title>VulnScan</title>\\n\\n    <!-- Bootstrap Core CSS -->\\n     <link href="\', escape=False)\nresponse.write(URL(a=\'tcc\', c=\'static\', f=\'css\'))\nresponse.write(\'/bootstrap.min.css" rel="stylesheet">\\n\\n    <!-- Custom CSS -->\\n   <link href="\', escape=False)\nresponse.write(URL(a=\'tcc\', c=\'static\', f=\'css\'))\nresponse.write(\'/sb-admin.css" rel="stylesheet">\\n\\n    <!-- Custom Fonts -->\\n    <link href="\', escape=False)\nresponse.write(URL(a=\'tcc\', c=\'static\', f=\'font-awesome\'))\nresponse.write(\'/css/font-awesome.min.css" rel="stylesheet" type="text/css">\\n\\n    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->\\n    <!-- WARNING: Respond.js doesn\\\'t work if you view the page via file:// -->\\n    <!--[if lt IE 9]>\\n        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>\\n        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>\\n    <![endif]-->\\n\\n\\n    <!-- Bootstrap Core CSS RTL-->\\n    <!--<<link href="\', escape=False)\nresponse.write(URL(a=\'tcc\', c=\'static\', f=\'css\'))\nresponse.write(\'/bootstrap-rtl.min.css" rel="stylesheet">!-->\\n\\n    <!-- Morris Charts CSS -->\\n    <link href="\', escape=False)\nresponse.write(URL(a=\'tcc\', c=\'static\', f=\'css\'))\nresponse.write(\'/plugins/morris.css" rel="stylesheet">\\n\\n</head>\\n\\n<body>\\n\\n    <div id="wrapper">\\n\\n        <!-- Navigation -->\\n        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">\\n            <!-- Brand and toggle get grouped for better mobile display -->\\n            <div class="navbar-header">\\n                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">\\n                    <span class="sr-only">Toggle navigation</span>\\n                    <span class="icon-bar"></span>\\n                    <span class="icon-bar"></span>\\n                    <span class="icon-bar"></span>\\n                </button>\\n                <a class="navbar-brand" href="dash">VulnScan</a>\\n            </div>\\n            <!-- Top Menu Items -->\\n            <ul class="nav navbar-right top-nav">\\n                <!--<li class="dropdown">-->\\n                    <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>-->\\n                    <!--<ul class="dropdown-menu message-dropdown">-->\\n                        <!--<li class="message-preview">-->\\n                            <!--<a href="#">-->\\n                                <!--<div class="media">-->\\n                                    <!--<span class="pull-left">-->\\n                                        <!--<img class="media-object" src="http://placehold.it/50x50" alt="">-->\\n                                    <!--</span>-->\\n                                    <!--<div class="media-body">-->\\n                                        <!--<h5 class="media-heading">-->\\n                                            <!--<strong>Admin</strong>-->\\n                                        <!--</h5>-->\\n                                        <!--<p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>-->\\n                                        <!--<p>Lorem ipsum dolor sit amet, consectetur...</p>-->\\n                                    <!--</div>-->\\n                                <!--</div>-->\\n                            <!--</a>-->\\n                        <!--</li>-->\\n                        <!--<li class="message-preview">-->\\n                            <!--<a href="#">-->\\n                                <!--<div class="media">-->\\n                                    <!--<span class="pull-left">-->\\n                                        <!--<img class="media-object" src="http://placehold.it/50x50" alt="">-->\\n                                    <!--</span>-->\\n                                    <!--<div class="media-body">-->\\n                                        <!--<h5 class="media-heading">-->\\n                                            <!--<strong>Admin</strong>-->\\n                                        <!--</h5>-->\\n                                        <!--<p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>-->\\n                                        <!--<p>Lorem ipsum dolor sit amet, consectetur...</p>-->\\n                                    <!--</div>-->\\n                                <!--</div>-->\\n                            <!--</a>-->\\n                        <!--</li>-->\\n                        <!--<li class="message-preview">-->\\n                            <!--<a href="#">-->\\n                                <!--<div class="media">-->\\n                                    <!--<span class="pull-left">-->\\n                                        <!--<img class="media-object" src="http://placehold.it/50x50" alt="">-->\\n                                    <!--</span>-->\\n                                    <!--<div class="media-body">-->\\n                                        <!--<h5 class="media-heading">-->\\n                                            <!--<strong>Admin</strong>-->\\n                                        <!--</h5>-->\\n                                        <!--<p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>-->\\n                                        <!--<p>Lorem ipsum dolor sit amet, consectetur...</p>-->\\n                                    <!--</div>-->\\n                                <!--</div>-->\\n                            <!--</a>-->\\n                        <!--</li>-->\\n                        <!--<li class="message-footer">-->\\n                            <!--<a href="#">Read All New Messages</a>-->\\n                        <!--</li>-->\\n                    <!--</ul>-->\\n                <!--</li>-->\\n                <!--<li class="dropdown">-->\\n                    <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>-->\\n                    <!--<ul class="dropdown-menu alert-dropdown">-->\\n                        <!--<li>-->\\n                            <!--<a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>-->\\n                        <!--</li>-->\\n                        <!--<li>-->\\n                            <!--<a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>-->\\n                        <!--</li>-->\\n                        <!--<li>-->\\n                            <!--<a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>-->\\n                        <!--</li>-->\\n                        <!--<li>-->\\n                            <!--<a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>-->\\n                        <!--</li>-->\\n                        <!--<li>-->\\n                            <!--<a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>-->\\n                        <!--</li>-->\\n                        <!--<li>-->\\n                            <!--<a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>-->\\n                        <!--</li>-->\\n                        <!--<li class="divider"></li>-->\\n                        <!--<li>-->\\n                            <!--<a href="#">View All</a>-->\\n                        <!--</li>-->\\n                    <!--</ul>-->\\n                <!--</li>-->\\n                <li class="dropdown">\\n                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Admin <b class="caret"></b></a>\\n                    <ul class="dropdown-menu">\\n                        <!--<li>-->\\n                            <!--<a href="#"><i class="fa fa-fw fa-user"></i> Perfil</a>-->\\n                        <!--</li>-->\\n                        <!--<li>-->\\n                            <!--<a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>-->\\n                        <!--</li>-->\\n                        <!--<li>-->\\n                            <!--<a href="#"><i class="fa fa-fw fa-gear"></i> Configura\\xc3\\xa7\\xc3\\xb5es</a>-->\\n                        <!--</li>-->\\n                        <!--<li class="divider"></li>-->\\n                        <li>\\n                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Sair</a>\\n                        </li>\\n                    </ul>\\n                </li>\\n            </ul>\\n            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->\\n            <div class="collapse navbar-collapse navbar-ex1-collapse">\\n                <ul class="nav navbar-nav side-nav">\\n                    <li>\\n                        <a href="dash"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>\\n                    </li>\\n                    <li>\\n                        <a href="scan"><i class="fa fa-fw fa-bar-chart-o"></i> Scan</a>\\n                    </li>\\n                    <li>\\n                        <a href="relatorio"><i class="fa fa-fw fa-table"></i> Relat\\xc3\\xb3rio</a>\\n                    </li>\\n                    <li>\\n                        <a href="settings"><i class="fa fa-fw fa-edit"></i> Configura\\xc3\\xa7\\xc3\\xb5es</a>\\n                    </li>\\n                    <!--<li>\\n                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>\\n                        <ul id="demo" class="collapse">\\n                            <li>\\n                                <a href="#">Dropdown Item</a>\\n                            </li>\\n                            <li>\\n                                <a href="#">Dropdown Item</a>\\n                            </li>\\n                        </ul>\\n                    </li>!-->\\n                </ul>\\n            </div>\\n            <!-- /.navbar-collapse -->\\n        </nav>\\n\\n        <div id="page-wrapper">\\n            \', escape=False)\nresponse.write(\'\\n<br>\\n<div class="modal fade" id="modalWindows">\\n  <div class="modal-dialog" role="document">\\n    <div class="modal-content">\\n      <div class="modal-header">\\n        <h5 class="modal-title">Dispositivos Windows</h5>\\n        <button type="button" class="close" data-dismiss="modal" aria-label="Close">\\n          <span aria-hidden="true">&times;</span>\\n        </button>\\n      </div>\\n      <div class="modal-body">\\n                <div class="table-responsive">\\n                    <table class="table table-bordered table-hover table-striped">\\n                        <thead>\\n                        <tr>\\n                            <th>Ip</th>\\n                            <th>Mac</th>\\n                            <th>Fabricante</th>\\n                        </tr>\\n                        </thead>\\n                        <tbody>\\n                        <tr>\\n                            <td>0</td>\\n                            <td>0</td>\\n                            <td>0</td>\\n                        </tr>\\n                        </tbody>\\n                    </table>\\n            </div>\\n      </div>\\n      <div class="modal-footer">\\n        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>\\n      </div>\\n    </div>\\n  </div>\\n</div>\\n<div class="modal fade" id="modalLinux">\\n  <div class="modal-dialog" role="document">\\n    <div class="modal-content">\\n      <div class="modal-header">\\n        <h5 class="modal-title">Dispositivos Linux</h5>\\n        <button type="button" class="close" data-dismiss="modal" aria-label="Close">\\n          <span aria-hidden="true">&times;</span>\\n        </button>\\n      </div>\\n      <div class="modal-body">\\n                <div class="table-responsive">\\n                    <table class="table table-bordered table-hover table-striped">\\n                        <thead>\\n                        <tr>\\n                            <th>Ip</th>\\n                            <th>Mac</th>\\n                            <th>Fabricante</th>\\n                        </tr>\\n                        </thead>\\n                        <tbody>\\n                            \', escape=False)\nfor item in linux_disp:\n    response.write(\'<tr><td>\', escape=False)\n    response.write(item.ip)\n    response.write(\'</td><td>\', escape=False)\n    response.write(item.mac)\n    response.write(\'</td><td>\', escape=False)\n    response.write(item.nomeFabricante)\n    response.write(\'</td></tr>\', escape=False)\n    pass\nresponse.write(\'\\n                        </tbody>\\n                    </table>\\n            </div>\\n      </div>\\n      <div class="modal-footer">\\n        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>        \\n      </div>\\n    </div>\\n  </div>\\n</div>\\n<div class="modal fade" id="modalOutros">\\n  <div class="modal-dialog" role="document">\\n    <div class="modal-content">\\n      <div class="modal-header">\\n        <h5 class="modal-title">Outros Dispositivos</h5>\\n        <button type="button" class="close" data-dismiss="modal" aria-label="Close">\\n          <span aria-hidden="true">&times;</span>\\n        </button>\\n      </div>\\n      <div class="modal-body">\\n                <div class="table-responsive">\\n                    <table class="table table-bordered table-hover table-striped">\\n                        <thead>\\n                        <tr>\\n                            <th>Ip</th>\\n                            <th>Mac</th>\\n                            <th>Fabricante</th>\\n                        </tr>\\n                        </thead>\\n                        <tbody>\\n                        <tr>\\n                            <td>0</td>\\n                            <td>0</td>\\n                            <td>0</td>\\n                        </tr>\\n                        </tbody>\\n                    </table>\\n            </div>\\n      </div>\\n      <div class="modal-footer">\\n            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>\\n      </div>\\n    </div>\\n  </div>\\n</div>\\n<div class="container-fluid">\\n    <!-- Page Heading -->\\n    <div class="row">\\n        <div class="col-lg-12">\\n            <h1 class="page-header">\\n                Dashboard\\n                <small></small>\\n            </h1>\\n            <ol class="breadcrumb">\\n                <li>\\n                    <i class="fa fa-dashboard"></i>  <a href="\', escape=False)\nresponse.write(URL(a=\'tcc\', c=\'control\', f=\'dash\'))\nresponse.write(\'">Dashboard</a>\\n                </li>\\n                <li class="active"></li>\\n            </ol>\\n        </div>\\n    </div><!-- /.row -->\\n</div><!-- /.container-fluid -->\\n\\n<div class="row">\\n    <div class="col-lg-3 col-md-6">\\n        <div class="panel panel-primary">\\n            <div class="panel-heading">\\n                <div class="row">\\n                    <div class="col-xs-3">\\n                        <i class="fa fa-windows fa-5x"></i>\\n                    </div>\\n                    <div class="col-xs-9 text-right">\\n                    <div class="huge">\', escape=False)\nresponse.write(count_windows)\nresponse.write(\'</div>\\n                        <div>Windows</div>\\n                    </div>\\n                </div>\\n            </div>\\n            <a href="#" onclick="openModal(1)">\\n                <div class="panel-footer">\\n                    <span class="pull-left">Ver Detalhes</span>\\n                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>\\n                    <div class="clearfix"></div>\\n                </div>\\n            </a>\\n        </div>\\n    </div>\\n\\n    <div class="col-lg-3 col-md-6">\\n        <div class="panel panel-green">\\n            <div class="panel-heading">\\n                <div class="row">\\n                    <div class="col-xs-3">\\n                        <i class="fa fa-linux fa-5x"></i>\\n                    </div>\\n                    <div class="col-xs-9 text-right">\\n                        <div class="huge">\', escape=False)\nresponse.write(count_linux)\nresponse.write(\'</div>\\n                        <div>Linux</div>\\n                    </div>\\n                </div>\\n            </div>\\n            <a href="#" onclick="openModal(2)">\\n                <div class="panel-footer">\\n                    <span class="pull-left">Ver Detalhes</span>\\n                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>\\n                    <div class="clearfix"></div>\\n                </div>\\n            </a>\\n        </div>\\n    </div>\\n    <div class="col-lg-3 col-md-6">\\n        <div class="panel panel-yellow">\\n            <div class="panel-heading">\\n                <div class="row">\\n                    <div class="col-xs-3">\\n                        <i class="fa fa-android fa-5x"></i>\\n                    </div>\\n                    <div class="col-xs-9 text-right">\\n                        <div class="huge">\', escape=False)\nresponse.write(count_outros)\nresponse.write(\'</div>\\n                        <div>Outros Dispositivos</div>\\n                    </div>\\n                </div>\\n            </div>\\n            <a href="#" onclick="openModal(3)">\\n                <div class="panel-footer">\\n                    <span class="pull-left">Ver Detalhes</span>\\n                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>\\n                    <div class="clearfix"></div>\\n                </div>\\n            </a>\\n        </div>\\n    </div>\\n    <div class="col-lg-3 col-md-6">\\n        <div class="panel panel-red">\\n            <div class="panel-heading">\\n                <div class="row">\\n                    <div class="col-xs-3">\\n                        <i class="fa fa-warning fa-5x"></i>\\n                    </div>\\n                    <div class="col-xs-9 text-right">\\n                        <div class="huge">\', escape=False)\nresponse.write(count_portas)\nresponse.write(\'</div>\\n                        <div>Portas Abertas</div>\\n                    </div>\\n                </div>\\n            </div>\\n            <a href="#">\\n                <div class="panel-footer">\\n                    <span class="pull-left">Ver Detalhes</span>\\n                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>\\n                    <div class="clearfix"></div>\\n                </div>\\n            </a>\\n        </div>\\n    </div>\\n</div>\\n<br>\\n<br>\\n\\n<!--<div class="row">-->\\n    <!--<div class="col-lg-2">-->\\n        <!--<form role="form">-->\\n            <!--<div class="form-group">-->\\n                <!--<label>Taxa de Atualiza\\xc3\\xa7\\xc3\\xa3o:</label>-->\\n                <!--<select id="tempo_atualizacao_novo" class="form-control">-->\\n                    <!--<option value="0">N\\xc3\\xa3o atualizar</option>-->\\n                    <!--<option value="5000" selected="selected">5 Segundos</option>-->\\n                    <!--<option value="10000">10 Segundos</option>-->\\n                    <!--<option value="15000">15 Segundos</option>-->\\n                <!--</select><br/>-->\\n            <!--</div>-->\\n        <!--</form>-->\\n    <!--</div>-->\\n<!--</div>-->\\n\\n<!--<div class="row">-->\\n    <!--<div class="col-lg-3">-->\\n        <!--<h2>Info-Net</h2>-->\\n        <!--<div class="table-responsive">-->\\n            <!--<table class="table table-bordered table-hover">-->\\n                <!--<tr>-->\\n                    <!--<td>IP Externo: </td>-->\\n                    <!--<td>\', escape=False)\nresponse.write(ip_externo[3])\nresponse.write(\'</td>-->\\n                <!--</tr>-->\\n                <!--<tr>-->\\n                    <!--<td>Meu IP:</td>-->\\n                    <!--<td>\', escape=False)\nresponse.write(ips)\nresponse.write(\'</td>-->\\n                <!--</tr>-->\\n                <!--<tr>-->\\n                     <!--<td>Quantidade Host: </td>-->\\n                     <!--&lt;!&ndash;<td><span id="qtde_host"> </span></td>&ndash;&gt;-->\\n                <!--</tr>-->\\n            <!--</table>-->\\n        <!--</div>-->\\n    <!--</div>-->\\n<!--</div>-->\\n\\n<br><br><br>\\n\\n<div id="page-wrapper">\\n    <div class="container-fluid">\\n        <div class="row">\\n\\n            <!--<div class="col-lg-4">-->\\n                <!--<div class="panel panel-default">-->\\n                    <!--<div class="panel-heading">-->\\n                        <!--<h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Transactions Panel</h3>-->\\n                    <!--</div>-->\\n                    <!--<div class="panel-body">-->\\n                        <!--<div class="table-responsive">-->\\n                            <!--<table class="table table-bordered table-hover table-striped">-->\\n                                <!--<thead>-->\\n                                <!--<tr>-->\\n                                    <!--<th>Order #</th>-->\\n                                    <!--<th>Order Date</th>-->\\n                                    <!--<th>Order Time</th>-->\\n                                    <!--<th>Amount (USD)</th>-->\\n                                <!--</tr>-->\\n                                <!--</thead>-->\\n                                <!--<tbody>-->\\n                                <!--<tr>-->\\n                                    <!--<td>3326</td>-->\\n                                    <!--<td>10/21/2013</td>-->\\n                                    <!--<td>3:29 PM</td>-->\\n                                    <!--<td>$321.33</td>-->\\n                                <!--</tr>-->\\n                                <!--<tr>-->\\n                                    <!--<td>3325</td>-->\\n                                    <!--<td>10/21/2013</td>-->\\n                                    <!--<td>3:20 PM</td>-->\\n                                    <!--<td>$234.34</td>-->\\n                                <!--</tr>-->\\n                                <!--</tbody>-->\\n\\n                            <!--</table>-->\\n                        <!--</div>-->\\n                        <!--<div class="text-right">-->\\n                            <!--<a href="#">View All Transactions <i class="fa fa-arrow-circle-right"></i></a>-->\\n                        <!--</div>-->\\n                    <!--</div>-->\\n                <!--</div>-->\\n            <!--</div>-->\\n            <div class="col-lg-6">\\n                <h2>Informa\\xc3\\xa7\\xc3\\xa3o da Rede</h2>\\n                <div class="table-responsive">\\n                    <table class="table table-bordered table-hover">\\n                        <tbody>\\n                        <tr>\\n                            <th>Meu IP</th>\\n                            <td>\', escape=False)\nresponse.write(ips)\nresponse.write(\'</td>\\n                        </tr>\\n                        <tr>\\n                            <th>IP Externo</th>\\n                            <td>\', escape=False)\nresponse.write(ip_externo[3])\nresponse.write(\'</td>\\n                        </tr>\\n                        <tr>\\n                            <th>Quantidade Host</th>\\n                            <td><span id="qtde_host"></span></td>\\n                        </tr>\\n                        </tbody>\\n                    </table>\\n                </div>\\n            </div>\\n            <div class="col-lg-6">\\n                <h2>Servi\\xc3\\xa7os comuns associados as principais portas utilizadas</h2>\\n                <div class="table-responsive">\\n                    <table class="table table-bordered table-hover table-striped">\\n                        <thead>\\n                        <tr>\\n                            <th>Servi\\xc3\\xa7o/Porta</th>\\n                            <th>Hosts</th>\\n                        </tr>\\n                        </thead>\\n                        <tbody>\\n                        <tr>\\n                            <td>FTP/21</td>\\n                            <td>1265</td>\\n                        </tr>\\n                        <tr>\\n                            <td>SSH/22</td>\\n                            <td>261</td>\\n                        </tr>\\n                        <tr>\\n                            <td>Telnet/23</td>\\n                            <td>665</td>\\n                        </tr>\\n                        <tr>\\n                            <td>SMTP/25</td>\\n                            <td>9516</td>\\n                        </tr>\\n                        <tr>\\n                            <td>DNS/53</td>\\n                            <td>23</td>\\n                        </tr>\\n                        <tr>\\n                            <td>HTTP/80</td>\\n                            <td>421</td>\\n                        </tr>\\n                        <tr>\\n                            <td>RPC/111</td>\\n                            <td>1233</td>\\n                        </tr>\\n                        <tr>\\n                            <td>NetBIOS/137</td>\\n                            <td>1233</td>\\n                        </tr>\\n                        <tr>\\n                            <td>HTTPS/443</td>\\n                            <td>1233</td>\\n                        </tr>\\n                        <tr>\\n                            <td>SMB/445</td>\\n                            <td>1233</td>\\n                        </tr>\\n                        </tbody>\\n                    </table>\\n                </div>\\n            </div>\\n        </div>\\n        <!-- /.row -->\\n\\n        <div class="row">\\n            <div class="col-lg-6">\\n                <h2>Basic Table</h2>\\n                <div class="table-responsive">\\n                    <table class="table table-hover">\\n                        <thead>\\n                        <tr>\\n                            <th>Page</th>\\n                            <th>Visits</th>\\n                            <th>% New Visits</th>\\n                            <th>Revenue</th>\\n                        </tr>\\n                        </thead>\\n                        <tbody>\\n                        <tr>\\n                            <td>/index.html</td>\\n                            <td>1265</td>\\n                            <td>32.3%</td>\\n                            <td>$321.33</td>\\n                        </tr>\\n                        <tr>\\n                            <td>/about.html</td>\\n                            <td>261</td>\\n                            <td>33.3%</td>\\n                            <td>$234.12</td>\\n                        </tr>\\n                        <tr>\\n                            <td>/sales.html</td>\\n                            <td>665</td>\\n                            <td>21.3%</td>\\n                            <td>$16.34</td>\\n                        </tr>\\n                        <tr>\\n                            <td>/blog.html</td>\\n                            <td>9516</td>\\n                            <td>89.3%</td>\\n                            <td>$1644.43</td>\\n                        </tr>\\n                        <tr>\\n                            <td>/404.html</td>\\n                            <td>23</td>\\n                            <td>34.3%</td>\\n                            <td>$23.52</td>\\n                        </tr>\\n                        <tr>\\n                            <td>/services.html</td>\\n                            <td>421</td>\\n                            <td>60.3%</td>\\n                            <td>$724.32</td>\\n                        </tr>\\n                        <tr>\\n                            <td>/blog/post.html</td>\\n                            <td>1233</td>\\n                            <td>93.2%</td>\\n                            <td>$126.34</td>\\n                        </tr>\\n                        </tbody>\\n                    </table>\\n                </div>\\n            </div>\\n            <div class="col-lg-6">\\n                <h2>Striped Rows</h2>\\n                <div class="table-responsive">\\n                    <table class="table table-hover table-striped">\\n                        <thead>\\n                        <tr>\\n                            <th>Page</th>\\n                            <th>Visits</th>\\n                            <th>% New Visits</th>\\n                            <th>Revenue</th>\\n                        </tr>\\n                        </thead>\\n                        <tbody>\\n                        <tr>\\n                            <td>/index.html</td>\\n                            <td>1265</td>\\n                            <td>32.3%</td>\\n                            <td>$321.33</td>\\n                        </tr>\\n                        <tr>\\n                            <td>/about.html</td>\\n                            <td>261</td>\\n                            <td>33.3%</td>\\n                            <td>$234.12</td>\\n                        </tr>\\n                        <tr>\\n                            <td>/sales.html</td>\\n                            <td>665</td>\\n                            <td>21.3%</td>\\n                            <td>$16.34</td>\\n                        </tr>\\n                        <tr>\\n                            <td>/blog.html</td>\\n                            <td>9516</td>\\n                            <td>89.3%</td>\\n                            <td>$1644.43</td>\\n                        </tr>\\n                        <tr>\\n                            <td>/404.html</td>\\n                            <td>23</td>\\n                            <td>34.3%</td>\\n                            <td>$23.52</td>\\n                        </tr>\\n                        <tr>\\n                            <td>/services.html</td>\\n                            <td>421</td>\\n                            <td>60.3%</td>\\n                            <td>$724.32</td>\\n                        </tr>\\n                        <tr>\\n                            <td>/blog/post.html</td>\\n                            <td>1233</td>\\n                            <td>93.2%</td>\\n                            <td>$126.34</td>\\n                        </tr>\\n                        </tbody>\\n                    </table>\\n                </div>\\n            </div>\\n        </div>\\n        <!-- /.row -->\\n\\n        <div class="row">\\n            <div class="col-lg-6">\\n                <h2>Contextual Classes</h2>\\n                <div class="table-responsive">\\n                    <table class="table table-bordered table-hover table-striped">\\n                        <thead>\\n                        <tr>\\n                            <th>Page</th>\\n                            <th>Visits</th>\\n                            <th>% New Visits</th>\\n                            <th>Revenue</th>\\n                        </tr>\\n                        </thead>\\n                        <tbody>\\n                        <tr class="active">\\n                            <td>/index.html</td>\\n                            <td>1265</td>\\n                            <td>32.3%</td>\\n                            <td>$321.33</td>\\n                        </tr>\\n                        <tr class="success">\\n                            <td>/about.html</td>\\n                            <td>261</td>\\n                            <td>33.3%</td>\\n                            <td>$234.12</td>\\n                        </tr>\\n                        <tr class="warning">\\n                            <td>/sales.html</td>\\n                            <td>665</td>\\n                            <td>21.3%</td>\\n                            <td>$16.34</td>\\n                        </tr>\\n                        <tr class="danger">\\n                            <td>/blog.html</td>\\n                            <td>9516</td>\\n                            <td>89.3%</td>\\n                            <td>$1644.43</td>\\n                        </tr>\\n                        <tr>\\n                            <td>/404.html</td>\\n                            <td>23</td>\\n                            <td>34.3%</td>\\n                            <td>$23.52</td>\\n                        </tr>\\n                        <tr>\\n                            <td>/services.html</td>\\n                            <td>421</td>\\n                            <td>60.3%</td>\\n                            <td>$724.32</td>\\n                        </tr>\\n                        <tr>\\n                            <td>/blog/post.html</td>\\n                            <td>1233</td>\\n                            <td>93.2%</td>\\n                            <td>$126.34</td>\\n                        </tr>\\n                        </tbody>\\n                    </table>\\n                </div>\\n            </div>\\n            <div class="col-lg-6">\\n                <h2>Bootstrap Docs</h2>\\n                <p>For complete documentation, please visit <a target="_blank" href="http://getbootstrap.com/css/#tables">Bootstrap\\\'s Tables Documentation</a>.</p>\\n            </div>\\n        </div>\\n        <!-- /.row -->\\n\\n    </div>\\n    <!-- /.container-fluid -->\\n\\n</div>\\n<!-- /#page-wrapper -->\\n\\n</div>\\n<!-- /#wrapper -->\\n\\n<!-- jQuery -->\\n<script src="js/jquery.js"></script>\\n\\n<!-- Bootstrap Core JavaScript -->\\n<script src="js/bootstrap.min.js"></script>\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n<div class="col-lg-4">\\n    <div class="panel panel-default">\\n        <div class="panel-heading">\\n            <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Transactions Panel</h3>\\n        </div>\\n        <div class="panel-body">\\n            <div class="table-responsive">\\n                <table class="table table-bordered table-hover table-striped">\\n                    <thead>\\n                    <tr>\\n                        <th>Order #</th>\\n                        <th>Order Date</th>\\n                        <th>Order Time</th>\\n                        <th>Amount (USD)</th>\\n                    </tr>\\n                    </thead>\\n                    <tbody>\\n                    <tr>\\n                        <td>3326</td>\\n                        <td>10/21/2013</td>\\n                        <td>3:29 PM</td>\\n                        <td>$321.33</td>\\n                    </tr>\\n                    <tr>\\n                        <td>3325</td>\\n                        <td>10/21/2013</td>\\n                        <td>3:20 PM</td>\\n                        <td>$234.34</td>\\n                    </tr>\\n                    </tbody>\\n\\n                </table>\\n            </div>\\n            <div class="text-right">\\n                <a href="#">View All Transactions <i class="fa fa-arrow-circle-right"></i></a>\\n            </div>\\n        </div>\\n    </div>\\n</div>\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\', escape=False)\nresponse.write(\'\\n        </div>\\n    </div>\\n\\n    <!-- jQuery -->\\n    <script src="\', escape=False)\nresponse.write(URL(a=\'tcc\', c=\'static\', f=\'js\'))\nresponse.write(\'/jquery.js"></script>\\n\\n    <!-- Bootstrap Core JavaScript -->\\n    <script src="\', escape=False)\nresponse.write(URL(a=\'tcc\', c=\'static\', f=\'js\'))\nresponse.write(\'/bootstrap.min.js"></script>\\n\\n</body>\\n\\n</html>\\n\\n\', escape=False)\nresponse.write(\'\\n\\n<!--<script>-->\\n    <!--$.get("\', escape=False)\nresponse.write(URL(a=\'tcc\', c=\'control\', f=\'get_ip\'))\nresponse.write(\'", function( data ) {-->\\n    <!--$(\\\'#ip_int\\\').html(data)-->\\n    <!--});-->\\n\\n    <!--$.get("\', escape=False)\nresponse.write(URL(a=\'tcc\', c=\'control\', f=\'gateway\'))\nresponse.write(\'", function( data ) {-->\\n    <!--$(\\\'#gateway\\\').html(data)-->\\n    <!--});-->\\n\\n    <!--$.get("\', escape=False)\nresponse.write(URL(a=\'tcc\', c=\'control\', f=\'qtde_so\'))\nresponse.write(\'", function( data ) {-->\\n    <!--alert(JSON.stringify(data))-->\\n    <!--var x = data.split(\\\',\\\')-->\\n    <!--$(\\\'#testando\\\').html(x[0].split(\\\':\\\')[1])-->\\n    <!--$(\\\'#testando1\\\').html(x[1].split(\\\':\\\')[1])-->\\n    <!--});-->\\n\\n    <!--$.get("\', escape=False)\nresponse.write(URL(a=\'tcc\', c=\'control\', f=\'qtde_host\'))\nresponse.write(\'", function( data ) {-->\\n    <!--$(\\\'#qtde_host\\\').html(data)-->\\n    <!--});-->\\n<!--</script>-->\\n\\n<script>\\n    $.get("\', escape=False)\nresponse.write(URL(a=\'tcc\', c=\'control\', f=\'qtde_host\'))\nresponse.write(\'", function( data ) {\\n    $(\\\'#qtde_host\\\').html(data)\\n    });\\n\\n    function openModal(tipo){\\n        if(tipo == 1){\\n            $("#modalWindows").modal("show");\\n            return;\\n        }\\n        \\n        if(tipo == 2){\\n            $("#modalLinux").modal("show");\\n            return;\\n        }\\n\\n        else{\\n            $("#modalOutros").modal("show");\\n            return;\\n        }\\n    }\\n</script>\\n\\n\', escape=False)'
+p7
+sS'snapshot'
+p8
+(dp9
+S'exception'
+p10
+(dp11
+S'__hash__'
+p12
+S"<method-wrapper '__hash__' of exceptions.AttributeError object>"
+p13
+sS'__setattr__'
+p14
+S"<method-wrapper '__setattr__' of exceptions.AttributeError object>"
+p15
+sS'__reduce_ex__'
+p16
+S'<built-in method __reduce_ex__ of exceptions.AttributeError object>'
+p17
+sS'__getslice__'
+p18
+S"<method-wrapper '__getslice__' of exceptions.AttributeError object>"
+p19
+sS'__getitem__'
+p20
+S"<method-wrapper '__getitem__' of exceptions.AttributeError object>"
+p21
+sS'__setstate__'
+p22
+S'<built-in method __setstate__ of exceptions.AttributeError object>'
+p23
+sS'args'
+p24
+S'("\'dict\' object has no attribute \'ip\'",)'
+p25
+sS'__reduce__'
+p26
+S'<built-in method __reduce__ of exceptions.AttributeError object>'
+p27
+sS'__str__'
+p28
+S"<method-wrapper '__str__' of exceptions.AttributeError object>"
+p29
+sS'__format__'
+p30
+S'<built-in method __format__ of exceptions.AttributeError object>'
+p31
+sS'__getattribute__'
+p32
+S"<method-wrapper '__getattribute__' of exceptions.AttributeError object>"
+p33
+sS'__class__'
+p34
+S"<type 'exceptions.AttributeError'>"
+p35
+sS'__unicode__'
+p36
+S'<built-in method __unicode__ of exceptions.AttributeError object>'
+p37
+sS'__delattr__'
+p38
+S"<method-wrapper '__delattr__' of exceptions.AttributeError object>"
+p39
+sS'__subclasshook__'
+p40
+S'<built-in method __subclasshook__ of type object>'
+p41
+sS'__repr__'
+p42
+S"<method-wrapper '__repr__' of exceptions.AttributeError object>"
+p43
+sS'__dict__'
+p44
+S'{}'
+p45
+sS'__sizeof__'
+p46
+S'<built-in method __sizeof__ of exceptions.AttributeError object>'
+p47
+sS'__doc__'
+p48
+S"'Attribute not found.'"
+p49
+sS'__init__'
+p50
+S"<method-wrapper '__init__' of exceptions.AttributeError object>"
+p51
+sS'__new__'
+p52
+S'<built-in method __new__ of type object>'
+p53
+ssS'evalue'
+p54
+S"'dict' object has no attribute 'ip'"
+p55
+sS'request'
+p56
+cgluon.html
+XML_unpickle
+p57
+(S's=X\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top;">ajax</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">application</td><td style="vertical-align:top;">:</td><td><div>tcc</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">args</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cid</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">client</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">controller</td><td style="vertical-align:top;">:</td><td><div>control</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cookies</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">session_id_admin</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-37be75b3-7eb7-4964-ba77-2114d567caeb<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_tcc</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-29f8edb5-d784-4666-abaa-c2f2293731b8<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_welcome</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-83d4fa5f-6874-4220-93a2-373e6c3c1776<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">env</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT</td><td style="vertical-align:top;">:</td><td><div>text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT_ENCODING</td><td style="vertical-align:top;">:</td><td><div>gzip, deflate</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT_LANGUAGE</td><td style="vertical-align:top;">:</td><td><div>en-US,en;q=0.5</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_CACHE_CONTROL</td><td style="vertical-align:top;">:</td><td><div>max-age=0</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_CONNECTION</td><td style="vertical-align:top;">:</td><td><div>keep-alive</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_COOKIE</td><td style="vertical-align:top;">:</td><td><div>session_id_welcome=127.0.0.1-83d4fa5f-6874-4220-93a2-373e6c3c1776; session_id_tcc=127.0.0.1-29f8edb5-d784-4666-abaa-c2f2293731b8; session_id_admin=127.0.0.1-37be75b3-7eb7-4964-ba77-2114d567caeb</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_HOST</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1:8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_USER_AGENT</td><td style="vertical-align:top;">:</td><td><div>Mozilla/5.0 (X11; Linux x86_64; rv:45.0) Gecko/20100101 Firefox/45.0</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">PATH_INFO</td><td style="vertical-align:top;">:</td><td><div>/tcc/control/dash</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">QUERY_STRING</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REMOTE_ADDR</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REMOTE_PORT</td><td style="vertical-align:top;">:</td><td><div>46188</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REQUEST_METHOD</td><td style="vertical-align:top;">:</td><td><div>GET</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SCRIPT_NAME</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_NAME</td><td style="vertical-align:top;">:</td><td><div>kali</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_PORT</td><td style="vertical-align:top;">:</td><td><div>8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_PROTOCOL</td><td style="vertical-align:top;">:</td><td><div>HTTP/1.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_SOFTWARE</td><td style="vertical-align:top;">:</td><td><div>Rocket 1.2.6</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">app_folders</td><td style="vertical-align:top;">:</td><td><div>set([&#x27;/var/www/web2py/applications/welcome/&#x27;, &#x27;/var/www/web2py/applications/tcc/&#x27;])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">applications_parent</td><td style="vertical-align:top;">:</td><td><div>/var/www/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_args</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_options</td><td style="vertical-align:top;">:</td><td><div>&lt;Values at 0x7f18dcffe320: {&#x27;verbose&#x27;: False, &#x27;ip&#x27;: &#x27;127.0.0.1&#x27;, &#x27;debuglevel&#x27;: 30, &#x27;with_scheduler&#x27;: False, &#x27;shutdown_timeout&#x27;: 5, &#x27;taskbar&#x27;: False, &#x27;with_coverage&#x27;: False, &#x27;pid_filename&#x27;: &#x27;httpserver.pid&#x27;, &#x27;maxthreads&#x27;: None, &#x27;softcron&#x27;: False, &#x27;server_name&#x27;: &#x27;kali&#x27;, &#x27;bpython&#x27;: False, &#x27;nogui&#x27;: False, &#x27;port&#x27;: 8000, &#x27;print_errors&#x27;: False, &#x27;extcron&#x27;: False, &#x27;runcron&#x27;: False, &#x27;run_system_tests&#x27;: False, &#x27;test&#x27;: None, &#x27;folder&#x27;: &#x27;/var/www/web2py&#x27;, &#x27;config&#x27;: &#x27;&#x27;, &#x27;minthreads&#x27;: None, &#x27;shell&#x27;: None, &#x27;run&#x27;: &#x27;&#x27;, &#x27;log_filename&#x27;: &#x27;httpserver.log&#x27;, &#x27;profiler_dir&#x27;: None, &#x27;args&#x27;: [&#x27;&#x27;], &#x27;socket_timeout&#x27;: 5, &#x27;ssl_ca_certificate&#x27;: None, &#x27;scheduler&#x27;: None, &#x27;interfaces&#x27;: None, &#x27;ssl_private_key&#x27;: &#x27;&#x27;, &#x27;gae&#x27;: None, &#x27;password&#x27;: &#x27;******&#x27;, &#x27;request_queue_size&#x27;: 5, &#x27;ssl_certificate&#x27;: &#x27;&#x27;, &#x27;cronjob&#x27;: False, &#x27;numthreads&#x27;: None, &#x27;quiet&#x27;: False, &#x27;import_models&#x27;: False, &#x27;timeout&#x27;: 10, &#x27;plain&#x27;: False, &#x27;nobanner&#x27;: False}&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">db_sessions</td><td style="vertical-align:top;">:</td><td><div>set([])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">debugging</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">gluon_parent</td><td style="vertical-align:top;">:</td><td><div>/var/www/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept</td><td style="vertical-align:top;">:</td><td><div>text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept_encoding</td><td style="vertical-align:top;">:</td><td><div>gzip, deflate</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept_language</td><td style="vertical-align:top;">:</td><td><div>en-US,en;q=0.5</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_cache_control</td><td style="vertical-align:top;">:</td><td><div>max-age=0</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_connection</td><td style="vertical-align:top;">:</td><td><div>keep-alive</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_cookie</td><td style="vertical-align:top;">:</td><td><div>session_id_welcome=127.0.0.1-83d4fa5f-6874-4220-93a2-373e6c3c1776; session_id_tcc=127.0.0.1-29f8edb5-d784-4666-abaa-c2f2293731b8; session_id_admin=127.0.0.1-37be75b3-7eb7-4964-ba77-2114d567caeb</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_host</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1:8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_user_agent</td><td style="vertical-align:top;">:</td><td><div>Mozilla/5.0 (X11; Linux x86_64; rv:45.0) Gecko/20100101 Firefox/45.0</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_jython</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_pypy</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_source</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">local_hosts</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>kali</div></td></tr><tr><td><div>::1</div></td></tr><tr><td><div>127.0.1.1</div></td></tr><tr><td><div>::ffff:127.0.0.1</div></td></tr><tr><td><div>127.0.0.1</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path_info</td><td style="vertical-align:top;">:</td><td><div>/tcc/control/dash</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">query_string</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">remote_addr</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">remote_port</td><td style="vertical-align:top;">:</td><td><div>46188</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">request_method</td><td style="vertical-align:top;">:</td><td><div>GET</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">request_uri</td><td style="vertical-align:top;">:</td><td><div>/tcc/control/dash</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">script_name</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_name</td><td style="vertical-align:top;">:</td><td><div>kali</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_port</td><td style="vertical-align:top;">:</td><td><div>8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_protocol</td><td style="vertical-align:top;">:</td><td><div>HTTP/1.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_software</td><td style="vertical-align:top;">:</td><td><div>Rocket 1.2.6</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_path</td><td style="vertical-align:top;">:</td><td><div>/var/www/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_version</td><td style="vertical-align:top;">:</td><td><div>2.14.6-stable+timestamp.2016.05.10.00.21.47</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.errors</td><td style="vertical-align:top;">:</td><td><div>&lt;open file &#x27;&lt;stderr&gt;&#x27;, mode &#x27;w&#x27; at 0x7f18ded661e0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.file_wrapper</td><td style="vertical-align:top;">:</td><td><div>&lt;class wsgiref.util.FileWrapper at 0x7f18d34ba7a0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.input</td><td style="vertical-align:top;">:</td><td><div>&lt;socket._fileobject object at 0x7f18d0010150&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.multiprocess</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.multithread</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.run_once</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.url_scheme</td><td style="vertical-align:top;">:</td><td><div>http</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.version</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>1</div></td></tr><tr><td><div>0</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_errors</td><td style="vertical-align:top;">:</td><td><div>&lt;open file &#x27;&lt;stderr&gt;&#x27;, mode &#x27;w&#x27; at 0x7f18ded661e0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_file_wrapper</td><td style="vertical-align:top;">:</td><td><div>&lt;class wsgiref.util.FileWrapper at 0x7f18d34ba7a0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_input</td><td style="vertical-align:top;">:</td><td><div>&lt;socket._fileobject object at 0x7f18d0010150&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_multiprocess</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_multithread</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_run_once</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_url_scheme</td><td style="vertical-align:top;">:</td><td><div>http</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_version</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>1</div></td></tr><tr><td><div>0</div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">extension</td><td style="vertical-align:top;">:</td><td><div>html</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">folder</td><td style="vertical-align:top;">:</td><td><div>/var/www/web2py/applications/tcc/</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">function</td><td style="vertical-align:top;">:</td><td><div>dash</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">global_settings</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">app_folders</td><td style="vertical-align:top;">:</td><td><div>set([&#x27;/var/www/web2py/applications/welcome/&#x27;, &#x27;/var/www/web2py/applications/tcc/&#x27;])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">applications_parent</td><td style="vertical-align:top;">:</td><td><div>/var/www/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_args</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_options</td><td style="vertical-align:top;">:</td><td><div>&lt;Values at 0x7f18dcffe320: {&#x27;verbose&#x27;: False, &#x27;ip&#x27;: &#x27;127.0.0.1&#x27;, &#x27;debuglevel&#x27;: 30, &#x27;with_scheduler&#x27;: False, &#x27;shutdown_timeout&#x27;: 5, &#x27;taskbar&#x27;: False, &#x27;with_coverage&#x27;: False, &#x27;pid_filename&#x27;: &#x27;httpserver.pid&#x27;, &#x27;maxthreads&#x27;: None, &#x27;softcron&#x27;: False, &#x27;server_name&#x27;: &#x27;kali&#x27;, &#x27;bpython&#x27;: False, &#x27;nogui&#x27;: False, &#x27;port&#x27;: 8000, &#x27;print_errors&#x27;: False, &#x27;extcron&#x27;: False, &#x27;runcron&#x27;: False, &#x27;run_system_tests&#x27;: False, &#x27;test&#x27;: None, &#x27;folder&#x27;: &#x27;/var/www/web2py&#x27;, &#x27;config&#x27;: &#x27;&#x27;, &#x27;minthreads&#x27;: None, &#x27;shell&#x27;: None, &#x27;run&#x27;: &#x27;&#x27;, &#x27;log_filename&#x27;: &#x27;httpserver.log&#x27;, &#x27;profiler_dir&#x27;: None, &#x27;args&#x27;: [&#x27;&#x27;], &#x27;socket_timeout&#x27;: 5, &#x27;ssl_ca_certificate&#x27;: None, &#x27;scheduler&#x27;: None, &#x27;interfaces&#x27;: None, &#x27;ssl_private_key&#x27;: &#x27;&#x27;, &#x27;gae&#x27;: None, &#x27;password&#x27;: &#x27;******&#x27;, &#x27;request_queue_size&#x27;: 5, &#x27;ssl_certificate&#x27;: &#x27;&#x27;, &#x27;cronjob&#x27;: False, &#x27;numthreads&#x27;: None, &#x27;quiet&#x27;: False, &#x27;import_models&#x27;: False, &#x27;timeout&#x27;: 10, &#x27;plain&#x27;: False, &#x27;nobanner&#x27;: False}&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">db_sessions</td><td style="vertical-align:top;">:</td><td><div>set([])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">debugging</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">gluon_parent</td><td style="vertical-align:top;">:</td><td><div>/var/www/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_jython</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_pypy</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_source</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">local_hosts</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>kali</div></td></tr><tr><td><div>::1</div></td></tr><tr><td><div>127.0.1.1</div></td></tr><tr><td><div>::ffff:127.0.0.1</div></td></tr><tr><td><div>127.0.0.1</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_version</td><td style="vertical-align:top;">:</td><td><div>2.14.6-stable+timestamp.2016.05.10.00.21.47</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_https</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_local</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_restful</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_scheduler</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_shell</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">now</td><td style="vertical-align:top;">:</td><td><div>datetime.datetime(2017, 8, 29, 22, 41, 8, 203069)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">raw_args</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">raw_extension</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">url</td><td style="vertical-align:top;">:</td><td><div>/tcc/control/dash</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">utcnow</td><td style="vertical-align:top;">:</td><td><div>datetime.datetime(2017, 8, 30, 2, 41, 8, 203090)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi</td><td style="vertical-align:top;">:</td><td><div>&lt;gluon.main.LazyWSGI object at 0x7f18c07a6ad0&gt;</div></td></tr></table></div>'
+tRp58
+sS'frames'
+p59
+(lp60
+(dp61
+S'file'
+p62
+S'/var/www/web2py/gluon/restricted.py'
+p63
+sS'dump'
+p64
+(dp65
+S'environment'
+p66
+S"{'A': <class 'gluon.html.A'>, 'ANY_OF': <class 'gluon.validators.ANY_OF'>, 'ASSIGNJS': <function ASSIGNJS>, 'Auth': <class 'gluon.tools.Auth'>, 'B': <class 'gluon.html.B'>, 'BEAUTIFY': <class 'gluon.html.BEAUTIFY'>, 'BODY': <class 'gluon.html.BODY'>, 'BR': <class 'gluon.html.BR'>, 'BUTTON': <class 'gluon.html.BUTTON'>, 'CAT': <class 'gluon.html.CAT'>, ...}"
+p67
+sS'ccode'
+p68
+S'<code object <module> at 0x7f18c0722430, file "/...lications/tcc/views/estrutura/dash.html", line 1>'
+p69
+ssS'lnum'
+p70
+I227
+sS'lines'
+p71
+(dp72
+I224
+S'            ccode = code'
+p73
+sI225
+S'        else:'
+p74
+sI226
+S'            ccode = compile2(code, layer)'
+p75
+sI227
+S'        exec ccode in environment'
+p76
+sI228
+S'    except HTTP:'
+p77
+sI229
+S'        raise'
+p78
+sI230
+S'    except RestrictedError:'
+p79
+sI231
+S'        # do not encapsulate (obfuscate) the original RestrictedError'
+p80
+sI222
+S'    try:'
+p81
+sI223
+S'        if isinstance(code, types.CodeType):'
+p82
+ssS'call'
+p83
+S'(code=\'response.write(\\\'<!DOCTYPE html>\\\\n<html lang="en"...\\\\n        }\\\\n    }\\\\n</script>\\\\n\\\\n\\\', escape=False)\', environment={\'A\': <class \'gluon.html.A\'>, \'ANY_OF\': <class \'gluon.validators.ANY_OF\'>, \'ASSIGNJS\': <function ASSIGNJS>, \'Auth\': <class \'gluon.tools.Auth\'>, \'B\': <class \'gluon.html.B\'>, \'BEAUTIFY\': <class \'gluon.html.BEAUTIFY\'>, \'BODY\': <class \'gluon.html.BODY\'>, \'BR\': <class \'gluon.html.BR\'>, \'BUTTON\': <class \'gluon.html.BUTTON\'>, \'CAT\': <class \'gluon.html.CAT\'>, ...}, layer=\'/var/www/web2py/applications/tcc/views/estrutura/dash.html\')'
+p84
+sS'func'
+p85
+S'restricted'
+p86
+sa(dp87
+g62
+S'/var/www/web2py/applications/tcc/views/estrutura/dash.html'
+p88
+sg64
+(dp89
+S'thead'
+p90
+S'undefined'
+p91
+ssg70
+I17
+sg71
+(dp92
+I8
+S"response.write(URL(a='tcc', c='static', f='font-awesome'))"
+p93
+sI9
+S'response.write(\'/css/font-awesome.min.css" rel="stylesheet" type="text/css">\\n\\n    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->\\n    <!-- WARNING: Respond.js doesn\\\'t work if you view the page via file:// -->\\n    <!--[if lt IE 9]>\\n        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>\\n        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>\\n    <![endif]-->\\n\\n\\n    <!-- Bootstrap Core CSS RTL-->\\n    <!--<<link href="\', escape=False)'
+p94
+sI10
+S"response.write(URL(a='tcc', c='static', f='css'))"
+p95
+sI11
+S'response.write(\'/bootstrap-rtl.min.css" rel="stylesheet">!-->\\n\\n    <!-- Morris Charts CSS -->\\n    <link href="\', escape=False)'
+p96
+sI12
+S"response.write(URL(a='tcc', c='static', f='css'))"
+p97
+sI13
+S'response.write(\'/plugins/morris.css" rel="stylesheet">\\n\\n</head>\\n\\n<body>\\n\\n    <div id="wrapper">\\n\\n        <!-- Navigation -->\\n        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">\\n            <!-- Brand and toggle get grouped for better mobile display -->\\n            <div class="navbar-header">\\n                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">\\n                    <span class="sr-only">Toggle navigation</span>\\n                    <span class="icon-bar"></span>\\n                    <span class="icon-bar"></span>\\n                    <span class="icon-bar"></span>\\n                </button>\\n                <a class="navbar-brand" href="dash">VulnScan</a>\\n            </div>\\n            <!-- Top Menu Items -->\\n            <ul class="nav navbar-right top-nav">\\n                <!--<li class="dropdown">-->\\n                    <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>-->\\n                    <!--<ul class="dropdown-menu message-dropdown">-->\\n                        <!--<li class="message-preview">-->\\n                            <!--<a href="#">-->\\n                                <!--<div class="media">-->\\n                                    <!--<span class="pull-left">-->\\n                                        <!--<img class="media-object" src="http://placehold.it/50x50" alt="">-->\\n                                    <!--</span>-->\\n                                    <!--<div class="media-body">-->\\n                                        <!--<h5 class="media-heading">-->\\n                                            <!--<strong>Admin</strong>-->\\n                                        <!--</h5>-->\\n                                        <!--<p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>-->\\n                                        <!--<p>Lorem ipsum dolor sit amet, consectetur...</p>-->\\n                                    <!--</div>-->\\n                                <!--</div>-->\\n                            <!--</a>-->\\n                        <!--</li>-->\\n                        <!--<li class="message-preview">-->\\n                            <!--<a href="#">-->\\n                                <!--<div class="media">-->\\n                                    <!--<span class="pull-left">-->\\n                                        <!--<img class="media-object" src="http://placehold.it/50x50" alt="">-->\\n                                    <!--</span>-->\\n                                    <!--<div class="media-body">-->\\n                                        <!--<h5 class="media-heading">-->\\n                                            <!--<strong>Admin</strong>-->\\n                                        <!--</h5>-->\\n                                        <!--<p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>-->\\n                                        <!--<p>Lorem ipsum dolor sit amet, consectetur...</p>-->\\n                                    <!--</div>-->\\n                                <!--</div>-->\\n                            <!--</a>-->\\n                        <!--</li>-->\\n                        <!--<li class="message-preview">-->\\n                            <!--<a href="#">-->\\n                                <!--<div class="media">-->\\n                                    <!--<span class="pull-left">-->\\n                                        <!--<img class="media-object" src="http://placehold.it/50x50" alt="">-->\\n                                    <!--</span>-->\\n                                    <!--<div class="media-body">-->\\n                                        <!--<h5 class="media-heading">-->\\n                                            <!--<strong>Admin</strong>-->\\n                                        <!--</h5>-->\\n                                        <!--<p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>-->\\n                                        <!--<p>Lorem ipsum dolor sit amet, consectetur...</p>-->\\n                                    <!--</div>-->\\n                                <!--</div>-->\\n                            <!--</a>-->\\n                        <!--</li>-->\\n                        <!--<li class="message-footer">-->\\n                            <!--<a href="#">Read All New Messages</a>-->\\n                        <!--</li>-->\\n                    <!--</ul>-->\\n                <!--</li>-->\\n                <!--<li class="dropdown">-->\\n                    <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>-->\\n                    <!--<ul class="dropdown-menu alert-dropdown">-->\\n                        <!--<li>-->\\n                            <!--<a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>-->\\n                        <!--</li>-->\\n                        <!--<li>-->\\n                            <!--<a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>-->\\n                        <!--</li>-->\\n                        <!--<li>-->\\n                            <!--<a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>-->\\n                        <!--</li>-->\\n                        <!--<li>-->\\n                            <!--<a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>-->\\n                        <!--</li>-->\\n                        <!--<li>-->\\n                            <!--<a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>-->\\n                        <!--</li>-->\\n                        <!--<li>-->\\n                            <!--<a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>-->\\n                        <!--</li>-->\\n                        <!--<li class="divider"></li>-->\\n                        <!--<li>-->\\n                            <!--<a href="#">View All</a>-->\\n                        <!--</li>-->\\n                    <!--</ul>-->\\n                <!--</li>-->\\n                <li class="dropdown">\\n                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Admin <b class="caret"></b></a>\\n                    <ul class="dropdown-menu">\\n                        <!--<li>-->\\n                            <!--<a href="#"><i class="fa fa-fw fa-user"></i> Perfil</a>-->\\n                        <!--</li>-->\\n                        <!--<li>-->\\n                            <!--<a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>-->\\n                        <!--</li>-->\\n                        <!--<li>-->\\n                            <!--<a href="#"><i class="fa fa-fw fa-gear"></i> Configura\\xc3\\xa7\\xc3\\xb5es</a>-->\\n                        <!--</li>-->\\n                        <!--<li class="divider"></li>-->\\n                        <li>\\n                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Sair</a>\\n                        </li>\\n                    </ul>\\n                </li>\\n            </ul>\\n            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->\\n            <div class="collapse navbar-collapse navbar-ex1-collapse">\\n                <ul class="nav navbar-nav side-nav">\\n                    <li>\\n                        <a href="dash"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>\\n                    </li>\\n                    <li>\\n                        <a href="scan"><i class="fa fa-fw fa-bar-chart-o"></i> Scan</a>\\n                    </li>\\n                    <li>\\n                        <a href="relatorio"><i class="fa fa-fw fa-table"></i> Relat\\xc3\\xb3rio</a>\\n                    </li>\\n                    <li>\\n                        <a href="settings"><i class="fa fa-fw fa-edit"></i> Configura\\xc3\\xa7\\xc3\\xb5es</a>\\n                    </li>\\n                    <!--<li>\\n                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>\\n                        <ul id="demo" class="collapse">\\n                            <li>\\n                                <a href="#">Dropdown Item</a>\\n                            </li>\\n                            <li>\\n                                <a href="#">Dropdown Item</a>\\n                            </li>\\n                        </ul>\\n                    </li>!-->\\n                </ul>\\n            </div>\\n            <!-- /.navbar-collapse -->\\n        </nav>\\n\\n        <div id="page-wrapper">\\n            \', escape=False)'
+p98
+sI14
+S'response.write(\'\\n<br>\\n<div class="modal fade" id="modalWindows">\\n  <div class="modal-dialog" role="document">\\n    <div class="modal-content">\\n      <div class="modal-header">\\n        <h5 class="modal-title">Dispositivos Windows</h5>\\n        <button type="button" class="close" data-dismiss="modal" aria-label="Close">\\n          <span aria-hidden="true">&times;</span>\\n        </button>\\n      </div>\\n      <div class="modal-body">\\n                <div class="table-responsive">\\n                    <table class="table table-bordered table-hover table-striped">\\n                        <thead>\\n                        <tr>\\n                            <th>Ip</th>\\n                            <th>Mac</th>\\n                            <th>Fabricante</th>\\n                        </tr>\\n                        </thead>\\n                        <tbody>\\n                        <tr>\\n                            <td>0</td>\\n                            <td>0</td>\\n                            <td>0</td>\\n                        </tr>\\n                        </tbody>\\n                    </table>\\n            </div>\\n      </div>\\n      <div class="modal-footer">\\n        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>\\n      </div>\\n    </div>\\n  </div>\\n</div>\\n<div class="modal fade" id="modalLinux">\\n  <div class="modal-dialog" role="document">\\n    <div class="modal-content">\\n      <div class="modal-header">\\n        <h5 class="modal-title">Dispositivos Linux</h5>\\n        <button type="button" class="close" data-dismiss="modal" aria-label="Close">\\n          <span aria-hidden="true">&times;</span>\\n        </button>\\n      </div>\\n      <div class="modal-body">\\n                <div class="table-responsive">\\n                    <table class="table table-bordered table-hover table-striped">\\n                        <thead>\\n                        <tr>\\n                            <th>Ip</th>\\n                            <th>Mac</th>\\n                            <th>Fabricante</th>\\n                        </tr>\\n                        </thead>\\n                        <tbody>\\n                            \', escape=False)'
+p99
+sI15
+S'for item in linux_disp:'
+p100
+sI16
+S"    response.write('<tr><td>', escape=False)"
+p101
+sI17
+S'    response.write(item.ip)'
+p102
+sI18
+S"    response.write('</td><td>', escape=False)"
+p103
+sI19
+S'    response.write(item.mac)'
+p104
+sI20
+S"    response.write('</td><td>', escape=False)"
+p105
+sI21
+S'    response.write(item.nomeFabricante)'
+p106
+sI22
+S"    response.write('</td></tr>', escape=False)"
+p107
+sI23
+S'    pass'
+p108
+sI24
+S'response.write(\'\\n                        </tbody>\\n                    </table>\\n            </div>\\n      </div>\\n      <div class="modal-footer">\\n        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>        \\n      </div>\\n    </div>\\n  </div>\\n</div>\\n<div class="modal fade" id="modalOutros">\\n  <div class="modal-dialog" role="document">\\n    <div class="modal-content">\\n      <div class="modal-header">\\n        <h5 class="modal-title">Outros Dispositivos</h5>\\n        <button type="button" class="close" data-dismiss="modal" aria-label="Close">\\n          <span aria-hidden="true">&times;</span>\\n        </button>\\n      </div>\\n      <div class="modal-body">\\n                <div class="table-responsive">\\n                    <table class="table table-bordered table-hover table-striped">\\n                        <thead>\\n                        <tr>\\n                            <th>Ip</th>\\n                            <th>Mac</th>\\n                            <th>Fabricante</th>\\n                        </tr>\\n                        </thead>\\n                        <tbody>\\n                        <tr>\\n                            <td>0</td>\\n                            <td>0</td>\\n                            <td>0</td>\\n                        </tr>\\n                        </tbody>\\n                    </table>\\n            </div>\\n      </div>\\n      <div class="modal-footer">\\n            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>\\n      </div>\\n    </div>\\n  </div>\\n</div>\\n<div class="container-fluid">\\n    <!-- Page Heading -->\\n    <div class="row">\\n        <div class="col-lg-12">\\n            <h1 class="page-header">\\n                Dashboard\\n                <small></small>\\n            </h1>\\n            <ol class="breadcrumb">\\n                <li>\\n                    <i class="fa fa-dashboard"></i>  <a href="\', escape=False)'
+p109
+sI25
+S"response.write(URL(a='tcc', c='control', f='dash'))"
+p110
+sI26
+S'response.write(\'">Dashboard</a>\\n                </li>\\n                <li class="active"></li>\\n            </ol>\\n        </div>\\n    </div><!-- /.row -->\\n</div><!-- /.container-fluid -->\\n\\n<div class="row">\\n    <div class="col-lg-3 col-md-6">\\n        <div class="panel panel-primary">\\n            <div class="panel-heading">\\n                <div class="row">\\n                    <div class="col-xs-3">\\n                        <i class="fa fa-windows fa-5x"></i>\\n                    </div>\\n                    <div class="col-xs-9 text-right">\\n                    <div class="huge">\', escape=False)'
+p111
+sI27
+S'response.write(count_windows)'
+p112
+ssg83
+S'()'
+p113
+sg85
+S'<module>'
+p114
+sasS'pyver'
+p115
+S'Python 2.7.13: /usr/bin/python (prefix: /usr)'
+p116
+sS'session'
+p117
+g57
+(S's\x1a\x00\x00\x00<div><table></table></div>'
+tRp118
+sS'etype'
+p119
+S"<type 'exceptions.AttributeError'>"
+p120
+sS'date'
+p121
+S'Tue Aug 29 22:41:08 2017'
+p122
+sS'response'
+p123
+g57
+(S's\x11\x16\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top;">body</td><td style="vertical-align:top;">:</td><td><div>&lt;cStringIO.StringO object at 0x7f18c0686f48&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cookies</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">session_id_tcc</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-1957eeb1-5bf4-4604-8ada-dbe6175f9ed6<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div>/</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">delimiters</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>{{</div></td></tr><tr><td><div>}}</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">files</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">flash</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">form_label_separator</td><td style="vertical-align:top;">:</td><td><div>: </div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">formstyle</td><td style="vertical-align:top;">:</td><td><div>table3cols</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">generic_patterns</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>*</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">headers</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">X-Powered-By</td><td style="vertical-align:top;">:</td><td><div>web2py</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">menu</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">meta</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">models_to_run</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>^\\w+\\.py$</div></td></tr><tr><td><div>^control/\\w+\\.py$</div></td></tr><tr><td><div>^control/dash/\\w+\\.py$</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">postprocessing</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_client</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_cookie_compression_level</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_cookie_expires</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_data_name</td><td style="vertical-align:top;">:</td><td><div>session_data_tcc</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_file</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_filename</td><td style="vertical-align:top;">:</td><td><div>/var/www/web2py/applications/tcc/sessions/127.0.0.1-1957eeb1-5bf4-4604-8ada-dbe6175f9ed6</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_hash</td><td style="vertical-align:top;">:</td><td><div>c0762cbf4baf7f9af97c051e7fcb8083</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-1957eeb1-5bf4-4604-8ada-dbe6175f9ed6</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_name</td><td style="vertical-align:top;">:</td><td><div>session_id_tcc</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_masterapp</td><td style="vertical-align:top;">:</td><td><div>tcc</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_new</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_storage_type</td><td style="vertical-align:top;">:</td><td><div>file</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">status</td><td style="vertical-align:top;">:</td><td><div>200</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">view</td><td style="vertical-align:top;">:</td><td><div>estrutura/dash.html</div></td></tr></table></div>'
+tRp124
+sS'locals'
+p125
+(dp126
+S'OBJECT'
+p127
+S"<class 'gluon.html.OBJECT'>"
+p128
+sS'SQLDB'
+p129
+S"<class 'pydal.base.DAL'>"
+p130
+sg117
+S'<Storage {}>'
+p131
+sS'LINK'
+p132
+S"<class 'gluon.html.LINK'>"
+p133
+sS'BR'
+p134
+S"<class 'gluon.html.BR'>"
+p135
+sS'local_import'
+p136
+S'<function <lambda>>'
+p137
+sS'OPTGROUP'
+p138
+S"<class 'gluon.html.OPTGROUP'>"
+p139
+sS'__package__'
+p140
+S'None'
+p141
+sS'PRE'
+p142
+S"<class 'gluon.html.PRE'>"
+p143
+sS'IS_INT_IN_RANGE'
+p144
+S"<class 'gluon.validators.IS_INT_IN_RANGE'>"
+p145
+sS'IS_LOWER'
+p146
+S"<class 'gluon.validators.IS_LOWER'>"
+p147
+sS'IS_STRONG'
+p148
+S"<class 'gluon.validators.IS_STRONG'>"
+p149
+sS'cache'
+p150
+S'<gluon.cache.Cache object>'
+p151
+sS'IS_IN_DB'
+p152
+S"<class 'gluon.validators.IS_IN_DB'>"
+p153
+sS'TAG'
+p154
+S'<gluon.html.__TAG__ object>'
+p155
+sS'SQLField'
+p156
+S"<class 'pydal.objects.Field'>"
+p157
+sS'BODY'
+p158
+S"<class 'gluon.html.BODY'>"
+p159
+sS'IS_DATE_IN_RANGE'
+p160
+S"<class 'gluon.validators.IS_DATE_IN_RANGE'>"
+p161
+sS'IFRAME'
+p162
+S"<class 'gluon.html.IFRAME'>"
+p163
+sS'URL'
+p164
+S'<function URL>'
+p165
+sS'__file__'
+p166
+S"'/var/www/web2py/applications/tcc/views/estrutura/dash.html'"
+p167
+sS'db'
+p168
+S'<DAL uri="sqlite://Scans.db">'
+p169
+sS'auth'
+p170
+S'<gluon.tools.Auth object>'
+p171
+sS'P'
+S"<class 'gluon.html.P'>"
+p172
+sS'TFOOT'
+p173
+S"<class 'gluon.html.TFOOT'>"
+p174
+sS'XHTML'
+p175
+S"<class 'gluon.html.XHTML'>"
+p176
+sS'ON'
+p177
+S'True'
+p178
+sS'OL'
+p179
+S"<class 'gluon.html.OL'>"
+p180
+sS'TEXTAREA'
+p181
+S"<class 'gluon.html.TEXTAREA'>"
+p182
+sS'MENU'
+p183
+S"<class 'gluon.html.MENU'>"
+p184
+sS'item'
+p185
+S"{'id': 11L, 'idScan': 10L, 'ip': '172.16.0.1', 'mac': '90:F6:52:EF:52:8A', 'nomeFabricante': 'Tp-link Technologies', 'nomeOs': 'Linux'}"
+p186
+sS'count_linux'
+p187
+S'2'
+sS'IS_IMAGE'
+p188
+S"<class 'gluon.validators.IS_IMAGE'>"
+p189
+sS'outros_disp'
+p190
+S"[{'id': 10L, 'idScan': 10L, 'ip': '172.16.0.104', 'mac': 'Indefinido', 'nomeFabricante': 'Indefinido', 'nomeOs': 'Outro'}, {'id': 12L, 'idScan': 10L, 'ip': '172.16.0.101', 'mac': 'CC:FA:00:FC:D6:62', 'nomeFabricante': 'LG Electronics (Mobile Communications)', 'nomeOs': 'Outro'}, {'id': 14L, 'idScan': 10L, 'ip': '172.16.0.55', 'mac': 'F0:D7:AA:B9:8B:7E', 'nomeFabricante': 'Motorola Mobility, a Lenovo Company', 'nomeOs': 'Outro'}, {'id': 15L, 'idScan': 10L, 'ip': '172.16.0.51', 'mac': '74:29:AF:A3:5E:25', 'nomeFabricante': 'Hon Hai Precision Ind.', 'nomeOs': 'Outro'}]"
+p191
+sS'EM'
+p192
+S"<class 'gluon.html.EM'>"
+p193
+sS'CODE'
+p194
+S"<class 'gluon.html.CODE'>"
+p195
+sS'HTTP'
+p196
+S"<class 'gluon.http.HTTP'>"
+p197
+sS'HR'
+p198
+S"<class 'gluon.html.HR'>"
+p199
+sS'ip_externo'
+p200
+S"['  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current', '                                 Dload  Upload   Total   Spent    Left  Speed', '\\r  0     0    0     0    0     0      0      0 -... 0     33      0 --:--:-- --:--:-- --:--:--    32', '186.210.139.207']"
+p201
+sS'IS_DATETIME'
+p202
+S"<class 'gluon.validators.IS_DATETIME'>"
+p203
+sS'STYLE'
+p204
+S"<class 'gluon.html.STYLE'>"
+p205
+sS'LABEL'
+p206
+S"<class 'gluon.html.LABEL'>"
+p207
+sS'count_windows'
+p208
+S'0'
+sS'CLEANUP'
+p209
+S"<class 'gluon.validators.CLEANUP'>"
+p210
+sS'SELECT'
+p211
+S"<class 'gluon.html.SELECT'>"
+p212
+sS'CENTER'
+p213
+S"<class 'gluon.html.CENTER'>"
+p214
+sS'Auth'
+p215
+S"<class 'gluon.tools.Auth'>"
+p216
+sS'__builtins__'
+p217
+S"{'ArithmeticError': <type 'exceptions.ArithmeticError'>, 'AssertionError': <type 'exceptions.AssertionError'>, 'AttributeError': <type 'exceptions.AttributeError'>, 'BaseException': <type 'exceptions.BaseException'>, 'BufferError': <type 'exceptions.BufferError'>, 'BytesWarning': <type 'exceptions.BytesWarning'>, 'DeprecationWarning': <type 'exceptions.DeprecationWarning'>, 'EOFError': <type 'exceptions.EOFError'>, 'Ellipsis': Ellipsis, 'EnvironmentError': <type 'exceptions.EnvironmentError'>, ...}"
+p218
+sS'HTML'
+p219
+S"<class 'gluon.html.HTML'>"
+p220
+sS'linux_disp'
+p221
+S"[{'id': 11L, 'idScan': 10L, 'ip': '172.16.0.1', 'mac': '90:F6:52:EF:52:8A', 'nomeFabricante': 'Tp-link Technologies', 'nomeOs': 'Linux'}, {'id': 13L, 'idScan': 10L, 'ip': '172.16.0.103', 'mac': '9C:80:DF:0B:0E:39', 'nomeFabricante': 'Arcadyan Technology', 'nomeOs': 'Linux'}]"
+p222
+sS'SQLFORM'
+p223
+S"<class 'gluon.sqlhtml.SQLFORM'>"
+p224
+sS'LOAD'
+p225
+S'<function LOAD>'
+p226
+sS'redirect'
+p227
+S'<function redirect>'
+p228
+sS'FIELDSET'
+p229
+S"<class 'gluon.html.FIELDSET'>"
+p230
+sS'IS_EQUAL_TO'
+p231
+S"<class 'gluon.validators.IS_EQUAL_TO'>"
+p232
+sS'embed64'
+p233
+S'<function embed64>'
+p234
+sS'IS_LIST_OF'
+p235
+S"<class 'gluon.validators.IS_LIST_OF'>"
+p236
+sS'INPUT'
+p237
+S"<class 'gluon.html.INPUT'>"
+p238
+sS'EMBED'
+p239
+S"<class 'gluon.html.EMBED'>"
+p240
+sS'Scan'
+p241
+S'(<Table Scan (id, gatewayIp, interface, idTipoStatusScan, dataInicioScan)>,)'
+p242
+sS'H2'
+p243
+S"<class 'gluon.html.H2'>"
+p244
+sS'H3'
+p245
+S"<class 'gluon.html.H3'>"
+p246
+sS'BUTTON'
+p247
+S"<class 'gluon.html.BUTTON'>"
+p248
+sS'H1'
+p249
+S"<class 'gluon.html.H1'>"
+p250
+sS'H6'
+p251
+S"<class 'gluon.html.H6'>"
+p252
+sS'H4'
+p253
+S"<class 'gluon.html.H4'>"
+p254
+sS'H5'
+p255
+S"<class 'gluon.html.H5'>"
+p256
+sS'UL'
+p257
+S"<class 'gluon.html.UL'>"
+p258
+sS'IS_UPPER'
+p259
+S"<class 'gluon.validators.IS_UPPER'>"
+p260
+sS'windows_disp'
+p261
+S'[]'
+p262
+sS'xmlescape'
+p263
+S'<function xmlescape>'
+p264
+sS'IS_TIME'
+p265
+S"<class 'gluon.validators.IS_TIME'>"
+p266
+sS'TipoStatusScan'
+p267
+S'(<Table TipoStatusScan (id, nome)>,)'
+p268
+sS'OPTION'
+p269
+S"<class 'gluon.html.OPTION'>"
+p270
+sS'TITLE'
+p271
+S"<class 'gluon.html.TITLE'>"
+p272
+sS'CRYPT'
+p273
+S"<class 'gluon.validators.CRYPT'>"
+p274
+sS'IS_EMPTY_OR'
+p275
+S"<class 'gluon.validators.IS_EMPTY_OR'>"
+p276
+sS'MARKMIN'
+p277
+S"<class 'gluon.html.MARKMIN'>"
+p278
+sS'ScanDispositivoPorta'
+p279
+S'(<Table ScanDispositivoPorta (id, idScanDispositivo, porta, nome)>,)'
+p280
+sS'ips'
+p281
+S"'192.168.1.13 \\n'"
+p282
+sS'__name__'
+p283
+S"'__restricted__'"
+p284
+sS'count_outros'
+p285
+S'4'
+sS'STRONG'
+p286
+S"<class 'gluon.html.STRONG'>"
+p287
+sS'COL'
+p288
+S"<class 'gluon.html.COL'>"
+p289
+sS'SCRIPT'
+p290
+S"<class 'gluon.html.SCRIPT'>"
+p291
+sS'TABLE'
+p292
+S"<class 'gluon.html.TABLE'>"
+p293
+sS'IS_IPV4'
+p294
+S"<class 'gluon.validators.IS_IPV4'>"
+p295
+sS'IS_LENGTH'
+p296
+S"<class 'gluon.validators.IS_LENGTH'>"
+p297
+sS'IS_IPV6'
+p298
+S"<class 'gluon.validators.IS_IPV6'>"
+p299
+sS'XML'
+p300
+S"<class 'gluon.html.XML'>"
+p301
+sS'B'
+S"<class 'gluon.html.B'>"
+p302
+sS'IMG'
+p303
+S"<class 'gluon.html.IMG'>"
+p304
+sS'SQLTABLE'
+p305
+S"<class 'gluon.sqlhtml.SQLTABLE'>"
+p306
+sS'IS_MATCH'
+p307
+S"<class 'gluon.validators.IS_MATCH'>"
+p308
+sS'IS_ALPHANUMERIC'
+p309
+S"<class 'gluon.validators.IS_ALPHANUMERIC'>"
+p310
+sS'SPAN'
+p311
+S"<class 'gluon.html.SPAN'>"
+p312
+sS'IS_JSON'
+p313
+S"<class 'gluon.validators.IS_JSON'>"
+p314
+sS'IS_IPADDRESS'
+p315
+S"<class 'gluon.validators.IS_IPADDRESS'>"
+p316
+sS'IS_SLUG'
+p317
+S"<class 'gluon.validators.IS_SLUG'>"
+p318
+sS'ScanDispositivo'
+p319
+S'(<Table ScanDispositivo (id, idScan, ip, mac, nomeFabricante, nomeOs)>,)'
+p320
+sS'BEAUTIFY'
+p321
+S"<class 'gluon.html.BEAUTIFY'>"
+p322
+sS'META'
+p323
+S"<class 'gluon.html.META'>"
+p324
+sS'IS_DATE'
+p325
+S"<class 'gluon.validators.IS_DATE'>"
+p326
+sS'IS_EMAIL'
+p327
+S"<class 'gluon.validators.IS_EMAIL'>"
+p328
+sS'IS_NOT_EMPTY'
+p329
+S"<class 'gluon.validators.IS_NOT_EMPTY'>"
+p330
+sS'IS_FLOAT_IN_RANGE'
+p331
+S"<class 'gluon.validators.IS_FLOAT_IN_RANGE'>"
+p332
+sS'TBODY'
+p333
+S"<class 'gluon.html.TBODY'>"
+p334
+sS'CAT'
+p335
+S"<class 'gluon.html.CAT'>"
+p336
+sS'Field'
+p337
+S"<class 'pydal.objects.Field'>"
+p338
+sS'IS_LIST_OF_EMAILS'
+p339
+S"<class 'gluon.validators.IS_LIST_OF_EMAILS'>"
+p340
+sS'DIV'
+p341
+S"<class 'gluon.html.DIV'>"
+p342
+sS'LEGEND'
+p343
+S"<class 'gluon.html.LEGEND'>"
+p344
+sS'count_portas'
+p345
+S'4'
+sS'DAL'
+p346
+S"<class 'pydal.base.DAL'>"
+p347
+sS'ASSIGNJS'
+p348
+S'<function ASSIGNJS>'
+p349
+sS'TR'
+p350
+S"<class 'gluon.html.TR'>"
+p351
+sS'LI'
+p352
+S"<class 'gluon.html.LI'>"
+p353
+sS'TH'
+p354
+S"<class 'gluon.html.TH'>"
+p355
+sS'TD'
+p356
+S"<class 'gluon.html.TD'>"
+p357
+sS'IS_URL'
+p358
+S"<class 'gluon.validators.IS_URL'>"
+p359
+sS'A'
+S"<class 'gluon.html.A'>"
+p360
+sS'HEAD'
+p361
+S"<class 'gluon.html.HEAD'>"
+p362
+sS'IS_DATETIME_IN_RANGE'
+p363
+S"<class 'gluon.validators.IS_DATETIME_IN_RANGE'>"
+p364
+sS'FORM'
+p365
+S"<class 'gluon.html.FORM'>"
+p366
+sS'Usuario'
+p367
+S'<Table Usuario (id, nome, senha)>'
+p368
+sS'I'
+S"<class 'gluon.html.I'>"
+p369
+sS'IS_NOT_IN_DB'
+p370
+S"<class 'gluon.validators.IS_NOT_IN_DB'>"
+p371
+sg123
+S"<Storage {'body': <cStringIO.StringO object at 0... 0x7f18c077ecf8>, 'view': 'estrutura/dash.html'}>"
+p372
+sS'THEAD'
+p373
+S"<class 'gluon.html.THEAD'>"
+p374
+sS'ANY_OF'
+p375
+S"<class 'gluon.validators.ANY_OF'>"
+p376
+sS'IS_NULL_OR'
+p377
+S"<class 'gluon.validators.IS_EMPTY_OR'>"
+p378
+sS'COLGROUP'
+p379
+S"<class 'gluon.html.COLGROUP'>"
+p380
+sg56
+S"<Storage {'_vars': None, 'function': 'dash', 'co..., 'folder': '/var/www/web2py/applications/tcc/'}>"
+p381
+sS'IS_EXPR'
+p382
+S"<class 'gluon.validators.IS_EXPR'>"
+p383
+sS'T'
+S'<gluon.languages.translator object>'
+p384
+sS'IS_IN_SET'
+p385
+S"<class 'gluon.validators.IS_IN_SET'>"
+p386
+sS'IS_UPLOAD_FILENAME'
+p387
+S"<class 'gluon.validators.IS_UPLOAD_FILENAME'>"
+p388
+sS'TT'
+p389
+S"<class 'gluon.html.TT'>"
+p390
+sS'IS_DECIMAL_IN_RANGE'
+p391
+S"<class 'gluon.validators.IS_DECIMAL_IN_RANGE'>"
+p392
+sssS'traceback'
+p393
+S'Traceback (most recent call last):\n  File "/var/www/web2py/gluon/restricted.py", line 227, in restricted\n    exec ccode in environment\n  File "/var/www/web2py/applications/tcc/views/estrutura/dash.html", line 17, in <module>\n    <thead>\nAttributeError: \'dict\' object has no attribute \'ip\'\n'
+p394
+s.

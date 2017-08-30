@@ -20,7 +20,7 @@ ScanDispositivo = db.define_table("ScanDispositivo",
                                   ),
 
 ScanDispositivoPorta = db.define_table("ScanDispositivoPorta",
-                                       Field('idScanDispositivoPorta', 'integer'),
+                                       Field('idScanDispositivo', 'integer'),
                                        Field('porta', 'integer'),
                                        Field('nome', 'string'),
                                        format="%(ScanDispositivoPorta)s",

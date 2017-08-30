@@ -2,6 +2,99 @@
 
 {{block center}}
 <br>
+<div class="modal fade" id="modalWindows">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Dispositivos Windows</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover table-striped">
+                        <thead>
+                        <tr>
+                            <th>Ip</th>
+                            <th>Mac</th>
+                            <th>Fabricante</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {{for item in windows_disp:}}<tr><td>{{=item['ip']}}</td><td>{{=item['mac']}}</td><td>{{=item['nomeFabricante']}}</td></tr>{{pass}}
+                        </tbody>
+                    </table>
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="modalLinux">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Dispositivos Linux</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover table-striped">
+                        <thead>
+                        <tr>
+                            <th>Ip</th>
+                            <th>Mac</th>
+                            <th>Fabricante</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {{for item in linux_disp:}}<tr><td>{{=item['ip']}}</td><td>{{=item['mac']}}</td><td>{{=item['nomeFabricante']}}</td></tr>{{pass}}
+                        </tbody>
+                    </table>
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>        
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="modalOutros">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Outros Dispositivos</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover table-striped">
+                        <thead>
+                        <tr>
+                            <th>Ip</th>
+                            <th>Mac</th>
+                            <th>Fabricante</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {{for item in outros_disp:}}<tr><td>{{=item['ip']}}</td><td>{{=item['mac']}}</td><td>{{=item['nomeFabricante']}}</td></tr>{{pass}}
+                        </tbody>
+                    </table>
+            </div>
+      </div>
+      <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="container-fluid">
     <!-- Page Heading -->
     <div class="row">
@@ -34,7 +127,7 @@
                     </div>
                 </div>
             </div>
-            <a href="#">
+            <a href="#" onclick="openModal(1)">
                 <div class="panel-footer">
                     <span class="pull-left">Ver Detalhes</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -57,7 +150,7 @@
                     </div>
                 </div>
             </div>
-            <a href="#">
+            <a href="#" onclick="openModal(2)">
                 <div class="panel-footer">
                     <span class="pull-left">Ver Detalhes</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -79,7 +172,7 @@
                     </div>
                 </div>
             </div>
-            <a href="#">
+            <a href="#" onclick="openModal(3)">
                 <div class="panel-footer">
                     <span class="pull-left">Ver Detalhes</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -96,7 +189,7 @@
                         <i class="fa fa-warning fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">13</div>
+                        <div class="huge">{{=count_portas}}</div>
                         <div>Portas Abertas</div>
                     </div>
                 </div>
@@ -197,9 +290,6 @@
                     <!--</div>-->
                 <!--</div>-->
             <!--</div>-->
-
-
-
             <div class="col-lg-6">
                 <h2>Informação da Rede</h2>
                 <div class="table-responsive">
@@ -574,6 +664,23 @@
     $.get("{{=URL(a='tcc', c='control', f='qtde_host')}}", function( data ) {
     $('#qtde_host').html(data)
     });
+
+    function openModal(tipo){
+        if(tipo == 1){
+            $("#modalWindows").modal("show");
+            return;
+        }
+        
+        if(tipo == 2){
+            $("#modalLinux").modal("show");
+            return;
+        }
+
+        else{
+            $("#modalOutros").modal("show");
+            return;
+        }
+    }
 </script>
 
 {{end}}
