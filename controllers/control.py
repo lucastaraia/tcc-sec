@@ -14,7 +14,6 @@ def login(): ######## Tela Login ########
 def teste():
     return response.render("estrutura/teste.html")
 
-
 def dash(): ######## Tela dashboard ########
     ##qtde_os = qtde_so()
     from subprocess import check_output
@@ -78,7 +77,7 @@ def scan(): ######## Tela Scan onde 'starta' os scans ########
     return response.render('estrutura/scan.html')
 
 def hydra():
-    saida_hydra = commands.getoutput("sudo hydra -L ~/wordlist -P ~/wordlist http-get://192.168.0.252:80")
+    saida_hydra = commands.getoutput("sudo hydra -L ~/wordlist -P ~/wordlist http-get://192.168.1.230:80")
     if 'successfully' in saida_hydra:
         retorno_hydra = True
     else:
@@ -246,12 +245,12 @@ def qtde_host(): ######## Quantidade de host na rede, irá retornar todos dispos
     return dict_host[5]
 
 
-def qtde_so(): ######## Retorna quantidade de Windows e Linux conectados à rede ########
-    qtde_os = {}
-    qtde_os['Windows'] = commands.getoutput('sudo nmap --top-ports 1 -O -F -n -Pn -r 192.168.1.0/24 | grep "Running: "> /tmp/os; echo "$(cat /tmp/os | grep -i Windows | wc -l)"')
-    qtde_os['Linux'] = commands.getoutput('sudo nmap --top-ports 1 -O -F -n -Pn -r 192.168.1.0/24 | grep "Running: "> /tmp/os; echo "$(cat /tmp/os | grep -i Linux | wc -l)"')
+#def qtde_so(): ######## Retorna quantidade de Windows e Linux conectados à rede ########
+#    qtde_os = {}
+#    qtde_os['Windows'] = commands.getoutput('sudo nmap --top-ports 1 -O -F -n -Pn -r 192.168.1.0/24 | grep "Running: "> /tmp/os; echo "$(cat /tmp/os | grep -i Windows | wc -l)"')
+#    qtde_os['Linux'] = commands.getoutput('sudo nmap --top-ports 1 -O -F -n -Pn -r 192.168.1.0/24 | grep "Running: "> /tmp/os; echo "$(cat /tmp/os | grep -i Linux | wc -l)"')
 
-    return str(qtde_os).replace('{','').replace('}','')
+    #return str(qtde_os).replace('{','').replace('}','')
 
 
 def get_server(): ######## Informações de hardware/software da Raspberry ########

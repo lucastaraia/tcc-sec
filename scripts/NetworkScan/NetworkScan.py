@@ -14,7 +14,7 @@ import DataBaseManagement as db
 def func_scan():
     try:
         def GetGatewayIp():
-            getGateway_p = sr1(IP(dst="google.com", ttl=0) / ICMP() / "XXXXXXXXXXX", verbose=False)
+            getGateway_p = sr1(IP(dst="172.16.4.1", ttl=0) / ICMP() / "XXXXXXXXXXX", verbose=False)
             return getGateway_p.src
 
 

@@ -11,7 +11,6 @@
                 <strong>Olá!</strong> Escolha um scan para ser executado.
             </div>
         </div>
-
         <div class="col-lg-12">
             <h1 class="page-header">
                 Scans
@@ -35,14 +34,29 @@
         <div class="page-header">
             <h2>Scan Roteador</h2>
         </div>
+        <div class="well">
+            <p>Uma das técnicas mais antigas de tentativas de invasão de um sistema é o de ataque de força bruta,
+                vulgo <b>brute force</b>. Todo sistema de acesso restrito é acessível através do conjunto nome de usuário(login)/
+senha(password), e um ataque de força bruta significa tentar adivinhar o conjunto por meio de tentativa e erro.
+
+<br><br>Considerando que muitos dispositivos a senha padrão(default) não é alterada por administradores, tornando então o
+                equipamento de certa forma inseguro.<br><br>
+
+Esta análise irá checar se seu roteador utiliza de uma senha padrão, ou seja, uma senha fraca.
+Ex: admin, 123456, root e etc.</p>
+        </div>
         <p>
-            <button type="button" class="btn btn-lg btn-primary" onclick = "javascript:teste()">Iniciar!</button>
+            <button type="button" class="btn btn-lg btn-primary" onclick = "javascript:teste()">Iniciar</button>
         </p>
+        <br><br>
         <div class="page-header">
             <h2>Scan Rede</h2>
         </div>
+        <div class="well">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.</p>
+        </div>
         <p>
-            <button type="button" class="btn btn-lg btn-primary" onclick = "javascript:teste()">Iniciar!</button>
+            <button type="button" class="btn btn-lg btn-primary" onclick = "javascript:teste()">Iniciar</button>
         </p>
     </div>
     <!-- /.container-fluid -->
@@ -58,6 +72,35 @@
 
 
 function teste(){
+    $("#alerta1").html('');
+    $('#alerta1').html(
+            '<div class="alert alert-warning">' +
+            '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' +
+            '<strong>Quase lá!</strong> Aguarde enquanto o scan é realizado.' +
+            '</div>');
+
+    $.get("{{=URL(a='tcc', c='control', f='hydra')}}", function( data ) {
+        console.log(data);
+        if (data == false){
+            $("#alerta1").html("");
+            $("#alerta1").html(
+                    '<div class="alert alert-danger">' +
+                    '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' +
+                    '<strong>Ops!</strong> Erros foram encontrados. Verifique sua conexão.' +
+                    '</div>');
+        }
+        else{
+            $("#alerta1").html("");
+            $("#alerta1").html(" " +
+                    '<div class="alert alert-success">' +
+                    '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' +
+                    '<strong>Pronto!</strong> Seu scan foi realizado com sucesso. Verifique o resultado.' +
+                    '</div>');
+        }
+    });
+}
+
+function testee(){
     $("#alerta1").html('');
     $('#alerta1').html(
             '<div class="alert alert-warning">' +
@@ -84,26 +127,32 @@ function teste(){
                     '</div>');
         }
     });
-
-    $.get("{{=URL(a='tcc', c='control', f='hydra')}}", function( data ) {
-            console.log(data);
-        if (data == false){
-            $("#alerta1").html("");
-            $("#alerta1").html(
-                    '<div class="alert alert-danger">' +
-                    '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' +
-                    '<strong>Ops!</strong> Erros foram encontrados. Verifique sua conexão.' +
-                    '</div>');
-        }
-        else{
-            $("#alerta1").html("");
-            $("#alerta1").html(" " +
-                    '<div class="alert alert-success">' +
-                    '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' +
-                    '<strong>Pronto!</strong> Seu scan foi realizado com sucesso. Verifique o resultado.' +
-                    '</div>');
-        }
-    });
 }
+
+
+
+
 </script>
 {{end}}
+
+
+
+    <!--$.get("{{=URL(a='tcc', c='control', f='hydra')}}", function( data ) {-->
+            <!--console.log(data);-->
+        <!--if (data == false){-->
+            <!--$("#alerta1").html("");-->
+            <!--$("#alerta1").html(-->
+                    <!--'<div class="alert alert-danger">' +-->
+                    <!--'<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' +-->
+                    <!--'<strong>Ops!</strong> Erros foram encontrados. Verifique sua conexão.' +-->
+                    <!--'</div>');-->
+        <!--}-->
+        <!--else{-->
+            <!--$("#alerta1").html("");-->
+            <!--$("#alerta1").html(" " +-->
+                    <!--'<div class="alert alert-success">' +-->
+                    <!--'<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' +-->
+                    <!--'<strong>Pronto!</strong> Seu scan foi realizado com sucesso. Verifique o resultado.' +-->
+                    <!--'</div>');-->
+        <!--}-->
+    <!--});-->
