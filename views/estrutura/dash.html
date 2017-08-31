@@ -1,148 +1,168 @@
-{{extend 'estrutura/layout.html'}}
-
-{{block center}}
+{{extend 'estrutura/layout.html'}} {{block center}}
 <br>
 <div class="modal fade" id="modalWindows">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Dispositivos Windows</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Dispositivos Windows</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-      </div>
-      <div class="modal-body">
+            </div>
+            <div class="modal-body">
                 <div class="table-responsive">
                     <table class="table table-bordered table-hover table-striped">
                         <thead>
-                        <tr>
-                            <th>Ip</th>
-                            <th>Mac</th>
-                            <th>Fabricante</th>
-                        </tr>
+                            <tr>
+                                <th>Ip</th>
+                                <th>Mac</th>
+                                <th>Fabricante</th>
+                            </tr>
                         </thead>
                         <tbody>
-                            {{for item in windows_disp:}}<tr><td>{{=item['ip']}}</td><td>{{=item['mac']}}</td><td>{{=item['nomeFabricante']}}</td></tr>{{pass}}
+                            {{for item in windows_disp:}}
+                            <tr>
+                                <td>{{=item['ip']}}</td>
+                                <td>{{=item['mac']}}</td>
+                                <td>{{=item['nomeFabricante']}}</td>
+                            </tr>{{pass}}
                         </tbody>
                     </table>
+                </div>
             </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-      </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 <div class="modal fade" id="modalLinux">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Dispositivos Linux</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Dispositivos Linux</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-      </div>
-      <div class="modal-body">
+            </div>
+            <div class="modal-body">
                 <div class="table-responsive">
                     <table class="table table-bordered table-hover table-striped">
                         <thead>
-                        <tr>
-                            <th>Ip</th>
-                            <th>Mac</th>
-                            <th>Fabricante</th>
-                        </tr>
+                            <tr>
+                                <th>Ip</th>
+                                <th>Mac</th>
+                                <th>Fabricante</th>
+                            </tr>
                         </thead>
                         <tbody>
-                            {{for item in linux_disp:}}<tr><td>{{=item['ip']}}</td><td>{{=item['mac']}}</td><td>{{=item['nomeFabricante']}}</td></tr>{{pass}}
+                            {{for item in linux_disp:}}
+                            <tr>
+                                <td>{{=item['ip']}}</td>
+                                <td>{{=item['mac']}}</td>
+                                <td>{{=item['nomeFabricante']}}</td>
+                            </tr>{{pass}}
                         </tbody>
                     </table>
+                </div>
             </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>        
-      </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 <div class="modal fade" id="modalOutros">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Outros Dispositivos</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Outros Dispositivos</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-      </div>
-      <div class="modal-body">
+            </div>
+            <div class="modal-body">
                 <div class="table-responsive">
                     <table class="table table-bordered table-hover table-striped">
                         <thead>
-                        <tr>
-                            <th>Ip</th>
-                            <th>Mac</th>
-                            <th>Fabricante</th>
-                        </tr>
+                            <tr>
+                                <th>Ip</th>
+                                <th>Mac</th>
+                                <th>Fabricante</th>
+                            </tr>
                         </thead>
                         <tbody>
-                            {{for item in outros_disp:}}<tr><td>{{=item['ip']}}</td><td>{{=item['mac']}}</td><td>{{=item['nomeFabricante']}}</td></tr>{{pass}}
+                            {{for item in outros_disp:}}
+                            <tr>
+                                <td>{{=item['ip']}}</td>
+                                <td>{{=item['mac']}}</td>
+                                <td>{{=item['nomeFabricante']}}</td>
+                            </tr>{{pass}}
                         </tbody>
                     </table>
+                </div>
             </div>
-      </div>
-      <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-      </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 <div class="modal fade" id="modalPortas">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Portas Abertas</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Portas Abertas</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-      </div>
-      <div class="modal-body">
+            </div>
+            <div class="modal-body">
                 <div class="table-responsive">
                     <table class="table table-bordered table-hover table-striped">
                         <thead>
-                        <tr>
-                            <th>Dispositivo</th>
-                            <th>Mac</th>
-                            <th>Qtde Portas</th>
-                        </tr>
+                            <tr>
+                                <th>Dispositivo</th>
+                                <th>Mac</th>
+                                <th>Qtde Portas</th>
+                            </tr>
                         </thead>
                         <tbody>
-                            {{for item in disp:}}{{if item['qtdPortas'] > 0:}}<tr><td>{{=item['ip']}}</td><td>{{=item['mac']}}</td><td>{{=item['qtdPortas']}}</td></tr>{{else:}}{{pass}}{{pass}}
+                            {{for item in disp:}}{{if item['qtdPortas'] > 0:}}
+                            <tr>
+                                <td>{{=item['ip']}}</td>
+                                <td>{{=item['mac']}}</td>
+                                <td>{{=item['qtdPortas']}}</td>
+                            </tr>{{else:}}{{pass}}{{pass}}
                         </tbody>
                     </table>
+                </div>
             </div>
-      </div>
-      <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-      </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 <div class="container-fluid">
     <!-- Page Heading -->
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                Dashboard 
+                Dashboard
                 <small></small>
             </h1>
             <ol class="breadcrumb">
                 <li>
-                    <i class="fa fa-dashboard"></i>  <a href="{{=URL(a='tcc', c='control', f='dash')}}">Dashboard</a>
+                    <i class="fa fa-dashboard"></i> <a href="{{=URL(a='tcc', c='control', f='dash')}}">Dashboard</a>
                 </li>
                 <li class="active"></li>
             </ol>
         </div>
-    </div><!-- /.row -->
-</div><!-- /.container-fluid -->
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container-fluid -->
 
 <div class="row">
     <div class="col-lg-3 col-md-6">
@@ -153,7 +173,7 @@
                         <i class="fa fa-windows fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                    <div class="huge">{{=count_windows}}</div>
+                        <div class="huge">{{=count_windows}}</div>
                         <div>Windows</div>
                     </div>
                 </div>
@@ -248,18 +268,22 @@
                 <div class="table-responsive">
                     <table class="table table-bordered table-hover">
                         <tbody>
-                        <tr>
-                            <th>Meu IP</th>
-                            <td>{{=ips}}</td>
-                        </tr>
-                        <tr>
-                            <th>IP Externo</th>
-                            <td>{{=ip_externo[3]}}</td>
-                        </tr>
-                        <tr>
-                            <th>Quantidade Host</th>
-                            <td><span id="qtde_host">{{=count_disp}}</span></td>
-                        </tr>
+                            <tr>
+                                <th>Meu IP</th>
+                                <td>{{=ips}}</td>
+                            </tr>
+                            <tr>
+                                <th>Ip do Gateway</th>
+                                <td>{{=gatewayIp}}</td>
+                            </tr>
+                            <tr>
+                                <th>IP Externo</th>
+                                <td>{{=ip_externo[3]}}</td>
+                            </tr>
+                            <tr>
+                                <th>Quantidade Host</th>
+                                <td><span id="qtde_host">{{=count_disp}}</span></td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -269,60 +293,60 @@
                 <div class="table-responsive">
                     <table class="table table-bordered table-hover table-striped">
                         <thead>
-                        <tr>
-                            <th>Serviço/Porta</th>
-                            <th>Hosts</th>
-                        </tr>
+                            <tr>
+                                <th>Serviço/Porta</th>
+                                <th>Hosts</th>
+                            </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>FTP/21</td>
-                            <td>1265</td>
-                        </tr>
-                        <tr>
-                            <td>SSH/22</td>
-                            <td>261</td>
-                        </tr>
-                        <tr>
-                            <td>Telnet/23</td>
-                            <td>665</td>
-                        </tr>
-                        <tr>
-                            <td>SMTP/25</td>
-                            <td>9516</td>
-                        </tr>
-                        <tr>
-                            <td>DNS/53</td>
-                            <td>23</td>
-                        </tr>
-                        <tr>
-                            <td>HTTP/80</td>
-                            <td>421</td>
-                        </tr>
-                        <tr>
-                            <td>RPC/111</td>
-                            <td>1233</td>
-                        </tr>
-                        <tr>
-                            <td>NetBIOS/137</td>
-                            <td>1233</td>
-                        </tr>
-                        <tr>
-                            <td>HTTPS/443</td>
-                            <td>1233</td>
-                        </tr>
-                        <tr>
-                            <td>SMB/445</td>
-                            <td>1233</td>
-                        </tr>
-                        <tr>
-                            <td>SIP/5060</td>
-                            <td>1233</td>
-                        </tr>
-                        <tr>
-                            <td>MySQL/3306</td>
-                            <td>1233</td>
-                        </tr>
+                            <tr>
+                                <td>FTP/21</td>
+                                <td>1265</td>
+                            </tr>
+                            <tr>
+                                <td>SSH/22</td>
+                                <td>261</td>
+                            </tr>
+                            <tr>
+                                <td>Telnet/23</td>
+                                <td>665</td>
+                            </tr>
+                            <tr>
+                                <td>SMTP/25</td>
+                                <td>9516</td>
+                            </tr>
+                            <tr>
+                                <td>DNS/53</td>
+                                <td>23</td>
+                            </tr>
+                            <tr>
+                                <td>HTTP/80</td>
+                                <td>421</td>
+                            </tr>
+                            <tr>
+                                <td>RPC/111</td>
+                                <td>1233</td>
+                            </tr>
+                            <tr>
+                                <td>NetBIOS/137</td>
+                                <td>1233</td>
+                            </tr>
+                            <tr>
+                                <td>HTTPS/443</td>
+                                <td>1233</td>
+                            </tr>
+                            <tr>
+                                <td>SMB/445</td>
+                                <td>1233</td>
+                            </tr>
+                            <tr>
+                                <td>SIP/5060</td>
+                                <td>1233</td>
+                            </tr>
+                            <tr>
+                                <td>MySQL/3306</td>
+                                <td>1233</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -342,32 +366,31 @@
 <script src="js/bootstrap.min.js"></script>
 
 
-{{end}}
-
-{{block javascript}}
+{{end}} {{block javascript}}
 
 <script>
-    function openModal(tipo){
-        if(tipo == 1){
+    function openModal(tipo) {
+        if (tipo == 1) {
             $("#modalWindows").modal("show");
             return;
         }
-        
-        if(tipo == 2){
+
+        if (tipo == 2) {
             $("#modalLinux").modal("show");
             return;
         }
-        
-        if(tipo == 3){
+
+        if (tipo == 3) {
             $("#modalOutros").modal("show");
             return;
         }
 
-        else{
+        else {
             $("#modalPortas").modal("show");
             return;
         }
     }
+
 </script>
 
 {{end}}

@@ -24,6 +24,7 @@ def dash(): ######## Tela dashboard ########
     ips = check_output(['hostname', '--all-ip-addresses'])
 
     idScan = db(db.Scan).select()[-1].id
+    gatewayIp = db(db.Scan).select()[-1].gatewayIp
 
     windows_disp = db((db.ScanDispositivo.nomeOs == "Windows") & (db.ScanDispositivo.idScan == idScan)).select().as_list()
     count_windows = len(windows_disp)
@@ -47,13 +48,31 @@ def dash(): ######## Tela dashboard ########
 
     return response.render("estrutura/dash.html", ip_externo=ip_externo, ips=ips, count_windows=count_windows,
                            count_linux=count_linux, count_outros=count_outros, count_portas=count_portas, count_disp=len(dispositivos),
-                           windows_disp=windows_disp, linux_disp=linux_disp, outros_disp=outros_disp, disp=dispositivos)
+                           windows_disp=windows_disp, linux_disp=linux_disp, outros_disp=outros_disp, disp=dispositivos, gatewayIp=gatewayIp)
 
 def relatorio(): ######## Tela Relatório ########
     return response.render("estrutura/relatorio.html")
 
 def buscaScans():
-    return response.render("estrutura/gridRelatorio.html")
+    data = request.vars['data']
+    ip = request.vars['ip']
+    comando = '''SELECT 	s.dataInicioScan,
+        sd.ip,
+        sd.mac,
+        sd.nomeFabricante,
+        sd.nomeOs,
+        IFNULL((SELECT group_concat(porta, ', ') FROM ScanDispositivoPorta sp WHERE sp.idScanDispositivo = sd.id), '') AS portas
+    FROM Scan s
+    INNER JOIN ScanDispositivo sd
+        ON s.id = sd.idScan
+    '''
+
+    if ip:
+        comando += 'WHERE sd.ip =\'' + str(ip) + '\''
+
+    dispositivos = db.executesql(comando)
+
+    return response.render("estrutura/gridRelatorio.html", dispositivos=dispositivos)
 
 def scan(): ######## Tela Scan onde 'starta' os scans ########
     return response.render('estrutura/scan.html')

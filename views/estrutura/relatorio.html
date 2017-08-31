@@ -1,7 +1,29 @@
-{{extend 'estrutura/layout.html'}}
+{{extend 'estrutura/layout.html'}} {{block center}}
+<style>
+    html,
+    body {
+        height: 100%;
+    }
 
-{{block center}}
+    #wrap {
+        min-height: 100%;
+    }
 
+    #main {
+        overflow: auto;
+        padding-bottom: 150px;
+        /* this needs to be bigger than footer height*/
+    }
+
+    .footer {
+        position: relative;
+        margin-top: 300px;
+        /* negative value of footer height */
+        height: 150px;
+        clear: both;
+        padding-top: 20px;
+    }
+</style>
 <br>
 <div class="container-fluid">
     <!-- Page Heading -->
@@ -13,43 +35,56 @@
             </h1>
             <ol class="breadcrumb">
                 <li>
-                    <i class="fa fa-dashboard"></i>  <a href="{{=URL(a='tcc', c='control', f='dash')}}">Dashboard</a>
+                    <i class="fa fa-dashboard"></i> <a href="{{=URL(a='tcc', c='control', f='dash')}}">Dashboard</a>
                 </li>
                 <li class="active">
                     <i class="fa fa-table"></i> Relatório
                 </li>
             </ol>
         </div>
-    </div><!-- /.row -->
-</div><!-- /.container-fluid -->
-
-<br>
-<br>
-
-<div class="col-lg-4">
-    <form role="form">
-        <div class="form-group input-group">
-            <input type="text" class="form-control" id="txtBusca">
-            <span class="input-group-btn"><button class="btn btn-default" type="button"><i class="fa fa-search"></i></button></span>
-        </div>
-    </form>
+    </div>
+    <!-- /.row -->
 </div>
+<!-- /.container-fluid -->
 
+<br>
+<br>
+
+<form class="form-inline">
+    <div class="form-group">
+        <label>Data</label>
+        <input class="form-control" id="txtData">
+    </div>
+    <div class="form-group">
+        <label>Ip</label>
+        <input class="form-control" id="txtIp">
+    </div>
+    <button type="button" class="btn btn-default" onclick="buscar()">Buscar</button>
+</form>
+<br>
 <div class="row" id="divDados">
 </div>
 
+<footer class="footer"></footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/locales/bootstrap-datepicker.pt-BR.min.js"></script>
 
-{{end}}
-{{block javascript}}
+{{end}} {{block javascript}}
 <script>
-    $.get("{{=URL(a='tcc', c='control', f='buscaScans')}}", function(data) {
-        if(data){
-            $("#divDados").html(data);
-        }
-    });
+    function buscar() {
+        var data = $("#txtData").val();
+        var ip = $("#txtIp").val();
+        $.get("{{=URL(a='tcc', c='control', f='buscaScans')}}" + '?data='+ data +'&ip=' + ip , function (data) {
+            if (data) {
+                $("#divDados").slideUp('200', function (){
+                    $("#divDados").html(data);
+                    $("#divDados").slideDown('200');
+                });
+            }
+        });
+    }
+
     // $('#txtBusca').datepicker({
     // 	format: 'dd/mm/yyyy',
     // 	language: 'pt-BR',
@@ -57,5 +92,6 @@
     // 	startDate:'0d',
     // 	todayHighlight: true
     // });
+
 </script>
 {{end}}
