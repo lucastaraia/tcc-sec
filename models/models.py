@@ -3,7 +3,7 @@ Scan = db.define_table("Scan",
                        Field('gatewayIp', 'string'),
                        Field('interface', 'string'),
                        Field('idTipoStatusScan', 'integer'),
-                       Field('dataInicioScan', 'datetime'),
+                       Field('dataInicioScan', 'string'),
                        format="%(Scan)s",
                        migrate=False
                        ),
