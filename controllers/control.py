@@ -68,7 +68,11 @@ def buscaScans():
     '''
 
     if ip:
-        comando += 'WHERE sd.ip =\'' + str(ip) + '\''
+        comando += 'WHERE sd.ip like\'' + str(ip) + '%\''
+    elif ip and data:
+        comando += 'AND s.dataInicioScan like \'' + str(data) + '%\''
+    else:
+        comando += 'WHERE s.dataInicioScan like \'' + str(data) + '%\''
 
     dispositivos = db.executesql(comando)
 
