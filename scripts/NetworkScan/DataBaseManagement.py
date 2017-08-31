@@ -6,7 +6,7 @@ dbPath = '../../models/Scans.db'
 def InsertScan(gatewayIp, interface):
     conn = sqlite3.connect(dbPath)
     c = conn.cursor()
-    c.execute('INSERT INTO SCAN(gatewayIp, interface, idTipoStatusScan, dataInicioScan) VALUES (?, ?, ?, ?)', (gatewayIp, interface, 1, str(datetime.now())))
+    c.execute('INSERT INTO SCAN(gatewayIp, interface, idTipoStatusScan, dataInicioScan) VALUES (?, ?, ?, ?)', (gatewayIp, interface, 1, str(datetime.now().strftime("%d-%m-%Y %H:%M:%S"))))
     conn.commit()
     conn.close()
     return c.lastrowid

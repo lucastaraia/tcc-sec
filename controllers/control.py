@@ -6,6 +6,7 @@ import platform
 import re
 import socket
 import struct
+from datetime import datetime
 
 
 def login(): ######## Tela Login ########
