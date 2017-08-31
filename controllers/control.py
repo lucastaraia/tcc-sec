@@ -58,7 +58,7 @@ def scan(): ######## Tela Scan onde 'starta' os scans ########
     return response.render('estrutura/scan.html')
 
 def hydra():
-    saida_hydra = commands.getoutput("sudo hydra -L ~/wordlist -P ~/wordlist http-get://192.168.0.252:80")
+    saida_hydra = commands.getoutput("sudo hydra -L ~/wordlist -P ~/wordlist http-get://192.168.1.230:80")
     if 'successfully' in saida_hydra:
         retorno_hydra = True
     else:

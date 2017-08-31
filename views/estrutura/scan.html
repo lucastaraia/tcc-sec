@@ -48,7 +48,7 @@ Ex: admin, 123456, root e etc.</p>
         <p>
             <button type="button" class="btn btn-lg btn-primary" onclick = "javascript:teste()">Iniciar</button>
         </p>
-        <br><br><br>
+        <br><br>
         <div class="page-header">
             <h2>Scan Rede</h2>
         </div>
@@ -79,6 +79,35 @@ function teste(){
             '<strong>Quase lá!</strong> Aguarde enquanto o scan é realizado.' +
             '</div>');
 
+    $.get("{{=URL(a='tcc', c='control', f='hydra')}}", function( data ) {
+        console.log(data);
+        if (data == false){
+            $("#alerta1").html("");
+            $("#alerta1").html(
+                    '<div class="alert alert-danger">' +
+                    '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' +
+                    '<strong>Ops!</strong> Erros foram encontrados. Verifique sua conexão.' +
+                    '</div>');
+        }
+        else{
+            $("#alerta1").html("");
+            $("#alerta1").html(" " +
+                    '<div class="alert alert-success">' +
+                    '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' +
+                    '<strong>Pronto!</strong> Seu scan foi realizado com sucesso. Verifique o resultado.' +
+                    '</div>');
+        }
+    });
+}
+
+function testee(){
+    $("#alerta1").html('');
+    $('#alerta1').html(
+            '<div class="alert alert-warning">' +
+            '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' +
+            '<strong>Quase lá!</strong> Aguarde enquanto o scan é realizado.' +
+            '</div>');
+
     $.get("{{=URL(a='tcc', c='control', f='script_scan')}}", function( data ) {
         console.log(data);
         if (data == false){
@@ -98,26 +127,32 @@ function teste(){
                     '</div>');
         }
     });
-
-    $.get("{{=URL(a='tcc', c='control', f='hydra')}}", function( data ) {
-            console.log(data);
-        if (data == false){
-            $("#alerta1").html("");
-            $("#alerta1").html(
-                    '<div class="alert alert-danger">' +
-                    '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' +
-                    '<strong>Ops!</strong> Erros foram encontrados. Verifique sua conexão.' +
-                    '</div>');
-        }
-        else{
-            $("#alerta1").html("");
-            $("#alerta1").html(" " +
-                    '<div class="alert alert-success">' +
-                    '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' +
-                    '<strong>Pronto!</strong> Seu scan foi realizado com sucesso. Verifique o resultado.' +
-                    '</div>');
-        }
-    });
 }
+
+
+
+
 </script>
 {{end}}
+
+
+
+    <!--$.get("{{=URL(a='tcc', c='control', f='hydra')}}", function( data ) {-->
+            <!--console.log(data);-->
+        <!--if (data == false){-->
+            <!--$("#alerta1").html("");-->
+            <!--$("#alerta1").html(-->
+                    <!--'<div class="alert alert-danger">' +-->
+                    <!--'<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' +-->
+                    <!--'<strong>Ops!</strong> Erros foram encontrados. Verifique sua conexão.' +-->
+                    <!--'</div>');-->
+        <!--}-->
+        <!--else{-->
+            <!--$("#alerta1").html("");-->
+            <!--$("#alerta1").html(" " +-->
+                    <!--'<div class="alert alert-success">' +-->
+                    <!--'<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' +-->
+                    <!--'<strong>Pronto!</strong> Seu scan foi realizado com sucesso. Verifique o resultado.' +-->
+                    <!--'</div>');-->
+        <!--}-->
+    <!--});-->
