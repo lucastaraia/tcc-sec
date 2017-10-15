@@ -15,6 +15,8 @@ def login(): ######## Tela Login ########
 def teste():
     return response.render("estrutura/teste.html")
 
+
+
 def dash(): ######## Tela dashboard ########
     ##qtde_os = qtde_so()
     from subprocess import check_output
@@ -52,6 +54,13 @@ def dash(): ######## Tela dashboard ########
 
 def relatorio(): ######## Tela Relatório ########
     return response.render("estrutura/relatorio.html")
+
+def GetQtdPortasAbertas():
+    porta = request.vars['porta']
+    idScan = db(db.Scan).select()[-1].id
+
+    qtd = db((db.ScanDispositivo.id == db.ScanDispositivoPorta.idScanDispositivo) & (db.ScanDispositivo.idScan == idScan) & (db.ScanDispositivoPorta.porta == porta)).select().as_list()
+    return len(qtd)
 
 def buscaScans():
     data = request.vars['data']

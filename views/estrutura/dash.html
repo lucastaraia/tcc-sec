@@ -287,16 +287,16 @@
                         </tbody>
                     </table>
                 </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Quantidade de hosts</h3>
-                        </div>
-                        <div class="panel-body">
-                            <div class="flot-chart">
-                                <canvas id="pie-chart" width="800" height="450"></canvas>
-                            </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Quantidade de hosts</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="flot-chart">
+                            <canvas id="pie-chart" width="800" height="450"></canvas>
                         </div>
                     </div>
+                </div>
             </div>
             <div class="col-lg-6">
                 <h2>Serviços comuns associados as principais portas utilizadas</h2>
@@ -311,51 +311,51 @@
                         <tbody>
                             <tr>
                                 <td>FTP/21</td>
-                                <td>1265</td>
+                                <td id="porta21">caregando...</td>
                             </tr>
                             <tr>
                                 <td>SSH/22</td>
-                                <td>261</td>
+                                <td id="porta22">caregando...</td>
                             </tr>
                             <tr>
                                 <td>Telnet/23</td>
-                                <td>665</td>
+                                <td id="porta23">caregando...</td>
                             </tr>
                             <tr>
                                 <td>SMTP/25</td>
-                                <td>9516</td>
+                                <td id="porta25">caregando...</td>
                             </tr>
                             <tr>
                                 <td>DNS/53</td>
-                                <td>23</td>
+                                <td id="porta53">caregando...</td>
                             </tr>
                             <tr>
                                 <td>HTTP/80</td>
-                                <td>421</td>
+                                <td id="porta80">caregando...</td>
                             </tr>
                             <tr>
                                 <td>RPC/111</td>
-                                <td>1233</td>
+                                <td id="porta111">caregando...</td>
                             </tr>
                             <tr>
                                 <td>NetBIOS/137</td>
-                                <td>1233</td>
+                                <td id="porta137">caregando...</td>
                             </tr>
                             <tr>
                                 <td>HTTPS/443</td>
-                                <td>1233</td>
+                                <td id="porta443">caregando...</td>
                             </tr>
                             <tr>
                                 <td>SMB/445</td>
-                                <td>1233</td>
+                                <td id="porta445">caregando...</td>
                             </tr>
                             <tr>
                                 <td>SIP/5060</td>
-                                <td>1233</td>
+                                <td id="porta5060">caregando...</td>
                             </tr>
                             <tr>
                                 <td>MySQL/3306</td>
-                                <td>1233</td>
+                                <td id="porta3306">caregando...</td>
                             </tr>
                         </tbody>
                     </table>
@@ -403,22 +403,86 @@
     new Chart(document.getElementById("pie-chart"), {
         type: 'pie',
         data: {
-          labels: ["Windows", "Linux", "Outros"],
-          datasets: [{
-            label: "Quantidade",
-            backgroundColor: ["#446CB3", "#26A65B","#F89406"],
-            data: ['{{=count_windows}}','{{=count_linux}}','{{=count_outros}}']
-          }]
+            labels: ["Windows", "Linux", "Outros"],
+            datasets: [{
+                label: "Quantidade",
+                backgroundColor: ["#446CB3", "#26A65B", "#F89406"],
+                data: ['{{=count_windows}}', '{{=count_linux}}', '{{=count_outros}}']
+            }]
         },
         options: {
-          title: {
-            display: false,
-            text: ''
-          }
+            title: {
+                display: false,
+                text: ''
+            }
         }
     });
-    
-          
+
+
+    $.get(urlPorta(21), function (data) {
+        if (data) {
+            $("#porta21").text(data);
+            $.get(urlPorta(22), function (data) {
+                if (data) {
+                    $("#porta22").text(data);
+                    $.get(urlPorta(23), function (data) {
+                        if (data) {
+                            $("#porta23").text(data);
+                            $.get(urlPorta(25), function (data) {
+                                if (data) {
+                                    $("#porta25").text(data);
+                                    $.get(urlPorta(53), function (data) {
+                                        if (data) {
+                                            $("#porta53").text(data);
+                                            $.get(urlPorta(80), function (data) {
+                                                if (data) {
+                                                    $("#porta80").text(data);
+                                                    $.get(urlPorta(111), function (data) {
+                                                        if (data) {
+                                                            $("#porta111").text(data);
+                                                            $.get(urlPorta(137), function (data) {
+                                                                if (data) {
+                                                                    $("#porta137").text(data);
+                                                                    $.get(urlPorta(443), function (data) {
+                                                                        if (data) {
+                                                                            $("#porta443").text(data);
+                                                                            $.get(urlPorta(445), function (data) {
+                                                                                if (data) {
+                                                                                    $("#porta445").text(data);
+                                                                                    $.get(urlPorta(5060), function (data) {
+                                                                                        if (data) {
+                                                                                            $("#porta5060").text(data);
+                                                                                            $.get(urlPorta(3306), function (data) {
+                                                                                                if (data) {
+                                                                                                    $("#porta3306").text(data);
+                                                                                                }
+                                                                                            });
+                                                                                        }
+                                                                                    });
+                                                                                }
+                                                                            });
+                                                                        }
+                                                                    });
+                                                                }
+                                                            });
+                                                        }
+                                                    });
+                                                }
+                                            });
+                                        }
+                                    });
+                                }
+                            });
+                        }
+                    });
+                }
+            });
+        }
+    });
+
+    function urlPorta(porta) {
+        return "{{=URL(a='tcc', c='control', f='GetQtdPortasAbertas')}}" + '?porta=' + porta
+    }
 
 </script>
 
