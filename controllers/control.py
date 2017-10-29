@@ -8,14 +8,8 @@ import socket
 import struct
 from datetime import datetime
 
-
-def login(): ######## Tela Login ########
+def login(): ######## Tela Login #######
     return response.render("estrutura/login.html")
-
-def teste():
-    return response.render("estrutura/teste.html")
-
-
 
 def dash(): ######## Tela dashboard ########
     ##qtde_os = qtde_so()
