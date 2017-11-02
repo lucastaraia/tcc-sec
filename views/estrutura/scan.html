@@ -1,7 +1,6 @@
 {{extend 'estrutura/layout.html'}}
 
 {{block center}}
-<br>
 <div class="container-fluid">
     <!-- Page Heading -->
     <div class="row">
@@ -49,7 +48,7 @@
         </div>
 
         <div id="alerta1">
-            <div class="alert alert-danger">
+            <div class="alert alert-danger" id="senhaFraca" style="display: none">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                 <strong>Resultado:</strong> <br><br>Identificamos que você está utilizando uma senha fraca no roteador.<br><br>
                 <strong>Risco: </strong> Hackers podem conectar no roteador e modificar as configurações da sua rede,
@@ -57,7 +56,7 @@
                 <strong>Solução:</strong> Altere a senha nas configurações do roteador.
             </div>
 
-            <div class="alert alert-success">
+            <div class="alert alert-success" id="senhaForte" style="display: none">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                     <strong>Resultado:</strong> <br><br>Não foi identificado senha fraca.
                 </div>
@@ -65,7 +64,7 @@
 
 
         <p>
-            <button type="button" class="btn btn-lg btn-primary" onclick = "javascript:teste()">Iniciar</button>
+            <button type="button" class="btn btn-lg btn-primary" id="btnBf" onclick = "bruteForce()">Iniciar</button>
         </p>
         <br><br>
         <div class="page-header">
@@ -83,7 +82,7 @@
             </p>
         </div>
         <p>
-            <button type="button" class="btn btn-lg btn-primary" onclick = "javascript:teste()">Iniciar</button>
+            <button type="button" class="btn btn-lg btn-primary" onclick = "javascript:testee()">Iniciar</button>
         </p>
     </div>
     <!-- /.container-fluid -->
@@ -98,31 +97,19 @@
 <script>
 
 
-function teste(){
-    $("#alerta1").html('');
-    $('#alerta1').html(
-            '<div class="alert alert-warning">' +
-            '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' +
-            '<strong>Quase lá!</strong> Aguarde enquanto o scan é realizado.' +
-            '</div>');
-
+function bruteForce(){
+    $("#btnBf").attr("disabled", true);
+    $("#btnBf").text("executando...");
     $.get("{{=URL(a='tcc', c='control', f='hydra')}}", function( data ) {
-        console.log(data);
-        if (data == false){
-            $("#alerta1").html("");
-            $("#alerta1").html(
-                    '<div class="alert alert-danger">' +
-                    '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' +
-                    '<strong>Ops!</strong> Erros foram encontrados. Verifique sua conexão.' +
-                    '</div>');
+        if (data == "True"){
+            $("#btnBf").removeAttr("disabled");
+            $("#btnBf").text("Iniciar");
+            $("#senhaFraca").slideDown(200);
         }
         else{
-            $("#alerta1").html("");
-            $("#alerta1").html(" " +
-                    '<div class="alert alert-success">' +
-                    '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' +
-                    '<strong>Pronto!</strong> Seu scan foi realizado com sucesso. Verifique o resultado.' +
-                    '</div>');
+            $("#btnBf").removeAttr("disabled");
+            $("#btnBf").text("Iniciar");
+            $("#senhaForte").slideDown(200);
         }
     });
 }
