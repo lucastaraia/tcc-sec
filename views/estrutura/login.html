@@ -283,31 +283,30 @@
     </style>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 
 </head>
 
 <body>
-    <div class="login">
-        <h1>Login</h1>
-    
-        {{=form.custom.begin}}
-    
-          <p class="field">
-            {{=form.custom.widget.username}}
-            <i class="fa fa-user"></i>
-          </p>
-    
-          <p class="field">
-            {{=form.custom.widget.password}}
-            <i class="fa fa-lock"></i>
-          </p>
-    
-          <p class="submit"> {{=form.custom.submit}}</p>
-        {{=form.custom.end}}
-    
-    
-      </div> <!--/ Login-->
+  <div class="login">
+    <h1>Login</h1>
+
+    <form class="form" method="post" action="dash.html">
+
+      <p class="field">
+        <input type="text" name="login" placeholder="Usuário" required/>
+        <i class="fa fa-user"></i>
+      </p>
+
+      <p class="field">
+        <input type="password" name="password" placeholder="Senha" required/>
+        <i class="fa fa-lock"></i>
+      </p>
+
+      <p class="submit"> <input type="submit" name="sent" value="Login"></p>
+    </form>
+
+
+  </div> <!--/ Login-->
 
   <div class="copyright">
       <p>Análise de Vulnerabilidade em Redes Cabeada e Sem Fio</p>
@@ -316,8 +315,5 @@
 
 </body>
 </html>
-<script>
-  $('form').addClass("form");
-</script>
 
 
