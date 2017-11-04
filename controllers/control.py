@@ -7,9 +7,13 @@ import re
 import socket
 import struct
 from datetime import datetime
-
+    
 def login(): ######## Tela Login #######
-    return response.render("estrutura/login.html")
+    form = auth.login()
+    form.element(_name='username')['_placeholder'] = "Usuario"
+    form.element(_name='password')['_placeholder'] = "Senha"
+    return response.render("estrutura/login.html", form = form)
+
 
 def dash(): ######## Tela dashboard ########
     ##qtde_os = qtde_so()

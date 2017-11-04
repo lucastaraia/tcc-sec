@@ -1,0 +1,361 @@
+(dp1
+S'output'
+p2
+S"<type 'exceptions.TypeError'> login() got an unexpected keyword argument '_class'"
+p3
+sS'layer'
+p4
+S'/var/www/web2py/applications/tcc/controllers/control.py'
+p5
+sS'code'
+p6
+S'# coding=utf-8\nimport commands\nimport itertools\nimport os\nimport platform\nimport re\nimport socket\nimport struct\nfrom datetime import datetime\n\ndef login(): ######## Tela Login #######\n    form = auth.login(_class=\'form\')\n    form.element(_name=\'username\')[\'_placeholder\'] = "Usuario"\n    form.element(_name=\'password\')[\'_placeholder\'] = "Senha"\n    return response.render("estrutura/login.html", login=login, form=form)\n\ndef dash(): ######## Tela dashboard ########\n    ##qtde_os = qtde_so()\n    from subprocess import check_output\n    saida_ip_externo = commands.getoutput(\'sudo curl ifconfig.pro\')\n    ip_externo = saida_ip_externo.split("\\n")\n\n    ips = check_output([\'hostname\', \'--all-ip-addresses\'])\n\n    idScan = db(db.Scan).select()[-1].id\n    gatewayIp = db(db.Scan).select()[-1].gatewayIp\n\n    windows_disp = db((db.ScanDispositivo.nomeOs == "Windows") & (db.ScanDispositivo.idScan == idScan)).select().as_list()\n    count_windows = len(windows_disp)\n\n    linux_disp = db((db.ScanDispositivo.nomeOs == "Linux") & (db.ScanDispositivo.idScan == idScan)).select().as_list()\n    count_linux = len(linux_disp)\n\n    outros_disp = db((db.ScanDispositivo.nomeOs == "Outro") & (db.ScanDispositivo.idScan == idScan)).select().as_list()\n    count_outros = len(outros_disp)\n\n    dispositivos = db(db.ScanDispositivo.idScan == idScan).select().as_list()\n    portas = []\n\n    for disp in dispositivos:\n        porta = db(db.ScanDispositivoPorta.idScanDispositivo == disp[\'id\']).select().as_list()\n        disp[\'qtdPortas\'] = len(porta)\n        for por in porta:\n            portas.append(por)\n    \n    count_portas = len(portas)\n\n    return response.render("estrutura/dash.html", ip_externo=ip_externo, ips=ips, count_windows=count_windows,\n                           count_linux=count_linux, count_outros=count_outros, count_portas=count_portas, count_disp=len(dispositivos),\n                           windows_disp=windows_disp, linux_disp=linux_disp, outros_disp=outros_disp, disp=dispositivos, gatewayIp=gatewayIp)\n\ndef relatorio(): ######## Tela Relat\xc3\xb3rio ########\n    return response.render("estrutura/relatorio.html")\n\ndef GetQtdPortasAbertas():\n    porta = request.vars[\'porta\']\n    idScan = db(db.Scan).select()[-1].id\n\n    qtd = db((db.ScanDispositivo.id == db.ScanDispositivoPorta.idScanDispositivo) & (db.ScanDispositivo.idScan == idScan) & (db.ScanDispositivoPorta.porta == porta)).select().as_list()\n    return len(qtd)\n\ndef buscaScans():\n    data = request.vars[\'data\']\n    ip = request.vars[\'ip\']\n    comando = \'\'\'SELECT \ts.dataInicioScan,   \n        sd.ip,\n        sd.mac,\n        sd.nomeFabricante,\n        sd.nomeOs,\n        IFNULL((SELECT group_concat(porta, \', \') FROM ScanDispositivoPorta sp WHERE sp.idScanDispositivo = sd.id), \'\') AS portas\n    FROM Scan s\n    INNER JOIN ScanDispositivo sd\n        ON s.id = sd.idScan\n    \'\'\'\n\n    if ip:\n        comando += \'WHERE sd.ip like\\\'\' + str(ip) + \'%\\\'\'\n    elif ip and data:\n        comando += \'AND s.dataInicioScan like \\\'\' + str(data) + \'%\\\'\'\n    else:\n        comando += \'WHERE s.dataInicioScan like \\\'\' + str(data) + \'%\\\'\'\n\n    dispositivos = db.executesql(comando)\n\n    return response.render("estrutura/gridRelatorio.html", dispositivos=dispositivos)\n\ndef scan(): ######## Tela Scan onde \'starta\' os scans ########\n    return response.render(\'estrutura/scan.html\')\n\ndef hydra():\n    saida_hydra = commands.getoutput("sudo hydra -L ~/wordlist -P ~/wordlist http-get://192.168.0.1:80")\n    if \'successfully\' in saida_hydra:\n        retorno_hydra = True\n    else:\n        retorno_hydra = False\n\n    return retorno_hydra\n\ndef script_scan():\n    saida_script = commands.getoutput("sudo python /var/www/web2py/applications/tcc/scripts/NetworkScan/NetworkScan.py")\n    if \'True\' in saida_script:\n        retorno_script_scan = True\n    else:\n        retorno_script_scan = False\n\n    return retorno_script_scan\n\ndef settings(): ######## Tela de Configura\xc3\xa7\xc3\xb5es ########\n    ### Servi\xc3\xa7os - iniciar/parar/reiniciar ###\n    server = get_server()\n    saida_apache = commands.getoutput(\'sudo /etc/init.d/apache2 status\')\n    dict_apache = saida_apache.split("\\n")\n    retorno_apache = None\n    for line in dict_apache:\n        if \'running\' in line:\n            retorno_apache = \'Ativo\'\n            break\n        else:\n            retorno_apache = \'Inativo\'\n\n    saida_openvpn = commands.getoutput(\'sudo /etc/init.d/openvpn status\')\n    dict_openvpn = saida_openvpn.split("\\n")\n    retorno_openvpn = None\n    for line in dict_openvpn:\n        if \'inactive\' in line:\n            retorno_openvpn = \'Inativo\'\n            break\n        else:\n            retorno_openvpn = \'Ativo\'\n\n    saida_ssh = commands.getoutput(\'sudo /etc/init.d/ssh status\')\n    dict_ssh = saida_ssh.split("\\n")\n    retorno_ssh = None\n    for line in dict_ssh:\n        if \'inactive\' in line:\n            retorno_ssh = \'Inativo\'\n            break\n        else:\n            retorno_ssh = \'Ativo\'\n\n    ### Termina Servi\xc3\xa7os ###\n\n    ### Sistema Operacional ###\n    saida_os = commands.getoutput("lsb_release -a")\n    dict_os = saida_os.split("\\n")\n    dict_os1 = dict_os[1].split("\\t")\n    retorno_dict_os = dict_os1[1]\n\n    ### LOAD ###\n\n    saida_load = commands.getoutput("uptime")\n    dict_load = saida_load.split(":")\n    retorno_dict_load = dict_load[4]\n\n    return response.render(\'estrutura/settings.html\', retorno_apache=retorno_apache, dict_apache=dict_apache,\n                           dict_openvpn=dict_openvpn, retorno_openvpn=retorno_openvpn, retorno_ssh=retorno_ssh,\n                           dict_ssh=dict_ssh, server=server, retorno_dict_os=retorno_dict_os, retorno_dict_load=retorno_dict_load)\n\n############################\n\ndef iniciar_servico_apache():\n    try:\n        os.system(\'sudo /etc/init.d/apache2 start\')\n    except Exception as error:\n        return error\n\ndef parar_servico_apache():\n    try:\n        os.system(\'sudo /etc/init.d/apache2 stop\')\n    except Exception as error:\n        return error\n\n\ndef reiniciar_servico_apache():\n    try:\n        os.system(\'sudo /etc/init.d/apache2 restart\')\n    except Exception as error:\n        return error\n\n############################\n\ndef iniciar_servico_openvpn():\n    try:\n        os.system("sudo /etc/init.d/openvpn start")\n    except Exception as error:\n        return error\n\ndef parar_servico_openvpn():\n    try:\n        os.system("sudo /etc/init.d/openvpn stop")\n    except Exception as error:\n        return error\n\n\ndef reiniciar_servico_openvpn():\n    try:\n        os.system("sudo /etc/init.d/openvpn restart")\n    except Exception as error:\n        return error\n\n############################\n\ndef iniciar_servico_ssh():\n    try:\n        os.system("sudo /etc/init.d/ssh start")\n    except Exception as error:\n        return error\n\ndef parar_servico_ssh():\n    try:\n        os.system("sudo /etc/init.d/ssh stop")\n    except Exception as error:\n        return error\n\n\ndef reiniciar_servico_ssh():\n    try:\n        os.system("sudo /etc/init.d/ssh restart")\n    except Exception as error:\n        return error\n\n#######################################################################\n\ndef get_ip(): ### Fun\xc3\xa7\xc3\xa3o que retorna endere\xc3\xa7o ip das interfaces LAN/WLAN ###\n    global ip\n    f = os.popen(\'ifconfig\')\n    for iface in [\' \'.join(i) for i in iter(lambda: list(itertools.takewhile(lambda l: not l.isspace(),f)), [])]:\n        if re.findall(\'^(eth|wlan)[0-9]\',iface) and re.findall(\'RUNNING\',iface):\n            ip = re.findall(\'(?<=inet\\saddr:)[0-9\\.]+\',iface)\n            if ip:\n                return ip[0]\n    return ip\n\n\ndef gateway(): ### Retorna endere\xc3\xa7o IP do gateway ###\n    """Read the default gateway directly from /proc."""\n    with open("/proc/net/route") as fh:\n        for line in fh:\n            fields = line.strip().split()\n            if fields[1] != \'00000000\' or not int(fields[3], 16) & 2:\n                continue\n\n            return socket.inet_ntoa(struct.pack("<L", int(fields[2], 16)))\n\n\'\'\'Fun\xc3\xa7\xc3\xb5es Teste\nip_interno = commands.getoutput(\'sudo ifconfig eth1 | grep "inet\\ addr" | cut -d: -f2 | cut -d" " -f1\') \'\'\'\n\n\n#######################################################################\n\n\ndef qtde_host(): ######## Quantidade de host na rede, ir\xc3\xa1 retornar todos dispositivos que est\xc3\xa3o conectados ########\n    saida_host = commands.getoutput(\'sudo nmap -sP 192.168.100.0/24 | grep hosts\')\n    dict_host = saida_host.split(" ")\n\n    return dict_host[5]\n\n\n#def qtde_so(): ######## Retorna quantidade de Windows e Linux conectados \xc3\xa0 rede ########\n#    qtde_os = {}\n#    qtde_os[\'Windows\'] = commands.getoutput(\'sudo nmap --top-ports 1 -O -F -n -Pn -r 192.168.1.0/24 | grep "Running: "> /tmp/os; echo "$(cat /tmp/os | grep -i Windows | wc -l)"\')\n#    qtde_os[\'Linux\'] = commands.getoutput(\'sudo nmap --top-ports 1 -O -F -n -Pn -r 192.168.1.0/24 | grep "Running: "> /tmp/os; echo "$(cat /tmp/os | grep -i Linux | wc -l)"\')\n\n    #return str(qtde_os).replace(\'{\',\'\').replace(\'}\',\'\')\n\n\ndef get_server(): ######## Informa\xc3\xa7\xc3\xb5es de hardware/software da Raspberry ########\n    server = {}\n    #var = platform.platform()\n    #server[\'distribuicao\'] = var.split(\'-\')[6]\n    #server[\'versao\'] = var.split(\'-\')[7]\n    server[\'arch\'] = platform.processor()\n    server[\'host\'] = platform.uname()[1]\n    server[\'kernel\'] = platform.uname()[2]\n    server[\'pythonv\'] = platform.python_version()\n    server[\'memory\'] = int(commands.getoutput("cat /proc/meminfo | grep MemTotal").split(\':\')[1].split(\'k\')[0])/1000\n    disk = os.statvfs("/")\n    totalBytes = float(disk.f_bsize*disk.f_blocks)\n    server[\'disk\'] = "%.2f GBytes" % (totalBytes/1024/1024/1024)\n\n    #var = commands.getoutput("atop | grep cpu")\n    return server\n\n\n### Fun\xc3\xa7\xc3\xa3o para mostrar hora real time ###\ndef atualiza_hora():\n    from datetime import datetime\n    item = str(datetime.now().strftime(\'%H:%M:%S - %d/%m/%Y\'))\n\n    return item\n\nresponse._vars=response._caller(login)\n'
+p7
+sS'snapshot'
+p8
+(dp9
+S'exception'
+p10
+(dp11
+S'__hash__'
+p12
+S"<method-wrapper '__hash__' of exceptions.TypeError object>"
+p13
+sS'__setattr__'
+p14
+S"<method-wrapper '__setattr__' of exceptions.TypeError object>"
+p15
+sS'__reduce_ex__'
+p16
+S'<built-in method __reduce_ex__ of exceptions.TypeError object>'
+p17
+sS'__getslice__'
+p18
+S"<method-wrapper '__getslice__' of exceptions.TypeError object>"
+p19
+sS'__getitem__'
+p20
+S"<method-wrapper '__getitem__' of exceptions.TypeError object>"
+p21
+sS'__setstate__'
+p22
+S'<built-in method __setstate__ of exceptions.TypeError object>'
+p23
+sS'args'
+p24
+S'("login() got an unexpected keyword argument \'_class\'",)'
+p25
+sS'__reduce__'
+p26
+S'<built-in method __reduce__ of exceptions.TypeError object>'
+p27
+sS'__str__'
+p28
+S"<method-wrapper '__str__' of exceptions.TypeError object>"
+p29
+sS'__format__'
+p30
+S'<built-in method __format__ of exceptions.TypeError object>'
+p31
+sS'__getattribute__'
+p32
+S"<method-wrapper '__getattribute__' of exceptions.TypeError object>"
+p33
+sS'__class__'
+p34
+S"<type 'exceptions.TypeError'>"
+p35
+sS'__unicode__'
+p36
+S'<built-in method __unicode__ of exceptions.TypeError object>'
+p37
+sS'__delattr__'
+p38
+S"<method-wrapper '__delattr__' of exceptions.TypeError object>"
+p39
+sS'__subclasshook__'
+p40
+S'<built-in method __subclasshook__ of type object>'
+p41
+sS'__repr__'
+p42
+S"<method-wrapper '__repr__' of exceptions.TypeError object>"
+p43
+sS'__dict__'
+p44
+S'{}'
+p45
+sS'__sizeof__'
+p46
+S'<built-in method __sizeof__ of exceptions.TypeError object>'
+p47
+sS'__doc__'
+p48
+S"'Inappropriate argument type.'"
+p49
+sS'__init__'
+p50
+S"<method-wrapper '__init__' of exceptions.TypeError object>"
+p51
+sS'__new__'
+p52
+S'<built-in method __new__ of type object>'
+p53
+ssS'evalue'
+p54
+S"login() got an unexpected keyword argument '_class'"
+p55
+sS'request'
+p56
+cgluon.html
+XML_unpickle
+p57
+(S's\xe6[\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top;">ajax</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">application</td><td style="vertical-align:top;">:</td><td><div>tcc</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">args</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>login</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cid</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">client</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">controller</td><td style="vertical-align:top;">:</td><td><div>control</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cookies</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">session_id_admin</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-842ba54f-fe60-44c5-a8f3-be189cdfa528<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_tcc</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-05981b23-6924-4667-8d7f-da55bfe5f155<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_welcome</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-2478232e-eec4-4ed3-9bdd-48628ccb361b<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">env</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT</td><td style="vertical-align:top;">:</td><td><div>text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT_ENCODING</td><td style="vertical-align:top;">:</td><td><div>gzip, deflate</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT_LANGUAGE</td><td style="vertical-align:top;">:</td><td><div>en-US,en;q=0.5</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_CACHE_CONTROL</td><td style="vertical-align:top;">:</td><td><div>no-cache</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_CONNECTION</td><td style="vertical-align:top;">:</td><td><div>keep-alive</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_COOKIE</td><td style="vertical-align:top;">:</td><td><div>session_id_welcome=127.0.0.1-2478232e-eec4-4ed3-9bdd-48628ccb361b; session_id_tcc=127.0.0.1-05981b23-6924-4667-8d7f-da55bfe5f155; session_id_admin=127.0.0.1-842ba54f-fe60-44c5-a8f3-be189cdfa528</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_HOST</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1:8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_PRAGMA</td><td style="vertical-align:top;">:</td><td><div>no-cache</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_REFERER</td><td style="vertical-align:top;">:</td><td><div>http://127.0.0.1:8000/tcc/control/login/login?_next=/tcc/control/dash</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_USER_AGENT</td><td style="vertical-align:top;">:</td><td><div>Mozilla/5.0 (X11; Linux x86_64; rv:45.0) Gecko/20100101 Firefox/45.0</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">PATH_INFO</td><td style="vertical-align:top;">:</td><td><div>/tcc/control/login/login</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">QUERY_STRING</td><td style="vertical-align:top;">:</td><td><div>_next=%2Ftcc%2Fcontrol%2Fdash</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REMOTE_ADDR</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REMOTE_PORT</td><td style="vertical-align:top;">:</td><td><div>32990</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REQUEST_METHOD</td><td style="vertical-align:top;">:</td><td><div>GET</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SCRIPT_NAME</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_NAME</td><td style="vertical-align:top;">:</td><td><div>kali</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_PORT</td><td style="vertical-align:top;">:</td><td><div>8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_PROTOCOL</td><td style="vertical-align:top;">:</td><td><div>HTTP/1.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_SOFTWARE</td><td style="vertical-align:top;">:</td><td><div>Rocket 1.2.6</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">app_folders</td><td style="vertical-align:top;">:</td><td><div>set([&#x27;/var/www/web2py/applications/welcome/&#x27;, &#x27;/var/www/web2py/applications/tcc/&#x27;, &#x27;/var/www/web2py/applications/admin/&#x27;])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">applications_parent</td><td style="vertical-align:top;">:</td><td><div>/var/www/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_args</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_options</td><td style="vertical-align:top;">:</td><td><div>&lt;Values at 0x7f0b461fdd40: {&#x27;verbose&#x27;: False, &#x27;ip&#x27;: &#x27;127.0.0.1&#x27;, &#x27;debuglevel&#x27;: 30, &#x27;with_scheduler&#x27;: False, &#x27;shutdown_timeout&#x27;: 5, &#x27;taskbar&#x27;: False, &#x27;with_coverage&#x27;: False, &#x27;pid_filename&#x27;: &#x27;httpserver.pid&#x27;, &#x27;maxthreads&#x27;: None, &#x27;softcron&#x27;: False, &#x27;server_name&#x27;: &#x27;kali&#x27;, &#x27;bpython&#x27;: False, &#x27;nogui&#x27;: False, &#x27;port&#x27;: 8000, &#x27;print_errors&#x27;: False, &#x27;extcron&#x27;: False, &#x27;runcron&#x27;: False, &#x27;run_system_tests&#x27;: False, &#x27;test&#x27;: None, &#x27;folder&#x27;: &#x27;/var/www/web2py&#x27;, &#x27;config&#x27;: &#x27;&#x27;, &#x27;minthreads&#x27;: None, &#x27;shell&#x27;: None, &#x27;run&#x27;: &#x27;&#x27;, &#x27;log_filename&#x27;: &#x27;httpserver.log&#x27;, &#x27;profiler_dir&#x27;: None, &#x27;args&#x27;: [&#x27;&#x27;], &#x27;socket_timeout&#x27;: 5, &#x27;ssl_ca_certificate&#x27;: None, &#x27;scheduler&#x27;: None, &#x27;interfaces&#x27;: None, &#x27;ssl_private_key&#x27;: &#x27;&#x27;, &#x27;gae&#x27;: None, &#x27;password&#x27;: &#x27;******&#x27;, &#x27;request_queue_size&#x27;: 5, &#x27;ssl_certificate&#x27;: &#x27;&#x27;, &#x27;cronjob&#x27;: False, &#x27;numthreads&#x27;: None, &#x27;quiet&#x27;: False, &#x27;import_models&#x27;: False, &#x27;timeout&#x27;: 10, &#x27;plain&#x27;: False, &#x27;nobanner&#x27;: False}&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">db_sessions</td><td style="vertical-align:top;">:</td><td><div>set([])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">debugging</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">gluon_parent</td><td style="vertical-align:top;">:</td><td><div>/var/www/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept</td><td style="vertical-align:top;">:</td><td><div>text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept_encoding</td><td style="vertical-align:top;">:</td><td><div>gzip, deflate</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept_language</td><td style="vertical-align:top;">:</td><td><div>en-US,en;q=0.5</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_cache_control</td><td style="vertical-align:top;">:</td><td><div>no-cache</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_connection</td><td style="vertical-align:top;">:</td><td><div>keep-alive</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_cookie</td><td style="vertical-align:top;">:</td><td><div>session_id_welcome=127.0.0.1-2478232e-eec4-4ed3-9bdd-48628ccb361b; session_id_tcc=127.0.0.1-05981b23-6924-4667-8d7f-da55bfe5f155; session_id_admin=127.0.0.1-842ba54f-fe60-44c5-a8f3-be189cdfa528</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_host</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1:8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_pragma</td><td style="vertical-align:top;">:</td><td><div>no-cache</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_referer</td><td style="vertical-align:top;">:</td><td><div>http://127.0.0.1:8000/tcc/control/login/login?_next=/tcc/control/dash</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_user_agent</td><td style="vertical-align:top;">:</td><td><div>Mozilla/5.0 (X11; Linux x86_64; rv:45.0) Gecko/20100101 Firefox/45.0</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_jython</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_pypy</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_source</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">local_hosts</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>kali</div></td></tr><tr><td><div>::1</div></td></tr><tr><td><div>127.0.1.1</div></td></tr><tr><td><div>::ffff:127.0.0.1</div></td></tr><tr><td><div>127.0.0.1</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path_info</td><td style="vertical-align:top;">:</td><td><div>/tcc/control/login/login</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">query_string</td><td style="vertical-align:top;">:</td><td><div>_next=%2Ftcc%2Fcontrol%2Fdash</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">remote_addr</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">remote_port</td><td style="vertical-align:top;">:</td><td><div>32990</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">request_method</td><td style="vertical-align:top;">:</td><td><div>GET</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">request_uri</td><td style="vertical-align:top;">:</td><td><div>/tcc/control/login/login?_next=%2Ftcc%2Fcontrol%2Fdash</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">script_name</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_name</td><td style="vertical-align:top;">:</td><td><div>kali</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_port</td><td style="vertical-align:top;">:</td><td><div>8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_protocol</td><td style="vertical-align:top;">:</td><td><div>HTTP/1.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_software</td><td style="vertical-align:top;">:</td><td><div>Rocket 1.2.6</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_path</td><td style="vertical-align:top;">:</td><td><div>/var/www/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_version</td><td style="vertical-align:top;">:</td><td><div>2.14.6-stable+timestamp.2016.05.10.00.21.47</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.errors</td><td style="vertical-align:top;">:</td><td><div>&lt;open file &#x27;&lt;stderr&gt;&#x27;, mode &#x27;w&#x27; at 0x7f0b47f9c1e0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.file_wrapper</td><td style="vertical-align:top;">:</td><td><div>&lt;class wsgiref.util.FileWrapper at 0x7f0b4629c870&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.input</td><td style="vertical-align:top;">:</td><td><div>&lt;socket._fileobject object at 0x7f0aef42de50&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.multiprocess</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.multithread</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.run_once</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.url_scheme</td><td style="vertical-align:top;">:</td><td><div>http</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.version</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>1</div></td></tr><tr><td><div>0</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_errors</td><td style="vertical-align:top;">:</td><td><div>&lt;open file &#x27;&lt;stderr&gt;&#x27;, mode &#x27;w&#x27; at 0x7f0b47f9c1e0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_file_wrapper</td><td style="vertical-align:top;">:</td><td><div>&lt;class wsgiref.util.FileWrapper at 0x7f0b4629c870&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_input</td><td style="vertical-align:top;">:</td><td><div>&lt;socket._fileobject object at 0x7f0aef42de50&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_multiprocess</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_multithread</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_run_once</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_url_scheme</td><td style="vertical-align:top;">:</td><td><div>http</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_version</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>1</div></td></tr><tr><td><div>0</div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">extension</td><td style="vertical-align:top;">:</td><td><div>html</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">folder</td><td style="vertical-align:top;">:</td><td><div>/var/www/web2py/applications/tcc/</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">function</td><td style="vertical-align:top;">:</td><td><div>login</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">global_settings</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">app_folders</td><td style="vertical-align:top;">:</td><td><div>set([&#x27;/var/www/web2py/applications/welcome/&#x27;, &#x27;/var/www/web2py/applications/tcc/&#x27;, &#x27;/var/www/web2py/applications/admin/&#x27;])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">applications_parent</td><td style="vertical-align:top;">:</td><td><div>/var/www/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_args</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_options</td><td style="vertical-align:top;">:</td><td><div>&lt;Values at 0x7f0b461fdd40: {&#x27;verbose&#x27;: False, &#x27;ip&#x27;: &#x27;127.0.0.1&#x27;, &#x27;debuglevel&#x27;: 30, &#x27;with_scheduler&#x27;: False, &#x27;shutdown_timeout&#x27;: 5, &#x27;taskbar&#x27;: False, &#x27;with_coverage&#x27;: False, &#x27;pid_filename&#x27;: &#x27;httpserver.pid&#x27;, &#x27;maxthreads&#x27;: None, &#x27;softcron&#x27;: False, &#x27;server_name&#x27;: &#x27;kali&#x27;, &#x27;bpython&#x27;: False, &#x27;nogui&#x27;: False, &#x27;port&#x27;: 8000, &#x27;print_errors&#x27;: False, &#x27;extcron&#x27;: False, &#x27;runcron&#x27;: False, &#x27;run_system_tests&#x27;: False, &#x27;test&#x27;: None, &#x27;folder&#x27;: &#x27;/var/www/web2py&#x27;, &#x27;config&#x27;: &#x27;&#x27;, &#x27;minthreads&#x27;: None, &#x27;shell&#x27;: None, &#x27;run&#x27;: &#x27;&#x27;, &#x27;log_filename&#x27;: &#x27;httpserver.log&#x27;, &#x27;profiler_dir&#x27;: None, &#x27;args&#x27;: [&#x27;&#x27;], &#x27;socket_timeout&#x27;: 5, &#x27;ssl_ca_certificate&#x27;: None, &#x27;scheduler&#x27;: None, &#x27;interfaces&#x27;: None, &#x27;ssl_private_key&#x27;: &#x27;&#x27;, &#x27;gae&#x27;: None, &#x27;password&#x27;: &#x27;******&#x27;, &#x27;request_queue_size&#x27;: 5, &#x27;ssl_certificate&#x27;: &#x27;&#x27;, &#x27;cronjob&#x27;: False, &#x27;numthreads&#x27;: None, &#x27;quiet&#x27;: False, &#x27;import_models&#x27;: False, &#x27;timeout&#x27;: 10, &#x27;plain&#x27;: False, &#x27;nobanner&#x27;: False}&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">db_sessions</td><td style="vertical-align:top;">:</td><td><div>set([])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">debugging</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">gluon_parent</td><td style="vertical-align:top;">:</td><td><div>/var/www/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_jython</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_pypy</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_source</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">local_hosts</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>kali</div></td></tr><tr><td><div>::1</div></td></tr><tr><td><div>127.0.1.1</div></td></tr><tr><td><div>::ffff:127.0.0.1</div></td></tr><tr><td><div>127.0.0.1</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_version</td><td style="vertical-align:top;">:</td><td><div>2.14.6-stable+timestamp.2016.05.10.00.21.47</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_https</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_local</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_restful</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_scheduler</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_shell</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">now</td><td style="vertical-align:top;">:</td><td><div>datetime.datetime(2017, 11, 4, 10, 26, 37, 15126)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">raw_args</td><td style="vertical-align:top;">:</td><td><div>login</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">raw_extension</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">url</td><td style="vertical-align:top;">:</td><td><div>/tcc/control/login/login</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">utcnow</td><td style="vertical-align:top;">:</td><td><div>datetime.datetime(2017, 11, 4, 14, 26, 37, 15144)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi</td><td style="vertical-align:top;">:</td><td><div>&lt;gluon.main.LazyWSGI object at 0x7f0b205ddc90&gt;</div></td></tr></table></div>'
+tRp58
+sS'frames'
+p59
+(lp60
+(dp61
+S'file'
+p62
+S'/var/www/web2py/gluon/restricted.py'
+p63
+sS'dump'
+p64
+(dp65
+S'environment'
+p66
+S"{'A': <class 'gluon.html.A'>, 'ANY_OF': <class 'gluon.validators.ANY_OF'>, 'ASSIGNJS': <function ASSIGNJS>, 'Auth': <class 'gluon.tools.Auth'>, 'B': <class 'gluon.html.B'>, 'BEAUTIFY': <class 'gluon.html.BEAUTIFY'>, 'BODY': <class 'gluon.html.BODY'>, 'BR': <class 'gluon.html.BR'>, 'BUTTON': <class 'gluon.html.BUTTON'>, 'CAT': <class 'gluon.html.CAT'>, ...}"
+p67
+sS'ccode'
+p68
+S'<code object <module> at 0x7f0b20780f30, file "/...applications/tcc/controllers/control.py", line 2>'
+p69
+ssS'lnum'
+p70
+I227
+sS'lines'
+p71
+(dp72
+I224
+S'            ccode = code'
+p73
+sI225
+S'        else:'
+p74
+sI226
+S'            ccode = compile2(code, layer)'
+p75
+sI227
+S'        exec ccode in environment'
+p76
+sI228
+S'    except HTTP:'
+p77
+sI229
+S'        raise'
+p78
+sI230
+S'    except RestrictedError:'
+p79
+sI231
+S'        # do not encapsulate (obfuscate) the original RestrictedError'
+p80
+sI222
+S'    try:'
+p81
+sI223
+S'        if isinstance(code, types.CodeType):'
+p82
+ssS'call'
+p83
+S"(code='# coding=utf-8\\nimport commands\\nimport itertools\\n...urn item\\n\\nresponse._vars=response._caller(login)\\n', environment={'A': <class 'gluon.html.A'>, 'ANY_OF': <class 'gluon.validators.ANY_OF'>, 'ASSIGNJS': <function ASSIGNJS>, 'Auth': <class 'gluon.tools.Auth'>, 'B': <class 'gluon.html.B'>, 'BEAUTIFY': <class 'gluon.html.BEAUTIFY'>, 'BODY': <class 'gluon.html.BODY'>, 'BR': <class 'gluon.html.BR'>, 'BUTTON': <class 'gluon.html.BUTTON'>, 'CAT': <class 'gluon.html.CAT'>, ...}, layer='/var/www/web2py/applications/tcc/controllers/control.py')"
+p84
+sS'func'
+p85
+S'restricted'
+p86
+sa(dp87
+g62
+S'/var/www/web2py/applications/tcc/controllers/control.py'
+p88
+sg64
+(dp89
+sg70
+I292
+sg71
+(dp90
+I288
+S"    item = str(datetime.now().strftime('%H:%M:%S - %d/%m/%Y'))"
+p91
+sI289
+S''
+sI290
+S'    return item'
+p92
+sI281
+S'    #var = commands.getoutput("atop | grep cpu")'
+p93
+sI282
+S'    return server'
+p94
+sI283
+S''
+sI284
+S''
+sI285
+S'### Fun\xc3\xa7\xc3\xa3o para mostrar hora real time ###'
+p95
+sI286
+S'def atualiza_hora():'
+p96
+sI287
+S'    from datetime import datetime'
+p97
+ssg83
+S'()'
+p98
+sg85
+S'<module>'
+p99
+sa(dp100
+g62
+S'/var/www/web2py/gluon/globals.py'
+p101
+sg64
+(dp102
+S'self'
+p103
+S'undefined'
+p104
+sS'f'
+S'<function login>'
+p105
+ssg70
+I417
+sg71
+(dp106
+I416
+S'        self._vars = None'
+p107
+sI417
+S'        self._caller = lambda f: f()'
+p108
+sI418
+S'        self._view_environment = None'
+p109
+sI419
+S'        self._custom_commit = None'
+p110
+sI420
+S'        self._custom_rollback = None'
+p111
+sI421
+S"        self.generic_patterns = ['*']"
+p112
+sI412
+S"        self.flash = ''            # used by the default view layout"
+p113
+sI413
+S'        self.meta = Storage()      # used by web2py_ajax.html'
+p114
+sI414
+S'        self.menu = []             # used by the default view layout'
+p115
+sI415
+S'        self.files = []            # used by web2py_ajax.html'
+p116
+ssg83
+S'(f=<function login>)'
+p117
+sg85
+S'<lambda>'
+p118
+sa(dp119
+g62
+S'/var/www/web2py/applications/tcc/controllers/control.py'
+p120
+sg64
+(dp121
+S'_class'
+p122
+g104
+sS'global auth'
+p123
+S'<gluon.tools.Auth object>'
+p124
+sS'form'
+p125
+g104
+sS'auth.login'
+p126
+S'<bound method Auth.login of <gluon.tools.Auth object>>'
+p127
+ssg70
+I12
+sg71
+(dp128
+I7
+S'import socket'
+p129
+sI8
+S'import struct'
+p130
+sI9
+S'from datetime import datetime'
+p131
+sI10
+S''
+sI11
+S'def login(): ######## Tela Login #######'
+p132
+sI12
+S"    form = auth.login(_class='form')"
+p133
+sI13
+S'    form.element(_name=\'username\')[\'_placeholder\'] = "Usuario"'
+p134
+sI14
+S'    form.element(_name=\'password\')[\'_placeholder\'] = "Senha"'
+p135
+sI15
+S'    return response.render("estrutura/login.html", login=login, form=form)'
+p136
+sI16
+S''
+ssg83
+S'()'
+p137
+sg85
+S'login'
+p138
+sasS'pyver'
+p139
+S'Python 2.7.13: /usr/bin/python (prefix: /usr)'
+p140
+sS'session'
+p141
+g57
+(S's\x9c\x00\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top;">flash</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr></table></div>'
+tRp142
+sS'etype'
+p143
+S"<type 'exceptions.TypeError'>"
+p144
+sS'date'
+p145
+S'Sat Nov  4 10:26:37 2017'
+p146
+sS'response'
+p147
+g57
+(S's?\x17\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top;">body</td><td style="vertical-align:top;">:</td><td><div>&lt;cStringIO.StringO object at 0x7f0aefdbddf8&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cookies</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">session_id_tcc</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-05981b23-6924-4667-8d7f-da55bfe5f155<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div>/</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">delimiters</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>{{</div></td></tr><tr><td><div>}}</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">files</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">flash</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">form_label_separator</td><td style="vertical-align:top;">:</td><td><div>: </div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">formstyle</td><td style="vertical-align:top;">:</td><td><div>table3cols</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">generic_patterns</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>*</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">headers</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">X-Powered-By</td><td style="vertical-align:top;">:</td><td><div>web2py</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">menu</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">meta</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">models_to_run</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>^\\w+\\.py$</div></td></tr><tr><td><div>^control/\\w+\\.py$</div></td></tr><tr><td><div>^control/login/\\w+\\.py$</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">postprocessing</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_client</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_cookie_compression_level</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_cookie_expires</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_data_name</td><td style="vertical-align:top;">:</td><td><div>session_data_tcc</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_file</td><td style="vertical-align:top;">:</td><td><div>&lt;open file &#x27;/var/www/web2py/applications/tcc/sessions/0b3/0cc/127.0.0.1-05981b23-6924-4667-8d7f-da55bfe5f155&#x27;, mode &#x27;rb+&#x27; at 0x7f0aefb54660&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_filename</td><td style="vertical-align:top;">:</td><td><div>/var/www/web2py/applications/tcc/sessions/127.0.0.1-05981b23-6924-4667-8d7f-da55bfe5f155</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_hash</td><td style="vertical-align:top;">:</td><td><div>64de5986d0beff8ee78239d7c6dbee1b</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-05981b23-6924-4667-8d7f-da55bfe5f155</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_name</td><td style="vertical-align:top;">:</td><td><div>session_id_tcc</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_locked</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_masterapp</td><td style="vertical-align:top;">:</td><td><div>tcc</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_new</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_storage_type</td><td style="vertical-align:top;">:</td><td><div>file</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">status</td><td style="vertical-align:top;">:</td><td><div>200</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">view</td><td style="vertical-align:top;">:</td><td><div>control/login.html</div></td></tr></table></div>'
+tRp148
+sS'locals'
+p149
+(dp150
+ssS'traceback'
+p151
+S'Traceback (most recent call last):\n  File "/var/www/web2py/gluon/restricted.py", line 227, in restricted\n    exec ccode in environment\n  File "/var/www/web2py/applications/tcc/controllers/control.py", line 292, in <module>\n  File "/var/www/web2py/gluon/globals.py", line 417, in <lambda>\n    self._caller = lambda f: f()\n  File "/var/www/web2py/applications/tcc/controllers/control.py", line 12, in login\n    form = auth.login(_class=\'form\')\nTypeError: login() got an unexpected keyword argument \'_class\'\n'
+p152
+s.

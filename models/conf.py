@@ -5,6 +5,7 @@ from gluon.tools import Auth
 
 #Configuração Auth
 auth = Auth(db, controller="control",function="login")
+auth.define_tables(username=True)
 auth.settings.formstyle = "divs"
 auth.settings.login_next = URL(a='tcc', c='control', f='dash')
 auth.settings.remember_me_form = False
