@@ -22,3 +22,5 @@ auth.messages.invalid_password = 'Senha Inválida'
 auth.messages.login_button = "Entrar"
 auth.messages.label_email = 'E-mail'
 auth.messages.label_password = 'Password'
+
+auth.define_tables(username=True, migrate=False)

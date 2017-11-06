@@ -9,8 +9,16 @@ import struct
 from datetime import datetime
 
 def login(): ######## Tela Login #######
-    return response.render("estrutura/login.html")
+    form = auth.login()
+    form.element(_name='password')['_placeholder'] = "Senha"
+    form.element(_name='username')['_placeholder'] = "Usuário"
+    #form.element(_name='password')['_class'] = ""
 
+    return response.render("estrutura/login.html", form=form)
+
+
+
+@auth.requires_login()
 def dash(): ######## Tela dashboard ########
     ##qtde_os = qtde_so()
     from subprocess import check_output
@@ -46,6 +54,7 @@ def dash(): ######## Tela dashboard ########
                            count_linux=count_linux, count_outros=count_outros, count_portas=count_portas, count_disp=len(dispositivos),
                            windows_disp=windows_disp, linux_disp=linux_disp, outros_disp=outros_disp, disp=dispositivos, gatewayIp=gatewayIp)
 
+@auth.requires_login()
 def relatorio(): ######## Tela Relatório ########
     return response.render("estrutura/relatorio.html")
 
@@ -81,6 +90,7 @@ def buscaScans():
 
     return response.render("estrutura/gridRelatorio.html", dispositivos=dispositivos)
 
+@auth.requires_login()
 def scan(): ######## Tela Scan onde 'starta' os scans ########
     return response.render('estrutura/scan.html')
 
@@ -102,6 +112,7 @@ def script_scan():
 
     return retorno_script_scan
 
+@auth.requires_login()
 def settings(): ######## Tela de Configurações ########
     ### Serviços - iniciar/parar/reiniciar ###
     server = get_server()
