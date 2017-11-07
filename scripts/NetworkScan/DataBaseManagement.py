@@ -1,7 +1,7 @@
 import sqlite3
 from datetime import datetime
 global dbPath
-dbPath = '../../models/Scans.db'
+dbPath = '/var/www/web2py/applications/tcc/models/Scans.db'
 
 def InsertScan(gatewayIp, interface):
     conn = sqlite3.connect(dbPath)

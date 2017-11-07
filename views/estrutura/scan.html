@@ -82,8 +82,19 @@
                 vulnerabilidades em dispositivos que ali estão conectados.
             </p>
         </div>
+        <div id="alerta2">
+            <div class="alert alert-danger" id="erroScan" style="display: none">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <strong>Ops!</strong> Erros foram encontrados. Verifique sua conexão.
+            </div>
+
+            <div class="alert alert-success" id="successScan" style="display: none">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <strong>Pronto!</strong> Seu scan foi realizado com sucesso. Verifique o resultado.
+                </div>
+        </div>
         <p>
-            <button type="button" class="btn btn-lg btn-primary" onclick = "javascript:testee()">Iniciar</button>
+            <button type="button" id="btnScan" class="btn btn-lg btn-primary" onclick = "scan()">Iniciar</button>
         </p>
     </div>
     <!-- /.container-fluid -->
@@ -99,6 +110,7 @@
 
 
 function bruteForce(){
+    $(".alert:not(:first)").hide();
     $("#btnBf").attr("disabled", true);
     $("#btnBf").text("executando...");
     $.get("{{=URL(a='tcc', c='control', f='hydra')}}", function( data ) {
@@ -115,8 +127,10 @@ function bruteForce(){
     });
 }
 
-function testee(){
-    $("#alerta1").html('');
+function scan(){
+    $(".alert:not(:first)").hide();
+    $("#btnScan").attr("disabled", true);
+    $("#btnScan").text("executando...");
     $('#alerta1').html(
             '<div class="alert alert-warning">' +
             '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' +
@@ -125,8 +139,10 @@ function testee(){
 
     $.get("{{=URL(a='tcc', c='control', f='script_scan')}}", function( data ) {
         console.log(data);
-        if (data == false){
-            $("#alerta1").html("");
+        $("#btnScan").removeAttr("disabled");
+        $("#btnScan").text("Iniciar");
+        if (data == 'False'){
+            $("#erroScan").slideDown(200);
             $("#alerta1").html(
                     '<div class="alert alert-danger">' +
                     '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' +
@@ -134,7 +150,7 @@ function testee(){
                     '</div>');
         }
         else{
-            $("#alerta1").html("");
+            $("#successScan").slideDown(200);
             $("#alerta1").html(" " +
                     '<div class="alert alert-success">' +
                     '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' +
