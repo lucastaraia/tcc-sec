@@ -47,7 +47,7 @@ def dash(): ######## Tela dashboard ########
             portas.append(por)
     
     count_portas = len(portas)
-    
+
     return response.render("estrutura/dash.html", ip_externo=ip_externo, ips=ips, count_windows=count_windows,
                            count_linux=count_linux, count_outros=count_outros, count_portas=count_portas, count_disp=len(dispositivos),
                            windows_disp=windows_disp, linux_disp=linux_disp, outros_disp=outros_disp, disp=dispositivos, gatewayIp=gatewayIp)
@@ -103,8 +103,12 @@ def hydra():
 
 def script_scan():
     saida_script = commands.getoutput("sudo python /var/www/web2py/applications/tcc/scripts/NetworkScan/NetworkScan.py")
+    if 'True' in saida_script:
+        retorno_script_scan = True
+    else:
+        retorno_script_scan = False
 
-    return saida_script
+    return retorno_script_scan
 
 @auth.requires_login()
 def settings(): ######## Tela de Configurações ########
