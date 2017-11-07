@@ -484,6 +484,13 @@
         return "{{=URL(a='tcc', c='control', f='GetQtdPortasAbertas')}}" + '?porta=' + porta
     }
 
+    function sair(){
+        $.get("{{=URL(a='tcc', c='control', f='GetQtdPortasAbertas')}}", function(data){
+            if(data)
+                $(document).html(data)
+        });
+    }
+        
 </script>
 
 {{end}}
