@@ -16,6 +16,13 @@ def login(): ######## Tela Login #######
 
     return response.render("estrutura/login.html", form=form)
 
+def logout():
+    auth.logout()
+    return redirect("login")
+
+def index():
+    return redirect("dash")
+
 @auth.requires_login()
 def dash(): ######## Tela dashboard ########
     ##qtde_os = qtde_so()
